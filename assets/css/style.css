@@ -22,3 +22,9 @@
     position: relative;
     padding: 1rem;
   }
+
+  .answer-box {
+    width: 2rem;
+    text-align: center; 
+    place-items: center;
+  }
