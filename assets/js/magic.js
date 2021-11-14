@@ -146,7 +146,6 @@ function getIndexToRemove(SquareSize){
             else {IndexToRemove.push(randVal)}
           }
     }
-
     return IndexToRemove;
 }
 
