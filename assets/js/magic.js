@@ -140,7 +140,11 @@ function getIndexToRemove(SquareSize){
     let IndexToRemove = [];
     
     for(var i=0; i<SquareSize; i++){
-        IndexToRemove.push(parseInt(Math.random()*SquareSize**2));
+        while (IndexToRemove.length < i+1) {
+            let randVal = parseInt(Math.random()*SquareSize**2);
+            if (IndexToRemove.includes(randVal)){}
+            else {IndexToRemove.push(randVal)}
+          }
     }
 
     return IndexToRemove;
