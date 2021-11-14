@@ -1,13 +1,24 @@
-.grid-container {
+.magic-square {
+    --grid-size: 3; /* Start with 3x3 */
+    --font-size: 30px;
+    font-size: var(--font-size);
+    float: left;
     display: grid;
-    grid-template-columns: auto auto auto;
+    width: 25rem;
+    height: 25rem;
     background-color: #2196F3;
     padding: 10px;
+    grid-template: repeat(var(--grid-size), 1fr) / repeat(var(--grid-size), 1fr);
   }
-  .grid-item {
+  .square-item {
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
+    padding: 5px;
+    text-align: center; 
+    place-items: center;
+  }
+
+  .size-button {
+    position: relative;
+    padding: 1rem;
   }
