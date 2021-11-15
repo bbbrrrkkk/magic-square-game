@@ -1,8 +1,8 @@
 .magic-square {
     --grid-size: 3; /* Start with 3x3 */
     --font-size: 30px;
+    position: relative;
     font-size: var(--font-size);
-    float: left;
     display: grid;
     width: 25rem;
     height: 25rem;
@@ -27,4 +27,9 @@
     width: 2rem;
     text-align: center; 
     place-items: center;
+  }
+
+  .submit-button {
+    position: relative;
+    padding: 1rem;
   }

@@ -1,18 +1,60 @@
 // Javascript for dynamic gird size
 //const button = document.querySelector('.my-button');
 const square = document.querySelector(".magic-square");
+const hintArea = document.querySelector(".hint-area")
+
 let SquareSize = 3; // Assumed Magic Square is size three by default
-let SquareDiff = 1;
+let SquareDiff = 0;
 let squareArraySorted = [3,5,7,4,9,2,8,1,6]; 
 
-/*
-button.addEventListener("click", handleClick);
-*/
+// Defining constants for button names
+const submitBtn = document.getElementById('submit-button');
+const startBtn = document.getElementById('start-button');
+const hintBtn = document.getElementById('hint-button');
+
+// Code to run on clicking submit button
+submitBtn.addEventListener('click', checkAnswer)
+
+// Code to run on clicking hint button
+hintBtn.addEventListener('click', showHint)
+
+// Code to run on clicking start button
+startBtn.addEventListener('click', startGame)
+
+// Once page has loaded, all code in this function will run:
+document.addEventListener("DOMContentLoaded", function() {
+    console.log(genSquare());
+    makeSquare(genSquare());
+    resizeSquare(SquareSize);
+})
+
+function startGame() {
+    makeSquare(genSquare());
+    resizeSquare(SquareSize);
+    console.log('Game has started');
+}
+
+function showHint() {
+    let out = 'Have you tried the following values: '
+    for(i=0; i<SquareSize; i++) {
+        out += squareArraySorted[IndexToRemove[i]];
+        if(i != SquareSize-1){out += ','}
+    }
+    out += ' ?'
+    console.log(out)
+    hintArea.innerHTML = ''; // clearing the hint
+    hintArea.innerHTML += out;
+}
 
 /* storing the size when a size button is clicked */
 document.getElementById('button-small-size').onclick = SetSquareSize;
 document.getElementById('button-medium-size').onclick = SetSquareSize;
 document.getElementById('button-large-size').onclick = SetSquareSize;
+
+/* storing the difficulty when the difficulty button is clicked */
+document.getElementById('button-diff-easy').onclick = SetSquareDiff;
+document.getElementById('button-diff-medium').onclick = SetSquareDiff;
+document.getElementById('button-diff-hard').onclick = SetSquareDiff;
 
 /**
  * Reads the button id and sets the square size parameter. reSize square function call to resize the Magic Square.
@@ -39,12 +81,6 @@ function SetSquareSize(clicked) {
     }
 }  
 
-/* storing the difficulty when the difficulty button is clicked */
-document.getElementById('button-diff-easy').onclick = SetSquareDiff;
-document.getElementById('button-diff-medium').onclick = SetSquareDiff;
-document.getElementById('button-diff-hard').onclick = SetSquareDiff;
-
-
 function SetSquareDiff(clicked) {
     if (this.id == 'button-diff-easy') {
         SquareDiff = 0;
@@ -63,7 +99,10 @@ function SetSquareDiff(clicked) {
     }
 }  
 
-
+/**
+ * Function to generate the magic square values
+ * @returns an order array of the magic square values 
+ */
 
 function genSquare() {
     let foo = [];
@@ -81,13 +120,14 @@ function genSquare() {
  * New grid size is specified as argument in the function call.
  */
 function resizeSquare(NewSquareSize) {
+  console.log(squareArraySorted)
   square.innerHTML = ''; /* Clearing HTML content */
 
   IndexToRemove = getIndexToRemove(NewSquareSize);  
 
   for (let i = 0; i < NewSquareSize * NewSquareSize; i++) { /* Placing html content with for loop */
     if (IndexToRemove.includes(i)) {
-        square.innerHTML += "<div class='square-item'><input class='answer-box' type='number'></input></div>";
+        square.innerHTML += "<div class='square-item'><input class='answer-box' type='number' id='answer-"+i+"'></input></div>";
         }
     else {
         square.innerHTML +='<div class="square-item">'+ squareArraySorted[i] + '</div>';}
@@ -135,7 +175,6 @@ function makeSquare(squareArray){
 
 
 // Code to remove values:
-
 function getIndexToRemove(SquareSize){
     let IndexToRemove = [];
     
@@ -149,3 +188,20 @@ function getIndexToRemove(SquareSize){
     return IndexToRemove;
 }
 
+
+function checkAnswer(){
+    let inputAns = [];
+    let correctAns = [];
+
+    for(var i=0; i<IndexToRemove.length; i++){
+        inputAns.push(parseInt(document.getElementById('answer-'+IndexToRemove[i]).value));
+        correctAns.push(inputAns[i] == squareArraySorted[IndexToRemove[i]]);
+        }
+
+    console.log(inputAns)
+    console.log(correctAns)
+
+    if (correctAns.every(Boolean)) {
+        alert("Hey! You got it right! :D");
+    }
+}
