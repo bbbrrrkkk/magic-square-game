@@ -143,19 +143,21 @@ function makeSquare(squareArray){
     // Filling the gird with the k values using the 
     // MatLab version of the algorithm
     var n = Math.sqrt(squareArray.length); // size of the grid
-    var i = 1; // starting row
-    var j = (n+1)/2; // starting column
-
+    
     // Defining an empty square
     var square = [];
     for(var i=0; i<n; i++) {
         square[i] = new Array(n);
     }
 
+    var i = 1; // starting row
+    var j = (n+1)/2; // starting column
+
     // Filling the empty square with the array variables
     for(var k=0; k<squareArray.length; k++) {
         let is = i;
         let js = j;
+        console.log('i equals:' + i + 'j equals:' + j)
         square[i-1][j-1] = squareArray[k];
         i = n - (n+1-i)%(n);
         j = (j%n) + 1;
