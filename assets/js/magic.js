@@ -11,6 +11,13 @@ let squareArraySorted = [3,5,7,4,9,2,8,1,6];
 const submitBtn = document.getElementById('submit-button');
 const startBtn = document.getElementById('start-button');
 const hintBtn = document.getElementById('hint-button');
+const settingsBtn = document.getElementById('settings-button');
+
+// Defining container ids
+const ContainerInstructions = document.getElementById('container-instructions');
+const ContainerSettings = document.getElementById('container-settings');
+const ContainerGame = document.getElementById('container-game');
+
 
 // Code to run on clicking submit button
 submitBtn.addEventListener('click', checkAnswer)
@@ -21,6 +28,9 @@ hintBtn.addEventListener('click', showHint)
 // Code to run on clicking start button
 startBtn.addEventListener('click', startGame)
 
+// Code to run on clicking settings button
+settingsBtn.addEventListener('click', gameSettings)
+
 // Once page has loaded, all code in this function will run:
 document.addEventListener("DOMContentLoaded", function() {
     console.log(genSquare());
@@ -28,7 +38,18 @@ document.addEventListener("DOMContentLoaded", function() {
     resizeSquare(SquareSize);
 })
 
+
+function gameSettings() {
+    ContainerInstructions.classList.add('hide')
+    ContainerGame.classList.add('hide')
+    ContainerSettings.classList.remove('hide')
+}
+
+
 function startGame() {
+    ContainerSettings.classList.add('hide')
+    ContainerInstructions.classList.add('hide')
+    ContainerGame.classList.remove('hide')
     makeSquare(genSquare());
     resizeSquare(SquareSize);
     console.log('Game has started');

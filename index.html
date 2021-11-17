@@ -16,11 +16,20 @@
     <h1>Magic Square</h1>
   </div>
     
-  <div>
+  <div class='container'>
+    <div id='container-instructions'>
     <p>Plachholder text detailing how to solve a magic square. <br> The sum of each row, column and diagonal should be equal<br></p>
     <img alt="image showing how to solve a magic square" src="../assets/images/65-magic-sum.jpg" width='400'>
   </div>
 
+    <div>
+    <button id='settings-button'>Settings</button>
+  </div>
+
+
+
+
+    <div id='container-settings' class="hide">
 
     <div class="size-button">
       <p>Select the magic square size<br></p>
@@ -37,7 +46,7 @@
       Size: Large
     </button>
     </div>
-
+  
     <div class="difficulty-button">
       <p>Select the magic square difficulty<br></p>
       <!-- Buttons to change the game difficulty -->  
@@ -54,27 +63,33 @@
       </button>
       </div>
 
-<div>
-  <button id='start-button'>Start</button>
+
+    <div>
+      <button id='start-button'>Start</button>
+    </div>
+  </div>
+
+
+
+  <div id='container-game' class="hide">
+
+  <div class="magic-square">
+    <!-- This content can be deleted; it will be dynamically generated on the page load -->
+  </div>
+
+  <div>
+    <button id='hint-button'>Hint</button>
+  </div>
+
+  <div>
+    <button id='submit-button'>Submit</button>
+  </div>
+
+  <div class='hint-area'>
+    <!-- Text for the hint that will be inserted by js -->
+  </div>
+
 </div>
-
-
-
-<div class="magic-square">
-  <!-- This content can be deleted; it will be dynamically generated on the page load -->
-</div>
-
-<div>
-  <button id='hint-button'>Hint</button>
-</div>
-
-
-<div>
-  <button id='submit-button'>Submit</button>
-</div>
-
-<div class='hint-area'>
-  <!-- Text for the hint that will be inserted by js -->
 </div>
 
 </body>
