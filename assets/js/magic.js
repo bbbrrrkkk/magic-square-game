@@ -1,8 +1,8 @@
-// Javascript for dynamic gird size
-//const button = document.querySelector('.my-button');
+// Defining constants for classes
 const square = document.querySelector(".magic-square");
 const hintArea = document.querySelector(".hint-area")
 
+// Setting inital values for Magic Square
 let SquareSize = 3; // Assumed Magic Square is size three by default
 let SquareDiff = 0;
 let squareArraySorted = [3,5,7,4,9,2,8,1,6]; 
@@ -18,18 +18,11 @@ const ContainerInstructions = document.getElementById('container-instructions');
 const ContainerSettings = document.getElementById('container-settings');
 const ContainerGame = document.getElementById('container-game');
 
-
-// Code to run on clicking submit button
-submitBtn.addEventListener('click', checkAnswer)
-
-// Code to run on clicking hint button
-hintBtn.addEventListener('click', showHint)
-
-// Code to run on clicking start button
-startBtn.addEventListener('click', startGame)
-
-// Code to run on clicking settings button
-settingsBtn.addEventListener('click', gameSettings)
+// Code to listen for button presses:
+submitBtn.addEventListener('click', checkAnswer) // submit button
+hintBtn.addEventListener('click', showHint) // hint button
+startBtn.addEventListener('click', startGame) // start button
+settingsBtn.addEventListener('click', gameSettings) // settings button
 
 // Once page has loaded, all code in this function will run:
 document.addEventListener("DOMContentLoaded", function() {
