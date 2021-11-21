@@ -6,6 +6,7 @@
   --color-highlight-accent: #C54542;
   --color-dark:#2F2F2F;
   --color-light: #FBFFEB;
+  --color-light-trans: rgb(251, 255, 235, 0.66)
     }
 
 /* Clearing css and zeroing all margins, pads and borders */
@@ -44,7 +45,7 @@ body {
     margin: auto; /* Centering the content */
   }
   .square-item {
-    background-color: var(--color-light);
+    background-color: var(--color-light-trans);
     color: var(--color-bg);
     border: 1px solid var(--color-fg);
     padding: 5px;
@@ -64,10 +65,20 @@ body {
   }
 
   #submit-button {
+   
+  }
+
+  button {
     padding: 1rem;
     margin: 0 auto; /* Centering the content */
     display: block;
-
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 10rem;
+    border: 0.2rem solid var(--color-highlight);
+    background-color: var(--color-bg);
+    color: var(--color-highlight);
+    border-radius: 1rem;
   }
 
   .container {
