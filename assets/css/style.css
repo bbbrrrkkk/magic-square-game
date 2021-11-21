@@ -1,3 +1,35 @@
+:root {
+  /* Defining colors as variables */
+  --color-bg: #30343F;
+  --color-fg: #00538F;
+  --color-highlight: #DEBA59;
+  --color-highlight-accent: #C54542;
+  --color-dark:#2F2F2F;
+  --color-light: #FBFFEB;
+    }
+
+/* Clearing css and zeroing all margins, pads and borders */
+* {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+}
+
+/* Setting default font size as 10px */
+html {
+  font-size: 62.5%;
+  /* Set font size to 62.5% so that 1rem = 10px for initial designing (16px / 62.5 === 10) */
+ }
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-light);
+  font-size: 2.5rem;
+}
+
+
+
+
 .magic-square {
     --grid-size: 3; /* Start with 3x3 */
     --font-size: 30px;
@@ -6,19 +38,21 @@
     display: grid;
     width: 25rem;
     height: 25rem;
-    background-color: #2196F3;
+    background-color: var(--color-highlight);
     padding: 10px;
     grid-template: repeat(var(--grid-size), 1fr) / repeat(var(--grid-size), 1fr);
+    margin: auto; /* Centering the content */
   }
   .square-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    background-color: var(--color-light);
+    color: var(--color-bg);
+    border: 1px solid var(--color-fg);
     padding: 5px;
     text-align: center; 
     place-items: center;
   }
 
-  .size-button {
+  #size-button {
     position: relative;
     padding: 1rem;
   }
@@ -29,19 +63,30 @@
     place-items: center;
   }
 
-  .submit-button {
-    position: relative;
+  #submit-button {
     padding: 1rem;
+    margin: 0 auto; /* Centering the content */
+    display: block;
+
   }
 
   .container {
-    width: 800px;
+    --width: 800px;
     max-width: 80%;
     background-color: white;
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 0 0 10px 2px;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 0 1rem 0.2rem;
+    margin: auto; /* Centering the content */
+    background-color: var(--color-fg);
   }
+
+h1 {
+  text-align: center;
+  padding: 2rem 0 4rem 0;
+  font-size: 3rem; 
+  color: var(--color-highlight-accent)
+}
 
   .hide {
     display: none;

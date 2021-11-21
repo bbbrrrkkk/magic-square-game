@@ -141,7 +141,7 @@ function resizeSquare(NewSquareSize) {
 
   for (let i = 0; i < NewSquareSize * NewSquareSize; i++) { /* Placing html content with for loop */
     if (IndexToRemove.includes(i)) {
-        square.innerHTML += "<div class='square-item'><input class='answer-box' type='number' id='answer-"+i+"'></input></div>";
+        square.innerHTML += "<div class='square-item'><input class='answer-box' type='text' id='answer-"+i+"'></input></div>";
         }
     else {
         square.innerHTML +='<div class="square-item">'+ squareArraySorted[i] + '</div>';}
