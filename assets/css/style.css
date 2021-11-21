@@ -29,16 +29,14 @@ body {
 }
 
 
-
-
 .magic-square {
     --grid-size: 3; /* Start with 3x3 */
-    --font-size: 30px;
+    --font-size: 2.75rem;
     position: relative;
     font-size: var(--font-size);
     display: grid;
-    width: 25rem;
-    height: 25rem;
+    width: 35rem;
+    height: 35rem;
     background-color: var(--color-highlight);
     padding: 10px;
     grid-template: repeat(var(--grid-size), 1fr) / repeat(var(--grid-size), 1fr);
@@ -64,14 +62,23 @@ body {
     place-items: center;
   }
 
-  #submit-button {
-   
+  #submit-button, #hint-button {
+    display: block;
+    margin: 1rem auto;
   }
+
+  .main-buttons {
+    --display: inline;
+    --margin: 0 auto;
+    text-align: center;
+  }
+
+
 
   button {
     padding: 1rem;
     margin: 0 auto; /* Centering the content */
-    display: block;
+    --display: block;
     margin-top: 1rem;
     margin-bottom: 1rem;
     width: 10rem;

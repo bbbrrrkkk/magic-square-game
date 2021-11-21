@@ -12,6 +12,7 @@ const submitBtn = document.getElementById('submit-button');
 const startBtn = document.getElementById('start-button');
 const hintBtn = document.getElementById('hint-button');
 const settingsBtn = document.getElementById('settings-button');
+const instructionsBtn = document.getElementById('instructions-button');
 
 // Defining container ids
 const ContainerInstructions = document.getElementById('container-instructions');
@@ -23,6 +24,7 @@ submitBtn.addEventListener('click', checkAnswer) // submit button
 hintBtn.addEventListener('click', showHint) // hint button
 startBtn.addEventListener('click', startGame) // start button
 settingsBtn.addEventListener('click', gameSettings) // settings button
+instructionsBtn.addEventListener('click', gameInstructions) // settings button
 
 // Once page has loaded, all code in this function will run:
 document.addEventListener("DOMContentLoaded", function() {
@@ -37,6 +39,13 @@ function gameSettings() {
     ContainerGame.classList.add('hide')
     ContainerSettings.classList.remove('hide')
 }
+
+function gameInstructions() {
+    ContainerInstructions.classList.remove('hide')
+    ContainerGame.classList.add('hide')
+    ContainerSettings.classList.add('hide')
+}
+
 
 
 function startGame() {
