@@ -1,10 +1,11 @@
 :root {
   /* Defining colors as variables */
-  --color-bg: #30343F;
-  --color-fg: #00538F;
+  --color-bg: #2D3047;
+  --color-fg: #F8F8F2;
   --color-highlight: #DEBA59;
-  --color-highlight-accent: #C54542;
-  --color-dark:#2F2F2F;
+  --color-highlight-accent: #DECDF5;
+  --color-highlight-accent-dark: #1B998B;
+  --color-dark:#2D3047;
   --color-light: #FBFFEB;
   --color-light-trans: rgb(251, 255, 235, 0.66)
     }
