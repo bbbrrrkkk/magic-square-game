@@ -11,96 +11,89 @@
     <title>Magic Square</title>
 </head>
 <body>
-    
+
+  <!--  Game Title -->
   <div>
     <h1>Magic Square</h1>
   </div>
 
+  <!--  Main buttons displayed above the game area -->
   <div class='main-buttons'>
-    <button id='instructions-button'>Instructions</button>
-    <button id='settings-button'>Settings</button>
+    <button class='btn' id='instructions-button'>Instructions</button>
+    <button class='btn' id='settings-button'>Settings</button>
   </div>
 
-  <div class='main-buttons'>
-    
-  </div>
-
-    
-
-
-
+  <!--  Main container; all game content sits inside this container -->
   <div class='container'>
+
+    <!--  Instruction container -->
     <div id='container-instructions'>
-    <p>Plachholder text detailing how to solve a magic square. <br> The sum of each row, column and diagonal should be equal<br></p>
-    <img alt="image showing how to solve a magic square" src="assets/images/65-magic-sum.jpg" width='400'>
-  </div>
-
-
-
-
-
-
-<div id='container-settings' class="hide">
-
-    <div class="size-button">
-    <p>Select the magic square size<br></p>
-    <!-- Buttons to resize the magic square -->  
-    <button id="button-small-size">
-    Size: Small
-    </button>
-
-    <button id="button-medium-size">
-    Size: Medium
-    </button>
-
-    <button id="button-large-size">
-    Size: Large
-    </button>
+      <p>Plachholder text detailing how to solve a magic square. <br> The sum of each row, column and diagonal should be equal<br></p>
+      <img alt="image showing how to solve a magic square" src="assets/images/65-magic-sum.jpg" width='400'>
     </div>
 
-    <div class="difficulty-button">
-    <p>Select the magic square difficulty<br></p>
-    <!-- Buttons to change the game difficulty -->  
-    <button id="button-diff-easy">
-    Difficulty: Easy
-    </button>
+    <!--  Settings container -->
+    <div id='container-settings' class="hide">
 
-    <button id="button-diff-medium">
-    Difficulty: Medium
-    </button>
+      <div class="size-button">
+      <p>Select the magic square size<br></p>
+      <!-- Buttons to resize the magic square -->  
+      <button class='btn'id="button-small-size">
+      Size: Small
+      </button>
 
-    <button id="button-diff-hard">
-    Difficulty: Hard
-    </button>
+      <button class='btn' id="button-medium-size">
+      Size: Medium
+      </button>
+
+      <button class='btn' id="button-large-size">
+      Size: Large
+      </button>
+      </div>
+
+      <div class="difficulty-button">
+      <p>Select the magic square difficulty<br></p>
+      <!-- Buttons to change the game difficulty -->  
+      <button class='btn' id="button-diff-easy">
+      Difficulty: Easy
+      </button>
+
+      <button class='btn' id="button-diff-medium">
+      Difficulty: Medium
+      </button>
+
+      <button class='btn' id="button-diff-hard">
+      Difficulty: Hard
+      </button>
+      </div>
+
+      <div>
+      <button class='btn' id='start-button'>Start</button>
+      </div>
     </div>
 
-    <div>
-    <button id='start-button'>Start</button>
-    </div>
-</div>
 
-
-
-  <div id='container-game' class="hide">
+    <!--  Game Container -->
+    <div id='container-game' class="hide">
 
       <div class="magic-square">
         <!-- The Magic Square content; this is dynamically generated -->
       </div>
 
       <div>
-        <button id='hint-button'>Hint</button>
+        <button class='btn' id='hint-button'>Hint</button>
       </div>
 
       <div>
-        <button id='submit-button'>Submit</button>
+        <button class='btn' id='submit-button'>Submit</button>
       </div>
 
       <div class='hint-area'>
         <!-- Text for the hint that will be inserted by js -->
       </div>
 
+    </div>
   </div>
-</div>
 
 </body>
 

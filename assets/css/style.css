@@ -74,11 +74,16 @@ body {
   }
 
 
+  .btn:hover {
+    transform: translateY(-3px); /* making the button move up 1px*/
+    box-shadow: 0 1rem 2rem rgb(0,0,0,.2); /* x, y and blur values */
+}
 
-  button {
+
+
+  .btn {
     padding: 1rem;
     margin: 0 auto; /* Centering the content */
-    --display: block;
     margin-top: 1rem;
     margin-bottom: 1rem;
     width: 10rem;
