@@ -25,7 +25,7 @@ html {
 
 body {
   background-color: var(--color-bg);
-  color: var(--color-light);
+  color: var(--color-dark); /* font color */
   font-size: 2.5rem;
 }
 
@@ -74,13 +74,10 @@ body {
     text-align: center;
   }
 
-
   .btn:hover {
-    transform: translateY(-3px); /* making the button move up 1px*/
+    transform: translateY(-3px); /* making the button move up*/
     box-shadow: 0 1rem 2rem rgb(0,0,0,.2); /* x, y and blur values */
 }
-
-
 
   .btn {
     padding: 1rem;
@@ -93,6 +90,12 @@ body {
     color: var(--color-highlight);
     border-radius: 1rem;
   }
+
+  .btn-size-click {
+    /* Css to add once the button has been clicked */
+    background-color: red;
+  }
+
 
   .container {
     --width: 800px;
@@ -115,3 +118,9 @@ h1 {
   .hide {
     display: none;
   }
+
+  li {
+    margin-left: 3rem;
+    font-size: 2rem;
+    list-style-type: circle;
+ }

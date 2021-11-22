@@ -8,19 +8,20 @@
     <link rel='stylesheet' href='assets/css/style.css'>
 
     
-    <title>Magic Square</title>
+    <title>Magic Square Game</title>
 </head>
 <body>
 
   <!--  Game Title -->
   <div>
-    <h1>Magic Square</h1>
+    <h1>Magic Square Game</h1>
   </div>
 
   <!--  Main buttons displayed above the game area -->
   <div class='main-buttons'>
     <button class='btn' id='instructions-button'>Instructions</button>
     <button class='btn' id='settings-button'>Settings</button>
+    <button class='btn' id='start-button'>Play Game !</button>
   </div>
 
   <!--  Main container; all game content sits inside this container -->
@@ -36,40 +37,43 @@
     <div id='container-settings' class="hide">
 
       <div class="size-button">
-      <p>Select the magic square size<br></p>
+      <p>Select the magic square size</p>
+        <ul>
+          <li>Small corresponds to a gird size of 3x3</li>
+          <li>Medium corresponds to a gird size of 5x5</li>
+          <li>Large corresponds to a gird size of 7x7</li>
+        </ul>
+      
       <!-- Buttons to resize the magic square -->  
-      <button class='btn'id="button-small-size">
-      Size: Small
+      <button class='btn btn-size btn-size-click'id="button-small-size">
+      Small
       </button>
 
-      <button class='btn' id="button-medium-size">
-      Size: Medium
+      <button class='btn btn-size' id="button-medium-size">
+      Medium
       </button>
 
-      <button class='btn' id="button-large-size">
-      Size: Large
+      <button class='btn btn-size' id="button-large-size">
+      Large
       </button>
       </div>
 
       <div class="difficulty-button">
       <p>Select the magic square difficulty<br></p>
       <!-- Buttons to change the game difficulty -->  
-      <button class='btn' id="button-diff-easy">
-      Difficulty: Easy
+      <button class='btn btn-diff' id="button-diff-easy">
+      Easy
       </button>
 
-      <button class='btn' id="button-diff-medium">
-      Difficulty: Medium
+      <button class='btn btn-diff' id="button-diff-medium">
+      Medium
       </button>
 
-      <button class='btn' id="button-diff-hard">
-      Difficulty: Hard
+      <button class='btn btn-diff' id="button-diff-hard">
+      Hard
       </button>
       </div>
 
-      <div>
-      <button class='btn' id='start-button'>Start</button>
-      </div>
     </div>
 
 

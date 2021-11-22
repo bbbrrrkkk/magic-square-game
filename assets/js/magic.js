@@ -19,7 +19,7 @@ const ContainerInstructions = document.getElementById('container-instructions');
 const ContainerSettings = document.getElementById('container-settings');
 const ContainerGame = document.getElementById('container-game');
 
-// Code to listen for button presses:
+// Code to run functions when buttons are pressed:
 submitBtn.addEventListener('click', checkAnswer) // submit button
 hintBtn.addEventListener('click', showHint) // hint button
 startBtn.addEventListener('click', startGame) // start button
@@ -33,17 +33,30 @@ document.addEventListener("DOMContentLoaded", function() {
     resizeSquare(SquareSize);
 })
 
+// Code to change button colors:
+// https://www.py4u.net/discuss/940760
+$('.btn-size').on('click', function() {
+    let btnSize = $('.btn-size');
+
+    if(btnSize.hasClass('btn-size-click')) {
+        btnSize.removeClass('btn-size-click');
+        $(this).addClass('btn-size-click');
+    }
+});
+
 
 function gameSettings() {
     ContainerInstructions.classList.add('hide')
     ContainerGame.classList.add('hide')
     ContainerSettings.classList.remove('hide')
+    clearHint() // Clearing the hint if player moves back to Settings 
 }
 
 function gameInstructions() {
     ContainerInstructions.classList.remove('hide')
     ContainerGame.classList.add('hide')
     ContainerSettings.classList.add('hide')
+    clearHint() // Clearing the hint if player moves back to Instructions 
 }
 
 
@@ -65,8 +78,12 @@ function showHint() {
     }
     out += ' ?'
     console.log(out)
-    hintArea.innerHTML = ''; // clearing the hint
+    clearHint();
     hintArea.innerHTML += out;
+}
+
+function clearHint() {
+    hintArea.innerHTML = ''; // clearing the hint
 }
 
 /* storing the size when a size button is clicked */
