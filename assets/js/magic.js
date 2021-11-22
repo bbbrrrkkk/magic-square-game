@@ -35,14 +35,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Code to change button colors:
 // https://www.py4u.net/discuss/940760
-$('.btn-size').on('click', function() {
-    let btnSize = $('.btn-size');
-
-    if(btnSize.hasClass('btn-size-click')) {
-        btnSize.removeClass('btn-size-click');
-        $(this).addClass('btn-size-click');
-    }
-});
+//$('.btn-size').on('click', function() {
+//    let btnSize = $('.btn-size');
+//
+//    if(btnSize.hasClass('btn-size-click')) {
+//        btnSize.removeClass('btn-size-click');
+//        $(this).addClass('btn-size-click');
+//    }
+// });
 
 
 function gameSettings() {
