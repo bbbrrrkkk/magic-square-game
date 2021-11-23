@@ -85,6 +85,9 @@ Link to live deployment on GitHub pages
 
 ## Attribution 
 
+- The following guide was used to create the text gradients [link](https://fossheim.io/writing/posts/css-text-gradient/)
+
+
 ### Content 
 
 - The text for the Home page was taken from Wikipedia Article A

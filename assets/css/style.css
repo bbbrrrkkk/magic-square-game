@@ -30,6 +30,29 @@ body {
   font-size: 2.5rem;
 }
 
+/* Styling the h1 element using a gradient */
+
+h1 {
+  text-align: center;
+  padding: 2rem 0 4rem 0;
+  font-size: 6rem; 
+  color: var(--color-highlight-accent)
+}
+
+
+
+
+
+h1 {
+  background-color:var(--color-highlight-accent);
+  background-image: linear-gradient(180deg, var(--color-highlight-accent), var(--color-highlight-accent-dark));
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+}
+
 .size-button, .difficulty-button {
   text-align: center;
   padding: 1rem;
@@ -121,12 +144,6 @@ body {
     background-color: var(--color-fg);
   }
 
-h1 {
-  text-align: center;
-  padding: 2rem 0 4rem 0;
-  font-size: 3rem; 
-  color: var(--color-highlight-accent)
-}
 
   .hide {
     display: none;
