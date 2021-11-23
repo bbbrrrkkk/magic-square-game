@@ -97,12 +97,12 @@ document.getElementById('button-diff-medium').onclick = SetSquareDiff;
 document.getElementById('button-diff-hard').onclick = SetSquareDiff;
 
 
-function addClass(activeBtn, targetClass, classToAdd) {
+function addClass(clickedBtn, targetClass, classToAdd) {
     let target = $(targetClass);
 
-    if(target.hasClass(classToAdd)) {
-        target.removeClass(classToAdd);
-        $('#button-diff-easy').addClass(classToAdd);};
+    if($(targetClass).hasClass(classToAdd)) {
+        $(targetClass).removeClass(classToAdd);
+        $(clickedBtn).addClass(classToAdd);};
     }
 
 
@@ -111,9 +111,8 @@ function addClass(activeBtn, targetClass, classToAdd) {
  * @param {*} clicked 
  */
 function SetSquareSize(clicked) {
-   let activeBtn = this.id
 
-    if (activeBtn == 'button-small-size') {
+    if (this.id == 'button-small-size') {
         SquareSize = 3;
         makeSquare(genSquare());
         resizeSquare(SquareSize);
@@ -121,7 +120,7 @@ function SetSquareSize(clicked) {
         addClass('#button-small-size', '.btn-size', 'btn-click');        
     
     }
-    if (activeBtn == 'button-medium-size') {
+    if (this.id == 'button-medium-size') {
         SquareSize = 5;
         makeSquare(genSquare());
         resizeSquare(SquareSize);
@@ -129,7 +128,7 @@ function SetSquareSize(clicked) {
         addClass('#button-medium-size', '.btn-size', 'btn-click');        
     }
     
-    if (activeBtn == 'button-large-size') {
+    if (this.id == 'button-large-size') {
         SquareSize = 7;
         makeSquare(genSquare());
         resizeSquare(SquareSize);
@@ -138,9 +137,7 @@ function SetSquareSize(clicked) {
 }  
 
 function SetSquareDiff(clicked) {
-    let activeBtn = this.id;
-    console.log(activeBtn);
-
+    console.log(this.id)
     if (this.id == 'button-diff-easy') {
         SquareDiff = 0;
         makeSquare(genSquare());
@@ -219,7 +216,7 @@ function makeSquare(squareArray){
     for(var k=0; k<squareArray.length; k++) {
         let is = i;
         let js = j;
-        console.log('i equals:' + i + 'j equals:' + j)
+        //console.log('i equals:' + i + 'j equals:' + j)
         square[i-1][j-1] = squareArray[k];
         i = n - (n+1-i)%(n);
         j = (j%n) + 1;
