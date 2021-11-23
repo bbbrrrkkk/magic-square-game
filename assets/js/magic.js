@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
 })
 
 // Code to change button colors:
-// https://www.py4u.net/discuss/940760
+// https://stackoverflow.com/questions/55873688/how-to-change-button-colors-on-click-with-multiple-buttons/55873783
 //$('.btn-size').on('click', function() {
 //    let btnSize = $('.btn-size');
 //
@@ -96,29 +96,45 @@ document.getElementById('button-diff-easy').onclick = SetSquareDiff;
 document.getElementById('button-diff-medium').onclick = SetSquareDiff;
 document.getElementById('button-diff-hard').onclick = SetSquareDiff;
 
+
+function addClass(activeBtn, targetClass, classToAdd) {
+    let target = $(targetClass);
+
+    if(target.hasClass(classToAdd)) {
+        target.removeClass(classToAdd);
+        $(activeBtn).addClass('btn-size-click');};
+    }
+
+
 /**
  * Reads the button id and sets the square size parameter. reSize square function call to resize the Magic Square.
  * @param {*} clicked 
  */
 function SetSquareSize(clicked) {
-    if (this.id == 'button-small-size') {
+    let activeBtn = this.id
+
+    if (activeBtn == 'button-small-size') {
         SquareSize = 3;
         makeSquare(genSquare());
         resizeSquare(SquareSize);
         console.log(SquareSize);
+        addClass('#button-small-size', '.btn-size', 'btn-size-click');        
+    
     }
-    if (this.id == 'button-medium-size') {
+    if (activeBtn == 'button-medium-size') {
         SquareSize = 5;
         makeSquare(genSquare());
         resizeSquare(SquareSize);
         console.log(SquareSize);
+        addClass('#button-medium-size', '.btn-size', 'btn-size-click');        
     }
-    if (this.id == 'button-large-size') {
+    
+    if (activeBtn == 'button-large-size') {
         SquareSize = 7;
         makeSquare(genSquare());
         resizeSquare(SquareSize);
         console.log(SquareSize);
-    }
+        addClass('#button-large-size', '.btn-size', 'btn-size-click');            }
 }  
 
 function SetSquareDiff(clicked) {
