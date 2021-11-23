@@ -13,6 +13,7 @@ const startBtn = document.getElementById('start-button');
 const hintBtn = document.getElementById('hint-button');
 const settingsBtn = document.getElementById('settings-button');
 const instructionsBtn = document.getElementById('instructions-button');
+const resetBtn = document.getElementById('reset-button')
 
 // Defining container ids
 const ContainerInstructions = document.getElementById('container-instructions');
@@ -25,6 +26,7 @@ hintBtn.addEventListener('click', showHint) // hint button
 startBtn.addEventListener('click', startGame) // start button
 settingsBtn.addEventListener('click', gameSettings) // settings button
 instructionsBtn.addEventListener('click', gameInstructions) // settings button
+resetBtn.addEventListener('click', resetGame) // settings button
 
 // Once page has loaded, all code in this function will run:
 document.addEventListener("DOMContentLoaded", function() {
@@ -50,6 +52,8 @@ function gameSettings() {
     ContainerGame.classList.add('hide')
     ContainerSettings.classList.remove('hide')
     clearHint() // Clearing the hint if player moves back to Settings 
+    resetBtn.classList.add('hide') // hiding the reset button;
+    startBtn.classList.remove('hide') // unhiding the start button;
 }
 
 function gameInstructions() {
@@ -57,6 +61,8 @@ function gameInstructions() {
     ContainerGame.classList.add('hide')
     ContainerSettings.classList.add('hide')
     clearHint() // Clearing the hint if player moves back to Instructions 
+    resetBtn.classList.add('hide') // hiding the reset button;
+    startBtn.classList.remove('hide') // unhiding the start button;
 }
 
 
@@ -68,6 +74,12 @@ function startGame() {
     makeSquare(genSquare());
     resizeSquare(SquareSize);
     console.log('Game has started');
+    startBtn.classList.add('hide'); //hide the start button; reset button will be used to start the game
+    resetBtn.classList.remove('hide') // unhiding the reset button
+}
+
+function resetGame() {
+    startGame(); 
 }
 
 function showHint() {
@@ -264,5 +276,9 @@ function checkAnswer(){
 
     if (correctAns.every(Boolean)) {
         alert("Hey! You got it right! :D");
+    }
+
+    else {
+        alert('Try again !')
     }
 }

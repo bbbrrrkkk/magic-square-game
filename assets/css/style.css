@@ -23,11 +23,18 @@ html {
   /* Set font size to 62.5% so that 1rem = 10px for initial designing (16px / 62.5 === 10) */
  }
 
+
 body {
   background-color: var(--color-bg);
   color: var(--color-dark); /* font color */
   font-size: 2.5rem;
 }
+
+.size-button, .difficulty-button {
+  text-align: center;
+  padding: 1rem;
+}
+
 
 
 .magic-square {
@@ -52,10 +59,7 @@ body {
     place-items: center;
   }
 
-  #size-button {
-    position: relative;
-    padding: 1rem;
-  }
+
 
   .answer-box {
     width: 2rem;
@@ -124,6 +128,7 @@ h1 {
     font-size: 2rem;
     list-style-type: circle;
  }
+
 
 
 /* **************************************** */

@@ -23,6 +23,7 @@
     <button class='btn' id='instructions-button'>Instructions</button>
     <button class='btn' id='settings-button'>Settings</button>
     <button class='btn' id='start-button'>Play Game !</button>
+    <button class='btn hide' id='reset-button'>Reset Game</button>
   </div>
 
   <!--  Main container; all game content sits inside this container -->
@@ -38,12 +39,7 @@
     <div id='container-settings' class="hide">
 
       <div class="size-button">
-      <p>Select the magic square size</p>
-        <ul>
-          <li>Small corresponds to a gird size of 3x3</li>
-          <li>Medium corresponds to a gird size of 5x5</li>
-          <li>Large corresponds to a gird size of 7x7</li>
-        </ul>
+      <p>Magic square size:</p>
       
       <!-- Buttons to resize the magic square -->  
       <button class='btn btn-size btn-click'id="button-small-size">
@@ -57,10 +53,17 @@
       <button class='btn btn-size' id="button-large-size">
       Large
       </button>
-      </div>
+
+      <ul>
+        <li>Small corresponds to a gird size of 3x3</li>
+        <li>Medium corresponds to a gird size of 5x5</li>
+        <li>Large corresponds to a gird size of 7x7</li>
+      </ul>
+
+    </div>
 
       <div class="difficulty-button">
-      <p>Select the magic square difficulty<br></p>
+      <p>Magic square difficulty:<br></p>
       <!-- Buttons to change the game difficulty -->  
       <button class='btn btn-diff btn-click' id="button-diff-easy">
       Easy
