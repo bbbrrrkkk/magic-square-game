@@ -30,8 +30,8 @@
   <div class='container'>
 
     <!--  Instruction container -->
-    <div id='container-instructions'>
-      <p>Plachholder text detailing how to solve a magic square. <br> The sum of each row, column and diagonal should be equal<br></p>
+    <div id='container-instructions' class='instructions-text'>
+      <p>Placehholder text detailing how to solve a magic square. <br> The sum of each row, column and diagonal should be equal<br></p>
       <img alt="image showing how to solve a magic square" src="assets/images/65-magic-sum.jpg" width='400'>
     </div>
 
@@ -54,11 +54,10 @@
       Large
       </button>
 
-      <ul>
-        <li>Small corresponds to a gird size of 3x3</li>
-        <li>Medium corresponds to a gird size of 5x5</li>
-        <li>Large corresponds to a gird size of 7x7</li>
-      </ul>
+      <p class='text-small-grid settings-text-grid'>The default option; uses a gird size of 3x3</p>
+      <p class='text-medium-grid settings-text-grid hide'>For more advanced users; medium corresponds to a gird size of 5x5</p>
+      <p class='text-large-grid settings-text-grid hide'>Expert users only ! Sets a gird size of 7x7</p>
+
 
     </div>
 
@@ -76,6 +75,12 @@
       <button class='btn btn-diff' id="button-diff-hard">
       Hard
       </button>
+
+      <p class='text-diff-easy settings-text-diff'>The default option; uses a gird size of 3x3</p>
+      <p class='text-diff-medium settings-text-diff hide'>For more advanced users; medium corresponds to a gird size of 5x5</p>
+      <p class='text-diff-hard settings-text-diff hide'>Expert users only ! Sets a gird size of 7x7</p>
+
+
       </div>
 
     </div>
