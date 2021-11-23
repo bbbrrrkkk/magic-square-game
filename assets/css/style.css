@@ -91,7 +91,7 @@ body {
     border-radius: 1rem;
   }
 
-  .btn-size-click {
+  .btn-click {
     /* Css to add once the button has been clicked */
     background-color: red;
   }
@@ -124,3 +124,19 @@ h1 {
     font-size: 2rem;
     list-style-type: circle;
  }
+
+
+/* **************************************** */
+/* Credits, located below Footer */
+/* **************************************** */
+
+ .credits {
+   margin-top: 3rem;
+   text-align: center;
+   color:var(--color-light);
+   font-size: 1.5rem;
+ }
+
+ .credits i {
+  color: var(--color-highlight-accent-dark)
+}

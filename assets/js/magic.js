@@ -102,7 +102,7 @@ function addClass(activeBtn, targetClass, classToAdd) {
 
     if(target.hasClass(classToAdd)) {
         target.removeClass(classToAdd);
-        $(activeBtn).addClass('btn-size-click');};
+        $('#button-diff-easy').addClass(classToAdd);};
     }
 
 
@@ -111,14 +111,14 @@ function addClass(activeBtn, targetClass, classToAdd) {
  * @param {*} clicked 
  */
 function SetSquareSize(clicked) {
-    let activeBtn = this.id
+   let activeBtn = this.id
 
     if (activeBtn == 'button-small-size') {
         SquareSize = 3;
         makeSquare(genSquare());
         resizeSquare(SquareSize);
         console.log(SquareSize);
-        addClass('#button-small-size', '.btn-size', 'btn-size-click');        
+        addClass('#button-small-size', '.btn-size', 'btn-click');        
     
     }
     if (activeBtn == 'button-medium-size') {
@@ -126,7 +126,7 @@ function SetSquareSize(clicked) {
         makeSquare(genSquare());
         resizeSquare(SquareSize);
         console.log(SquareSize);
-        addClass('#button-medium-size', '.btn-size', 'btn-size-click');        
+        addClass('#button-medium-size', '.btn-size', 'btn-click');        
     }
     
     if (activeBtn == 'button-large-size') {
@@ -134,24 +134,30 @@ function SetSquareSize(clicked) {
         makeSquare(genSquare());
         resizeSquare(SquareSize);
         console.log(SquareSize);
-        addClass('#button-large-size', '.btn-size', 'btn-size-click');            }
+        addClass('#button-large-size', '.btn-size', 'btn-click');            }
 }  
 
 function SetSquareDiff(clicked) {
+    let activeBtn = this.id;
+    console.log(activeBtn);
+
     if (this.id == 'button-diff-easy') {
         SquareDiff = 0;
         makeSquare(genSquare());
         resizeSquare(SquareSize);
+        addClass('#button-diff-easy', '.btn-diff', 'btn-click');        
     }
     if (this.id == 'button-diff-medium') {
         SquareDiff= 2;
         makeSquare(genSquare());
         resizeSquare(SquareSize);
+        addClass('#button-diff-medium', '.btn-diff', 'btn-click');    
     }
     if (this.id == 'button-diff-hard') {
         SquareDiff = 4;
         makeSquare(genSquare());
         resizeSquare(SquareSize);
+        addClass('#button-diff-hard', '.btn-diff', 'btn-click');    
     }
 }  
 
