@@ -86,6 +86,8 @@ Link to live deployment on GitHub pages
 ## Attribution 
 
 - The following guide was used to create the text gradients [link](https://fossheim.io/writing/posts/css-text-gradient/)
+- The following StackOverFlow post was used to help implement the fadeIn and fadeOut functionality of the `container-intro` div: [link](https://stackoverflow.com/questions/12584481/simple-fade-in-fade-out-div-with-jquery-on-click)
+- Sample code was leveraged from the following CodePen example to create the animated gradient for the title [link](https://codepen.io/bsander/pen/pPpbNm?editors=1100)
 
 
 ### Content 
