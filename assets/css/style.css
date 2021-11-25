@@ -55,6 +55,7 @@ body {
   animation: rainbow 2s ease-in-out infinite;
   transition: color .2s ease-in-out;
 }
+
 @keyframes rainbow { 
   0%{background-position:left}
   50%{background-position:right}
@@ -208,3 +209,32 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Alert banners */
+
+.alert {
+  font-size: 2rem;
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
+}
+
+#correct-ans-msg {background-color: #04AA6D;}
+#hint-msg {background-color: #2196F3;}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}

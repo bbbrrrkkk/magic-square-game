@@ -33,7 +33,8 @@
     <!--  Introduction container -->
     <div id='container-intro' class='intro-text'>
       <p>Welcome to the Magic Square Game !<br><br> 
-      This game will test your mathematical skills and challenge you with a variety of magic squares<br><br>
+      This game will test your mathematical skills and challenge you to solve magic squares<br><br>
+      Use the Settings button to change to game settings or click Play to jump right in !
 
       <button class='btn' id='start-button'>Start Game !</button>
       </p>
@@ -99,6 +100,23 @@
 
     <!--  Game Container -->
     <div id='container-game' class="hide">
+
+      <div class="alert hide" id="wrong-ans-msg">
+         
+        <!-- The wrong answer message text will be inserted here -->
+      </div>
+      
+      <div class="alert hide" id="correct-ans-msg">
+        <span class="closebtn">&times;</span>  
+        <!-- The correct answer message text will be inserted here -->
+      </div>
+      
+      <div class="alert hide" id="hint-msg">
+        <span class="closebtn">&times;</span>  
+        <!-- The hint message text will be inserted here -->
+      </div>
+      
+
 
       <div class="magic-square">
         <!-- The Magic Square content; this is dynamically generated -->

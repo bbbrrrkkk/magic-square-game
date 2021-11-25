@@ -1,6 +1,8 @@
 // Defining constants for classes
 const square = document.querySelector(".magic-square");
-const hintArea = document.querySelector(".hint-area")
+const hintArea = document.querySelector("#hint-msg");
+const successArea = document.querySelector("#correct-ans-msg");
+const wrongArea = document.querySelector("#wrong-ans-msg");
 
 // Setting inital values for Magic Square
 let SquareSize = 3; // Assumed Magic Square is size three by default
@@ -49,22 +51,6 @@ startBtn.addEventListener('click', function() {
 })
 
 
-// , function() {
-
-// });
-
-// Code to change button colors:
-// https://stackoverflow.com/questions/55873688/how-to-change-button-colors-on-click-with-multiple-buttons/55873783
-//$('.btn-size').on('click', function() {
-//    let btnSize = $('.btn-size');
-//
-//    if(btnSize.hasClass('btn-size-click')) {
-//        btnSize.removeClass('btn-size-click');
-//        $(this).addClass('btn-size-click');
-//    }
-// });
-
-
 function gameSettings() {
     ContainerInstructions.classList.add('hide')
     ContainerGame.classList.add('hide')
@@ -84,7 +70,6 @@ function gameInstructions() {
 }
 
 
-
 function playGame() {
     ContainerSettings.classList.add('hide')
     ContainerInstructions.classList.add('hide')
@@ -98,18 +83,25 @@ function playGame() {
 
 function resetGame() {
     playGame(); 
+    successArea.classList.add('hide');
+    hintArea.classList.add('hide');
+    wrongArea.classList.add('hide');
 }
 
 function showHint() {
-    let out = 'Have you tried the following values: '
+    hintArea.classList.remove('hide');
+    let out = '<strong>Hint!</strong><br><br> Try the following values: '
     for(i=0; i<SquareSize; i++) {
         out += squareArraySorted[IndexToRemove[i]];
-        if(i != SquareSize-1){out += ','}
+        if(i != SquareSize-1){out += ', '}
     }
-    out += ' ?'
-    console.log(out)
+    out += '.'
     clearHint();
     hintArea.innerHTML += out;
+    $('#hint-msg').fadeOut(8000, function() {
+        $('#hint-msg').removeAttr( 'style');
+        hintArea.classList.add('hide');
+    });
 }
 
 function clearHint() {
@@ -138,7 +130,6 @@ function removeClass(clickedBtn, targetClass, classToRemove) {
         $(targetClass).addClass(classToRemove);
         $(clickedBtn).removeClass(classToRemove);};
     }    
-
 
 /**
  * Reads the button id and sets the square size parameter. reSize square function call to resize the Magic Square.
@@ -304,10 +295,19 @@ function checkAnswer(){
     console.log(correctAns)
 
     if (correctAns.every(Boolean)) {
-        alert("Hey! You got it right! :D");
+        //alert("Hey! You got it right! :D");
+        successArea.innerHTML = '<span class="closebtn">&times;</span> You got it right!<br><br> Press the <strong>Reset Game</strong> button to play again or use the <strong>Settings</strong> button to change the difficulty level';
+        successArea.classList.remove('hide');
     }
 
     else {
-        alert('Try again !')
+        // alert('Try again !')
+        wrongArea.innerHTML = 'Try again !'
+        wrongArea.classList.remove('hide');
+        $('#wrong-ans-msg').fadeOut(8000, function() {
+            $('#wrong-ans-msg').removeAttr( 'style');
+            wrongArea.classList.add('hide');
+        });
+        
     }
 }
