@@ -9,11 +9,12 @@ let squareArraySorted = [3,5,7,4,9,2,8,1,6];
 
 // Defining constants for button names
 const submitBtn = document.getElementById('submit-button');
-const startBtn = document.getElementById('start-button');
+const playBtn = document.getElementById('play-button');
 const hintBtn = document.getElementById('hint-button');
 const settingsBtn = document.getElementById('settings-button');
 const instructionsBtn = document.getElementById('instructions-button');
 const resetBtn = document.getElementById('reset-button')
+const startBtn = document.getElementById('start-button')
 
 // Defining container ids
 const ContainerInstructions = document.getElementById('container-instructions');
@@ -23,17 +24,34 @@ const ContainerGame = document.getElementById('container-game');
 // Code to run functions when buttons are pressed:
 submitBtn.addEventListener('click', checkAnswer) // submit button
 hintBtn.addEventListener('click', showHint) // hint button
-startBtn.addEventListener('click', startGame) // start button
+playBtn.addEventListener('click', playGame) // start button
 settingsBtn.addEventListener('click', gameSettings) // settings button
 instructionsBtn.addEventListener('click', gameInstructions) // settings button
 resetBtn.addEventListener('click', resetGame) // settings button
 
 // Once page has loaded, all code in this function will run:
 document.addEventListener("DOMContentLoaded", function() {
+    $('#container-intro').fadeIn(1600); 
     console.log(genSquare());
     makeSquare(genSquare());
     resizeSquare(SquareSize);
 })
+
+startBtn.addEventListener('click', function() {
+    $('#container-intro').fadeOut(0, function(){
+        ContainerInstructions.classList.remove('hide');
+        $('#credits').removeClass('hide')
+        instructionsBtn.classList.remove('hide');
+        playBtn.classList.remove('hide')
+        hintBtn.classList.remove('hide')
+        settingsBtn.classList.remove('hide')
+    });
+})
+
+
+// , function() {
+
+// });
 
 // Code to change button colors:
 // https://stackoverflow.com/questions/55873688/how-to-change-button-colors-on-click-with-multiple-buttons/55873783
@@ -53,7 +71,7 @@ function gameSettings() {
     ContainerSettings.classList.remove('hide')
     clearHint() // Clearing the hint if player moves back to Settings 
     resetBtn.classList.add('hide') // hiding the reset button;
-    startBtn.classList.remove('hide') // unhiding the start button;
+    playBtn.classList.remove('hide') // unhiding the start button;
 }
 
 function gameInstructions() {
@@ -62,24 +80,24 @@ function gameInstructions() {
     ContainerSettings.classList.add('hide')
     clearHint() // Clearing the hint if player moves back to Instructions 
     resetBtn.classList.add('hide') // hiding the reset button;
-    startBtn.classList.remove('hide') // unhiding the start button;
+    playBtn.classList.remove('hide') // unhiding the start button;
 }
 
 
 
-function startGame() {
+function playGame() {
     ContainerSettings.classList.add('hide')
     ContainerInstructions.classList.add('hide')
     ContainerGame.classList.remove('hide')
     makeSquare(genSquare());
     resizeSquare(SquareSize);
     console.log('Game has started');
-    startBtn.classList.add('hide'); //hide the start button; reset button will be used to start the game
+    playBtn.classList.add('hide'); //hide the start button; reset button will be used to start the game
     resetBtn.classList.remove('hide') // unhiding the reset button
 }
 
 function resetGame() {
-    startGame(); 
+    playGame(); 
 }
 
 function showHint() {
