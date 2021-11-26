@@ -218,7 +218,8 @@ a:hover {
   color: white;
   opacity: 1;
   transition: opacity 0.6s;
-  margin-bottom: 15px;
+  width: 50rem;
+  margin: 0 auto 1rem auto;
 }
 
 #correct-ans-msg {background-color: #04AA6D;}

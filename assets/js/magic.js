@@ -301,8 +301,8 @@ function checkAnswer(){
     }
 
     else {
-        // alert('Try again !')
-        wrongArea.innerHTML = 'Try again !'
+        // alert('That's not quite right....try a Hint if you're stuck..!')
+        wrongArea.innerHTML = "That's not quite right....<br><br>Try a <strong>Hint</strong> if you're stuck..!"
         wrongArea.classList.remove('hide');
         $('#wrong-ans-msg').fadeOut(8000, function() {
             $('#wrong-ans-msg').removeAttr( 'style');
