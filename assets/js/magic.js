@@ -1,35 +1,35 @@
 // Defining constants for classes
 const square = document.querySelector(".magic-square");
-const hintArea = document.querySelector("#hint-msg");
-const successArea = document.querySelector("#correct-ans-msg");
-const wrongArea = document.querySelector("#wrong-ans-msg");
+//const hintArea = document.querySelector("#hint-msg");
+//const successArea = document.querySelector("#correct-ans-msg");
+//const wrongArea = document.querySelector("#wrong-ans-msg");
 
-// Setting inital values for Magic Square
+// Setting initial values for Magic Square
 let SquareSize = 3; // Assumed Magic Square is size three by default
-let SquareDiff = 0;
-let squareArraySorted = [3,5,7,4,9,2,8,1,6]; 
+let SquareDiff = 0; // Assumed difficulty level is set to easy - corresponding to a increment value of 0
+let squareArraySorted = [3,5,7,4,9,2,8,1,6]; // Initial magic square array sorted 
 
 // Defining constants for button names
-const submitBtn = document.getElementById('submit-button');
-const playBtn = document.getElementById('play-button');
-const hintBtn = document.getElementById('hint-button');
-const settingsBtn = document.getElementById('settings-button');
-const instructionsBtn = document.getElementById('instructions-button');
-const resetBtn = document.getElementById('reset-button')
-const startBtn = document.getElementById('start-button')
+//const submitBtn = document.getElementById('submit-button');
+//const playBtn = document.getElementById('play-button');
+//const hintBtn = document.getElementById('hint-button');
+//const settingsBtn = document.getElementById('settings-button');
+//const instructionsBtn = document.getElementById('instructions-button');
+//const resetBtn = document.getElementById('reset-button');
+//const startBtn = document.getElementById('start-button');
 
 // Defining container ids
-const ContainerInstructions = document.getElementById('container-instructions');
-const ContainerSettings = document.getElementById('container-settings');
-const ContainerGame = document.getElementById('container-game');
+//const ContainerInstructions = document.getElementById('container-instructions');
+//const ContainerSettings = document.getElementById('container-settings');
+//const ContainerGame = document.getElementById('container-game');
 
 // Code to run functions when buttons are pressed:
-submitBtn.addEventListener('click', checkAnswer) // submit button
-hintBtn.addEventListener('click', showHint) // hint button
-playBtn.addEventListener('click', playGame) // start button
-settingsBtn.addEventListener('click', gameSettings) // settings button
-instructionsBtn.addEventListener('click', gameInstructions) // settings button
-resetBtn.addEventListener('click', resetGame) // settings button
+document.getElementById('submit-button').addEventListener('click', checkAnswer); // submit button
+document.getElementById('hint-button').addEventListener('click', showHint); // hint button
+document.getElementById('play-button').addEventListener('click', playGame); // start button
+document.getElementById('settings-button').addEventListener('click', gameSettings); // settings button
+document.getElementById('instructions-button').addEventListener('click', gameInstructions); // settings button
+document.getElementById('reset-button').addEventListener('click', resetGame); // settings button
 
 // Once page has loaded, all code in this function will run:
 document.addEventListener("DOMContentLoaded", function() {
@@ -39,57 +39,85 @@ document.addEventListener("DOMContentLoaded", function() {
     resizeSquare(SquareSize);
 })
 
-startBtn.addEventListener('click', function() {
+//startBtn.addEventListener('click', function() {
+  $('#start-button').bind('click', function() {  
     $('#container-intro').fadeOut(0, function(){
-        ContainerInstructions.classList.remove('hide');
-        $('#credits').removeClass('hide')
-        instructionsBtn.classList.remove('hide');
-        playBtn.classList.remove('hide')
-        hintBtn.classList.remove('hide')
-        settingsBtn.classList.remove('hide')
+        $('#container-instructions').removeClass('hide');
+        $('#credits').removeClass('hide');
+        $('#instructions-button').removeClass('hide');
+        $('#play-button').removeClass('hide');
+        $('#hint-button').removeClass('hide');
+        $('#settings-button').removeClass('hide');    
     });
 })
 
 
 function gameSettings() {
-    ContainerInstructions.classList.add('hide')
-    ContainerGame.classList.add('hide')
-    ContainerSettings.classList.remove('hide')
+    //ContainerInstructions.classList.add('hide')
+    //ContainerGame.classList.add('hide')
+    //ContainerSettings.classList.remove('hide')
+    
+    //resetBtn.classList.add('hide') // hiding the reset button;
+    //playBtn.classList.remove('hide') // unhiding the start button;
+    $('#container-instructions').addClass('hide');
+    $('#container-game').addClass('hide');  
+    $('#container-settings').removeClass('hide');
+    $('#reset-button').addClass('hide');
+    $('#play-button').removeClass('hide');
     clearHint() // Clearing the hint if player moves back to Settings 
-    resetBtn.classList.add('hide') // hiding the reset button;
-    playBtn.classList.remove('hide') // unhiding the start button;
+
 }
 
 function gameInstructions() {
-    ContainerInstructions.classList.remove('hide')
-    ContainerGame.classList.add('hide')
-    ContainerSettings.classList.add('hide')
-    clearHint() // Clearing the hint if player moves back to Instructions 
-    resetBtn.classList.add('hide') // hiding the reset button;
-    playBtn.classList.remove('hide') // unhiding the start button;
+    // ContainerInstructions.classList.remove('hide')
+    // ContainerGame.classList.add('hide')
+    // ContainerSettings.classList.add('hide')
+    // clearHint() // Clearing the hint if player moves back to Instructions 
+    // resetBtn.classList.add('hide') // hiding the reset button;
+    // playBtn.classList.remove('hide') // unhiding the start button;
+
+    $('#container-instructions').removeClass('hide');
+    $('#container-game').addClass('hide'); 
+    $('#container-settings').addClass('hide'); 
+    $('#reset-button').addClass('hide');
+    $('#play-button').removeClass('hide');
+    clearHint()
 }
 
 
 function playGame() {
-    ContainerSettings.classList.add('hide')
-    ContainerInstructions.classList.add('hide')
-    ContainerGame.classList.remove('hide')
+    // ContainerSettings.classList.add('hide')
+    // ContainerInstructions.classList.add('hide')
+    // ContainerGame.classList.remove('hide')
+    // makeSquare(genSquare());
+    // resizeSquare(SquareSize);
+    // console.log('Game has started');
+    // playBtn.classList.add('hide'); //hide the start button; reset button will be used to start the game
+    // resetBtn.classList.remove('hide') // unhiding the reset button
+
+    $('#container-settings').addClass('hide'); 
+    $('#container-instructions').addClass('hide');
+    $('#container-game').removeClass('hide'); 
+    $('#play-button').addClass('hide');
+    $('#reset-button').removeClass('hide');
     makeSquare(genSquare());
     resizeSquare(SquareSize);
-    console.log('Game has started');
-    playBtn.classList.add('hide'); //hide the start button; reset button will be used to start the game
-    resetBtn.classList.remove('hide') // unhiding the reset button
 }
 
 function resetGame() {
     playGame(); 
-    successArea.classList.add('hide');
-    hintArea.classList.add('hide');
-    wrongArea.classList.add('hide');
+    //successArea.classList.add('hide');
+    //hintArea.classList.add('hide');
+    //wrongArea.classList.add('hide');
+    $("#correct-ans-msg").addClass('hide');
+    $('#hint-msg').addClass('hide');
+    $('#wrong-ans-msg').addClass('hide');
+
 }
 
 function showHint() {
-    hintArea.classList.remove('hide');
+    //hintArea.classList.remove('hide');
+    $('#hint-msg').removeClass('hide');
     let out = '<strong>Hint!</strong><br><br> Try the following values: '
     for(i=0; i<SquareSize; i++) {
         out += squareArraySorted[IndexToRemove[i]];
@@ -97,15 +125,16 @@ function showHint() {
     }
     out += '.'
     clearHint();
-    hintArea.innerHTML += out;
+    $('#hint-msg').html(out)
     $('#hint-msg').fadeOut(8000, function() {
         $('#hint-msg').removeAttr( 'style');
-        hintArea.classList.add('hide');
+        $('#hint-msg').addClass('hide');
     });
 }
 
 function clearHint() {
-    hintArea.innerHTML = ''; // clearing the hint
+    //hintArea.innerHTML = ''; // clearing the hint
+    $('#hint-msg').html('')
 }
 
 /* storing the size when a size button is clicked */
@@ -194,7 +223,6 @@ function SetSquareDiff(clicked) {
  * Function to generate the magic square values
  * @returns an order array of the magic square values 
  */
-
 function genSquare() {
     let foo = [];
     for (var i = 1; i <= SquareSize**2; i++) {
@@ -260,10 +288,6 @@ function makeSquare(squareArray){
 
     // Flattening square to an array
     squareArraySorted = square.flat();
-
-    console.table(square);
-    console.log(squareArraySorted);
-
 }
 
 
@@ -282,32 +306,44 @@ function getIndexToRemove(SquareSize){
 }
 
 
+/**
+ * Function to check whether the answer is correct.
+ * Size of the grid dynamically resized.
+ * New grid size is specified as argument in the function call.
+ */
 function checkAnswer(){
     let inputAns = [];
     let correctAns = [];
 
+    // For statement loops through the answer boxes in the magic square
+    // Answer box index numbers correspond to the index numbers of the missing values from the magic square
+    // Validation check completed to see if the values match
+    // The correctAns array will contain all true values if the values input by the user are correct
     for(var i=0; i<IndexToRemove.length; i++){
         inputAns.push(parseInt(document.getElementById('answer-'+IndexToRemove[i]).value));
         correctAns.push(inputAns[i] == squareArraySorted[IndexToRemove[i]]);
         }
 
-    console.log(inputAns)
-    console.log(correctAns)
-
+    // If statement to return response to user if answers are correct        
     if (correctAns.every(Boolean)) {
-        //alert("Hey! You got it right! :D");
-        successArea.innerHTML = '<span class="closebtn">&times;</span> You got it right!<br><br> Press the <strong>Reset Game</strong> button to play again or use the <strong>Settings</strong> button to change the difficulty level';
-        successArea.classList.remove('hide');
+        // successArea.innerHTML = '<span class="closebtn">&times;</span> You got it right!<br><br> Press the <strong>Reset Game</strong> button to play again or use the <strong>Settings</strong> button to change the difficulty level';
+        //successArea.classList.remove('hide');
+
+        $('#correct-ans-msg').html('<span class="closebtn">&times;</span> You got it right!<br><br> Press the <strong>Reset Game</strong> button to play again or use the <strong>Settings</strong> button to change the difficulty level');
+        $("#correct-ans-msg").removeClass('hide');
     }
 
+    // Output to user if the answers are not correct
     else {
-        // alert('That's not quite right....try a Hint if you're stuck..!')
-        wrongArea.innerHTML = "That's not quite right....<br><br>Try a <strong>Hint</strong> if you're stuck..!"
-        wrongArea.classList.remove('hide');
+        // wrongArea.innerHTML = "That's not quite right....<br><br>Try a <strong>Hint</strong> if you're stuck..!"
+        //wrongArea.classList.remove('hide');
+        
+        $('#wrong-ans-msg').html("That's not quite right....<br><br>Try a <strong>Hint</strong> if you're stuck..!")
+        $('#wrong-ans-msg').removeClass('hide');
+
         $('#wrong-ans-msg').fadeOut(8000, function() {
             $('#wrong-ans-msg').removeAttr( 'style');
-            wrongArea.classList.add('hide');
-        });
-        
+            $('#wrong-ans-msg').addClass('hide');
+        });   
     }
 }
