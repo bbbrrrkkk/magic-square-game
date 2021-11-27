@@ -148,7 +148,6 @@ body {
 
 
   .container {
-    --width: 800px;
     max-width: 60%;
     background-color: white;
     border-radius: 2rem;
@@ -238,4 +237,31 @@ a:hover {
 
 .closebtn:hover {
   color: black;
+}
+
+
+@media screen and (max-width: 900px) {
+  /* For medium screen sizes from 900px and below */
+  
+  .container {
+    max-width: 80%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  /* For medium screen sizes from 900px and below */
+  
+  .container {
+    max-width: 90%;
+  }
+
+  .magic-square {
+    --font-size: 1.5rem;
+    width: 25rem;
+    height: 25rem;
+    padding: 5px;
+    font-size: var(--font-size);
+  }
+
+
 }

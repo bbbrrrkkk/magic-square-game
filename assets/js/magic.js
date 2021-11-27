@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
     resizeSquare(SquareSize);
 })
 
-//startBtn.addEventListener('click', function() {
+// Code to run once the user has clicked on the 'Start Game' button
   $('#start-button').bind('click', function() {  
     $('#container-intro').fadeOut(0, function(){
         $('#container-instructions').removeClass('hide');
@@ -115,6 +115,10 @@ function resetGame() {
 
 }
 
+/**
+ * Shows the hint
+ * Hint values are extracted from the sorted array containing the magic square values
+ */
 function showHint() {
     //hintArea.classList.remove('hide');
     $('#hint-msg').removeClass('hide');
@@ -132,6 +136,9 @@ function showHint() {
     });
 }
 
+/**
+ * Clears the hint area
+ */
 function clearHint() {
     //hintArea.innerHTML = ''; // clearing the hint
     $('#hint-msg').html('')
