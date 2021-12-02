@@ -1,5 +1,15 @@
 # Magic Square Game
 
+## To Do:
+
+- Add variable hints (eg. 1,2,3 hints)
+- Fix the footer issue; need footer for fade in
+- Resize the hint boxes
+- Create image for showing players how to play
+- Complete and document the testing
+- Complete the Readme.md
+
+
 ## Objective
 
 - Create a magic square game where the user completes a magic square with a number of cells missing
