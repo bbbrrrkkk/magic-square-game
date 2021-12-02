@@ -1,156 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel='stylesheet' href='assets/css/style.css'>
-
     <!--  Using the Cloudflare jquery library: -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
-
     <title>Magic Square Game</title>
-</head>
-<body>
+  </head>
 
-  <!--  Game Title -->
-  <div>
-    <h1 class='title gradient-text'><a href="index.html">Magic Square Game</a></h1>
-  </div>
-
-  <!--  Main buttons displayed above the game area -->
-  <div class='main-buttons'>
-    <button class='btn hide' id='instructions-button'>Instructions</button>
-    <button class='btn hide' id='settings-button'>Settings</button>
-    <button class='btn hide' id='play-button'>Play Game !</button>
-    <button class='btn hide' id='reset-button'>Reset Game</button>
-  </div>
-
-  <!--  Main container; all game content sits inside this container -->
-  <div class='container'>
-
-    <!--  Introduction container -->
-    <div id='container-intro' class='intro-text'>
-      <p>Welcome to the Magic Square Game !<br><br> 
-      This game will test your mathematical skills and challenge you to solve magic squares<br><br>
-      Use the Settings button to change to game settings or click Play to jump right in !
-
-      <button class='btn' id='start-button'>Start Game !</button>
-      </p>
+  <body>
+    <!--  Game Title -->
+    <div>
+      <h1 class='title gradient-text'>
+        <a href="index.html">Magic Square Game</a>
+      </h1>
     </div>
 
-
-    <!--  Instruction container -->
-    <div id='container-instructions' class='instructions-text hide'>
-      <p>Placehholder text detailing how to solve a magic square. <br> The sum of each row, column and diagonal should be equal<br></p>
-      <img alt="image showing how to solve a magic square" src="assets/images/65-magic-sum.jpg" width='400'>
+    <!--  Main buttons displayed above the game area -->
+    <div class='main-buttons'>
+      <button class='btn hide' id='instructions-button'>Instructions</button>
+      <button class='btn hide' id='settings-button'>Settings</button>
+      <button class='btn hide' id='play-button'>Play Game !</button>
+      <button class='btn hide' id='reset-button'>Reset Game</button>
     </div>
 
-    <!--  Settings container -->
-    <div id='container-settings' class="hide">
+    <!--  Main container; all game content sits inside this container -->
+    <div class='container'>
 
-      <div class="size-button">
-      <p>Magic square size:</p>
-      
-      <!-- Buttons to resize the magic square -->  
-      <button class='btn btn-size btn-click'id="button-small-size">
-      Small
-      </button>
+      <!--  Introduction container -->
+      <div id='container-intro' class='intro-text'>
+        <p>Welcome to the Magic Square Game ! <br>
+          <br> This game will test your mathematical skills and challenge you to solve magic squares <br>
+          <br> Use the Settings button to change to game settings or click Play to jump right in ! <button class='btn' id='start-button'>Start Game !</button>
+        </p>
+      </div>
 
-      <button class='btn btn-size' id="button-medium-size">
-      Medium
-      </button>
+      <!--  Instruction container -->
+      <div id='container-instructions' class='instructions-text hide'>
+        <p>Placehholder text detailing how to solve a magic square. <br> The sum of each row, column and diagonal should be equal <br>
+        </p>
+        <img alt="image showing how to solve a magic square" src="assets/images/65-magic-sum.jpg" width='400'>
+      </div>
 
-      <button class='btn btn-size' id="button-large-size">
-      Large
-      </button>
+      <!--  Settings container -->
+      <div id='container-settings' class="hide">
+        <div class="size-button">
+          <p>Magic square size:</p>
+          <!-- Buttons to resize the magic square -->
+          <button class='btn btn-size btn-click' id="button-small-size"> Small </button>
+          <button class='btn btn-size' id="button-medium-size"> Medium </button>
+          <button class='btn btn-size' id="button-large-size"> Large </button>
+          <p class='text-small-grid settings-text-grid'>The default option; uses a gird size of 3x3</p>
+          <p class='text-medium-grid settings-text-grid hide'>For more advanced users; medium corresponds to a gird size of 5x5</p>
+          <p class='text-large-grid settings-text-grid hide'>Expert users only ! Sets a gird size of 7x7</p>
+        </div>
+        <div class="difficulty-button">
+          <p>Magic square difficulty: <br>
+          </p>
+          <!-- Buttons to change the game difficulty -->
+          <button class='btn btn-diff btn-click' id="button-diff-easy"> Easy </button>
+          <button class='btn btn-diff' id="button-diff-medium"> Medium </button>
+          <button class='btn btn-diff' id="button-diff-hard"> Hard </button>
+          <p class='text-diff-easy settings-text-diff'>The default option; uses a gird size of 3x3</p>
+          <p class='text-diff-medium settings-text-diff hide'>For more advanced users; medium corresponds to a gird size of 5x5</p>
+          <p class='text-diff-hard settings-text-diff hide'>Expert users only ! Sets a gird size of 7x7</p>
+        </div>
+      </div>
 
-      <p class='text-small-grid settings-text-grid'>The default option; uses a gird size of 3x3</p>
-      <p class='text-medium-grid settings-text-grid hide'>For more advanced users; medium corresponds to a gird size of 5x5</p>
-      <p class='text-large-grid settings-text-grid hide'>Expert users only ! Sets a gird size of 7x7</p>
-
-
+      <!--  Game Container -->
+      <div id='container-game' class="hide">
+        <div class="alert hide" id="wrong-ans-msg">
+          <!-- The wrong answer message text will be inserted here -->
+        </div>
+        <div class="alert hide" id="correct-ans-msg">
+          <span class="closebtn">&times;</span>
+          <!-- The correct answer message text will be inserted here -->
+        </div>
+        <div class="alert hide" id="hint-msg">
+          <span class="closebtn">&times;</span>
+          <!-- The hint message text will be inserted here -->
+        </div>
+        <div class="magic-square">
+          <!-- The Magic Square content; this is dynamically generated -->
+        </div>
+        <div>
+          <button class='btn' id='hint-button'>Hint</button>
+        </div>
+        <div>
+          <button class='btn' id='submit-button'>Submit</button>
+        </div>
+        <div class='hint-area'>
+          <!-- Text for the hint that will be inserted by js -->
+        </div>
+      </div>
     </div>
 
-      <div class="difficulty-button">
-      <p>Magic square difficulty:<br></p>
-      <!-- Buttons to change the game difficulty -->  
-      <button class='btn btn-diff btn-click' id="button-diff-easy">
-      Easy
-      </button>
-
-      <button class='btn btn-diff' id="button-diff-medium">
-      Medium
-      </button>
-
-      <button class='btn btn-diff' id="button-diff-hard">
-      Hard
-      </button>
-
-      <p class='text-diff-easy settings-text-diff'>The default option; uses a gird size of 3x3</p>
-      <p class='text-diff-medium settings-text-diff hide'>For more advanced users; medium corresponds to a gird size of 5x5</p>
-      <p class='text-diff-hard settings-text-diff hide'>Expert users only ! Sets a gird size of 7x7</p>
-
-
+    <footer>
+      <div class="hide" id='credits'>
+        <p>Credits and attributions in <a href="https://github.com/eoinlarkin/magic-square-game/blob/main/README.md" target="_blank" rel="noopener">README.md</a>
+        </p>
+        <p>Design and code by <a href="https://github.com/eoinlarkin/" target="_blank" rel="noopener">Eoin Larkin</a>
+        <p>
+        <p>Made with <i class="fa fa-heart"></i> in D7 </p>
       </div>
+    </footer>
 
-    </div>
+  </body>
 
-
-    <!--  Game Container -->
-    <div id='container-game' class="hide">
-
-      <div class="alert hide" id="wrong-ans-msg">
-         
-        <!-- The wrong answer message text will be inserted here -->
-      </div>
-      
-      <div class="alert hide" id="correct-ans-msg">
-        <span class="closebtn">&times;</span>  
-        <!-- The correct answer message text will be inserted here -->
-      </div>
-      
-      <div class="alert hide" id="hint-msg">
-        <span class="closebtn">&times;</span>  
-        <!-- The hint message text will be inserted here -->
-      </div>
-      
-
-
-      <div class="magic-square">
-        <!-- The Magic Square content; this is dynamically generated -->
-      </div>
-
-      <div>
-        <button class='btn' id='hint-button'>Hint</button>
-      </div>
-
-      <div>
-        <button class='btn' id='submit-button'>Submit</button>
-      </div>
-
-      <div class='hint-area'>
-        <!-- Text for the hint that will be inserted by js -->
-      </div>
-
-    </div>
-  </div>
-
-  <footer>
-
-    <div class="hide" id='credits'>
-      <p>Credits and attributions in <a href="https://github.com/eoinlarkin/magic-square-game/blob/main/README.md" target="_blank" rel="noopener">README.md</a></p>
-      <p>Design and code by <a href="https://github.com/eoinlarkin/" target="_blank" rel="noopener">Eoin Larkin</a><p>
-      <p>Made with <i class="fa fa-heart"></i> in D7</p>
-    </div>
-  </footer>
-
-</body>
-
-<!-- font awesome script -->
-<script src="https://kit.fontawesome.com/d375cce442.js" crossorigin="anonymous"></script>
-
-<!-- javascript -->
-<script src="assets/js/magic.js"></script>
+  <!-- font awesome script -->
+  <script src="https://kit.fontawesome.com/d375cce442.js" crossorigin="anonymous"></script>
+  
+  <!-- javascript -->
+  <script src="assets/js/magic-square.js"></script>
 </html>

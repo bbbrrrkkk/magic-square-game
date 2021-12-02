@@ -8,13 +8,13 @@
   /* Defining colors as variables */
   --color-bg: #282853;
   --color-fg: #EAF2EF;
-  --color-highlight: #B1E5F2;
+  --color-highlight: #96DCED;
   --color-highlight-accent: #42D9C8;
-  --color-highlight-accent-dark: #F092DD;
+  --color-highlight-accent-dark: #E228BC;
   --color-highlight-2: #8EA4D2;
   --color-dark:#326771;
   --color-light: #EAF2EF;
-  --color-light-trans: rgb(234, 242, 239, 0.66)
+  --color-light-trans: rgb(177, 229, 242, 0.9)
     }
 
 
@@ -59,13 +59,15 @@ li {
 /* Container Styling */
 /* **************************************** */
   .container {
-    max-width: 45%;
+    width: 45%;
+    max-width: 70rem;
     background-color: white;
     border-radius: 2rem;
     padding: 1rem;
-    box-shadow: 0 0 1rem 0.2rem;
+    box-shadow: 0 0 1rem 0.2rem var(--color-highlight-accent-dark);
     margin: auto; /* Centering the content */
     background-color: var(--color-fg);
+    margin-bottom: 6rem;
   }
 
   #container-intro {
@@ -141,15 +143,16 @@ li {
     display: grid;
     width: 35rem;
     height: 35rem;
-    background-color: var(--color-highlight);
+    background-color: var(--color-bg);
     padding: 10px;
     grid-template: repeat(var(--grid-size), 1fr) / repeat(var(--grid-size), 1fr);
     margin: auto; /* Centering the content */
   }
   .square-item {
     background-color: var(--color-light-trans);
-    color: var(--color-bg);
-    border: 1px solid var(--color-fg);
+    border-color: var(--color-bg);
+    color: var(--color-highlight-accent-dark);
+    border: 1px solid var(--color-dark);
     padding: 5px;
     text-align: center; 
     display: grid;
@@ -179,15 +182,16 @@ li {
 
   .btn:hover {
     transform: translateY(-3px); /* making the button move up*/
-    box-shadow: 0 1rem 2rem rgb(0,0,0,.2); /* x, y and blur values */
+    box-shadow: 0 1rem 2rem var(--color-highlight-2); /* x, y and blur values */
 }
 
   .btn {
+    font-size: 1.5rem;
     padding: 1rem;
     margin: 0 auto; /* Centering the content */
     margin-top: 1rem;
     margin-bottom: 1rem;
-    width: 10rem;
+    width: 12rem;
     border: 0.2rem solid var(--color-highlight);
     background-color: var(--color-bg);
     color: var(--color-highlight);
@@ -197,7 +201,8 @@ li {
   .btn-click {
     /* Css to add once the button has been clicked */
     background-color: var(--color-highlight);
-    color:var(--color-dark);
+    --color:var(--color-dark);
+    color:var(--color-highlight-accent-dark);
   }
 
 /* **************************************** */
@@ -205,11 +210,11 @@ li {
 /* **************************************** */
 
  #credits {
-   margin-top: 3rem;
    text-align: center;
    color:var(--color-light);
    font-size: 1.5rem;
-   line-height: 2rem;
+   line-height: 2.25rem;
+   margin-bottom: 6rem;
  }
 
  #credits i {
@@ -309,5 +314,9 @@ a:hover {
     height: 25rem;
     padding: 5px;
     font-size: var(--font-size);
+  }
+
+  .answer-box {
+    width:2rem;
   }
 }
