@@ -1,3 +1,9 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Titillium+Web&display=swap');
+
+
+
+
 :root {
   /* Defining colors as variables */
   --color-bg: #2D3047;
@@ -19,9 +25,9 @@
 
 /* Setting default font size as 10px */
 html {
-  font-size: 62.5%;
-  /* Set font size to 62.5% so that 1rem = 10px for initial designing (16px / 62.5 === 10) */
- }
+  font-size: 62.5%;   /* Set font size to 62.5% so that 1rem = 10px for initial designing (16px / 62.5 === 10) */
+  font-family: 'Titillium Web', sans-serif; /* Google font for body */
+}
 
 
 body {
@@ -36,6 +42,21 @@ body {
   }
 
 
+  #container-instructions img {
+    max-width: 35rem;
+    width: 100%;
+  }
+
+.title {
+  font-family: 'Monoton', cursive;
+  font-size:6rem;
+  font-weight: normal;
+  padding: 2rem 0 4rem 0;
+  display:block;
+  text-align:center;
+}
+
+
 .gradient-text{
   background: linear-gradient(to right,var(--color-highlight-accent), var(--color-highlight-accent-dark));
   background-size: 200% 200%;
@@ -44,13 +65,8 @@ body {
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent; 
   -moz-text-fill-color: transparent;
-  color:rgba(0,0,0,1);
-  font-size:6rem;
-  padding: 2rem 0 4rem 0;
-  display:block;
-  text-align:center;
-  font-weight:900;
 }
+
 .gradient-text:hover{
   animation: rainbow 2s ease-in-out infinite;
   transition: color .2s ease-in-out;
@@ -148,7 +164,7 @@ body {
 
 
   .container {
-    max-width: 60%;
+    max-width: 45%;
     background-color: white;
     border-radius: 2rem;
     padding: 1rem;
@@ -240,6 +256,15 @@ a:hover {
 }
 
 
+@media screen and (max-width: 1200px) {
+  /* For medium screen sizes from 900px and below */
+  
+  .container {
+    max-width: 60%;
+  }
+}
+
+
 @media screen and (max-width: 900px) {
   /* For medium screen sizes from 900px and below */
   
@@ -249,10 +274,10 @@ a:hover {
 }
 
 @media screen and (max-width: 500px) {
-  /* For medium screen sizes from 900px and below */
+  /* For medium screen sizes from 500px and below */
   
   .container {
-    max-width: 90%;
+    max-width: 100%;
   }
 
   .magic-square {
@@ -262,6 +287,16 @@ a:hover {
     padding: 5px;
     font-size: var(--font-size);
   }
+}
 
-
+@media screen and (max-width: 350px) {
+  /* For medium screen sizes from 350px and below */
+  
+  .magic-square {
+    --font-size: 1.5rem;
+    width: 25rem;
+    height: 25rem;
+    padding: 5px;
+    font-size: var(--font-size);
+  }
 }
