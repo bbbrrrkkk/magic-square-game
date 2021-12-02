@@ -6,14 +6,15 @@
 /* **************************************** */
 :root {
   /* Defining colors as variables */
-  --color-bg: #2D3047;
-  --color-fg: #F8F8F2;
-  --color-highlight: #DEBA59;
-  --color-highlight-accent: #DECDF5;
-  --color-highlight-accent-dark: #1B998B;
-  --color-dark:#2D3047;
-  --color-light: #FBFFEB;
-  --color-light-trans: rgb(251, 255, 235, 0.66)
+  --color-bg: #282853;
+  --color-fg: #EAF2EF;
+  --color-highlight: #B1E5F2;
+  --color-highlight-accent: #42D9C8;
+  --color-highlight-accent-dark: #F092DD;
+  --color-highlight-2: #8EA4D2;
+  --color-dark:#326771;
+  --color-light: #EAF2EF;
+  --color-light-trans: rgb(234, 242, 239, 0.66)
     }
 
 
@@ -124,7 +125,7 @@ li {
 .settings-text-grid, .settings-text-diff, .instructions-text, .hint-area {
   font-size: 1.75rem;
   font-style: italic;
-  color: var(--color-highlight-accent-dark);
+  color: var(--color-dark);
   text-align: center;
 }
 
@@ -195,7 +196,8 @@ li {
 
   .btn-click {
     /* Css to add once the button has been clicked */
-    background-color: red;
+    background-color: var(--color-highlight);
+    color:var(--color-dark);
   }
 
 /* **************************************** */
@@ -298,6 +300,7 @@ a:hover {
   
   .container {
     max-width: 100%;
+    border-radius: 0rem;
   }
 
   .magic-square {
