@@ -1,9 +1,9 @@
 /* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Titillium+Web&display=swap');
 
-
-
-
+/* **************************************** */
+/* Parameters to define the colors */
+/* **************************************** */
 :root {
   /* Defining colors as variables */
   --color-bg: #2D3047;
@@ -15,6 +15,11 @@
   --color-light: #FBFFEB;
   --color-light-trans: rgb(251, 255, 235, 0.66)
     }
+
+
+/* **************************************** */
+/* Base CSS, font size, colors, list items*/
+/* **************************************** */
 
 /* Clearing css and zeroing all margins, pads and borders */
 * {
@@ -36,16 +41,45 @@ body {
   font-size: 2.5rem;
 }
 
+li {
+  margin-left: 3rem;
+  font-size: 2rem;
+  list-style-type: circle;
+}
+
+/* **************************************** */
+/* Hide class for hiding various class elements */
+/* **************************************** */
+.hide {
+  display: none;
+}
+
+/* **************************************** */
+/* Container Styling */
+/* **************************************** */
+  .container {
+    max-width: 45%;
+    background-color: white;
+    border-radius: 2rem;
+    padding: 1rem;
+    box-shadow: 0 0 1rem 0.2rem;
+    margin: auto; /* Centering the content */
+    background-color: var(--color-fg);
+  }
+
   #container-intro {
     /* this is originally hidden before fading in */
     display: none;
   }
 
-
   #container-instructions img {
     max-width: 35rem;
     width: 100%;
   }
+
+/* **************************************** */
+/* Title Styling */
+/* **************************************** */
 
 .title {
   font-family: 'Monoton', cursive;
@@ -55,7 +89,6 @@ body {
   display:block;
   text-align:center;
 }
-
 
 .gradient-text{
   background: linear-gradient(to right,var(--color-highlight-accent), var(--color-highlight-accent-dark));
@@ -82,7 +115,6 @@ body {
   margin: 0 5vw 0 5vw;
 }
 
-
 .size-button, .difficulty-button {
   text-align: center;
   padding: 1rem;
@@ -96,6 +128,9 @@ body {
   text-align: center;
 }
 
+/* **************************************** */
+/* Magic Square Styling */
+/* **************************************** */
 
 .magic-square {
     --grid-size: 3; /* Start with 3x3 */
@@ -121,14 +156,15 @@ body {
     font-size: var(--font-size);
   }
 
-
-
   .answer-box {
     width: 3rem;
     font-size: var(--font-size);
     margin: 0 auto; /* Placing input in the center */
   }
 
+/* **************************************** */
+/* Button Styling */
+/* **************************************** */
   #submit-button, #hint-button, #start-button {
     display: block;
     margin: 1rem auto;
@@ -161,30 +197,6 @@ body {
     /* Css to add once the button has been clicked */
     background-color: red;
   }
-
-
-  .container {
-    max-width: 45%;
-    background-color: white;
-    border-radius: 2rem;
-    padding: 1rem;
-    box-shadow: 0 0 1rem 0.2rem;
-    margin: auto; /* Centering the content */
-    background-color: var(--color-fg);
-  }
-
-
-  .hide {
-    display: none;
-  }
-
-  li {
-    margin-left: 3rem;
-    font-size: 2rem;
-    list-style-type: circle;
- }
-
-
 
 /* **************************************** */
 /* Credits, located below Footer */
@@ -224,7 +236,9 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Alert banners */
+/* **************************************** */
+/* Alert Banners when playing game */
+/* **************************************** */
 
 .alert {
   font-size: 2rem;
@@ -255,43 +269,37 @@ a:hover {
   color: black;
 }
 
+/* **************************************** */
+/* Media Queries to ensure site is responsive */
+/* **************************************** */
 
+/* For medium screen sizes from 1200px and below 
+   Container width is set to 60% to make better use of screen width*/
 @media screen and (max-width: 1200px) {
-  /* For medium screen sizes from 900px and below */
-  
+
   .container {
     max-width: 60%;
   }
 }
 
+/* For medium screen sizes from 900px and below 
+   Container width is set to 80%  */
 
 @media screen and (max-width: 900px) {
-  /* For medium screen sizes from 900px and below */
   
   .container {
     max-width: 80%;
   }
 }
 
+/* For medium screen sizes from 500px and below 
+   Container spans full screen; sizing of magic square adjusted */
 @media screen and (max-width: 500px) {
-  /* For medium screen sizes from 500px and below */
   
   .container {
     max-width: 100%;
   }
 
-  .magic-square {
-    --font-size: 1.5rem;
-    width: 25rem;
-    height: 25rem;
-    padding: 5px;
-    font-size: var(--font-size);
-  }
-}
-
-@media screen and (max-width: 350px) {
-  /* For medium screen sizes from 350px and below */
-  
   .magic-square {
     --font-size: 1.5rem;
     width: 25rem;
