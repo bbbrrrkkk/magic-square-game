@@ -59,12 +59,12 @@ li {
 /* Container Styling */
 /* **************************************** */
   .container {
-    width: 45%;
+    min-width: 45%;
     max-width: 70rem;
     background-color: white;
     border-radius: 2rem;
     padding: 1rem;
-    box-shadow: 0 0 1rem 0.2rem var(--color-highlight-accent-dark);
+    box-shadow: 0 0 0.5rem 0.2rem var(--color-highlight-accent-dark);
     margin: auto; /* Centering the content */
     background-color: var(--color-fg);
     margin-bottom: 6rem;
@@ -141,8 +141,8 @@ li {
     position: relative;
     font-size: var(--font-size);
     display: grid;
-    width: 35rem;
-    height: 35rem;
+    width: 40rem;
+    height: 40rem;
     background-color: var(--color-bg);
     padding: 10px;
     grid-template: repeat(var(--grid-size), 1fr) / repeat(var(--grid-size), 1fr);
@@ -299,9 +299,9 @@ a:hover {
   }
 }
 
-/* For medium screen sizes from 500px and below 
+/* For medium screen sizes from 525px and below 
    Container spans full screen; sizing of magic square adjusted */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 525px) {
   
   .container {
     max-width: 100%;
@@ -310,8 +310,8 @@ a:hover {
 
   .magic-square {
     --font-size: 1.5rem;
-    width: 25rem;
-    height: 25rem;
+    width: 26rem;
+    height: 26rem;
     padding: 5px;
     font-size: var(--font-size);
   }
