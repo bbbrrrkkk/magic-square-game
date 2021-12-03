@@ -122,7 +122,7 @@ function resetGame() {
 function showHint() {
     //hintArea.classList.remove('hide');
     $('#hint-msg').removeClass('hide');
-    let out = '<strong>Hint!</strong><br><br> Try the following values: '
+    let out = '<strong>Hint!</strong><br>Try the following values: '
     for(i=0; i<SquareSize; i++) {
         out += squareArraySorted[IndexToRemove[i]];
         if(i != SquareSize-1){out += ', '}
@@ -336,7 +336,7 @@ function checkAnswer(){
         // successArea.innerHTML = '<span class="closebtn">&times;</span> You got it right!<br><br> Press the <strong>Reset Game</strong> button to play again or use the <strong>Settings</strong> button to change the difficulty level';
         //successArea.classList.remove('hide');
 
-        $('#correct-ans-msg').html('<span class="closebtn">&times;</span> You got it right!<br><br> Press the <strong>Reset Game</strong> button to play again or use the <strong>Settings</strong> button to change the difficulty level');
+        $('#correct-ans-msg').html('<span class="closebtn">&times;</span> You got it right!<br>Press the <strong>Reset Game</strong> button to play again or use the <strong>Settings</strong> button to change the difficulty level');
         $("#correct-ans-msg").removeClass('hide');
     }
 
@@ -345,7 +345,7 @@ function checkAnswer(){
         // wrongArea.innerHTML = "That's not quite right....<br><br>Try a <strong>Hint</strong> if you're stuck..!"
         //wrongArea.classList.remove('hide');
         
-        $('#wrong-ans-msg').html("That's not quite right....<br><br>Try a <strong>Hint</strong> if you're stuck..!")
+        $('#wrong-ans-msg').html("That's not quite right....<br>Try a <strong>Hint</strong> if you're stuck..!")
         $('#wrong-ans-msg').removeClass('hide');
 
         $('#wrong-ans-msg').fadeOut(8000, function() {
