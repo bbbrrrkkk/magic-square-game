@@ -296,6 +296,7 @@ a:hover {
   
   .container {
     max-width: 80%;
+    min-width: 80%;
   }
 }
 
@@ -305,6 +306,7 @@ a:hover {
   
   .container {
     max-width: 100%;
+    min-width: 100%;
     border-radius: 0rem;
   }
 
@@ -320,3 +322,21 @@ a:hover {
     width:2rem;
   }
 }
+
+
+/* For medium screen sizes from 325px and below 
+   Container spans full screen; sizing of magic square adjusted */
+   @media screen and (max-width: 325px) {
+  
+    .magic-square {
+      --font-size: 1.25rem;
+      width: 23rem;
+      height: 23rem;
+      padding: 5px;
+      font-size: var(--font-size);
+    }
+  
+    .answer-box {
+      width:1.75rem;
+    }
+  }
