@@ -188,12 +188,12 @@ li {
 }
 
   .btn {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     padding: 1rem;
     margin: 0 auto; /* Centering the content */
     margin-top: 1rem;
     margin-bottom: 1rem;
-    width: 12rem;
+    width: 16rem;
     border: 0.2rem solid var(--color-highlight);
     background-color: var(--color-bg);
     color: var(--color-highlight);
