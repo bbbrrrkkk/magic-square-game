@@ -8,6 +8,7 @@
     <link rel='stylesheet' href='assets/css/style.css'>
     <!--  Using the Cloudflare jquery library: -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
     <title>Magic Square Game</title>
   </head>
 
@@ -42,9 +43,17 @@
 
       <!--  Instruction container -->
       <div id='container-instructions' class='instructions-text hide'>
-        <p>Placehholder text detailing how to solve a magic square. <br> The sum of each row, column and diagonal should be equal <br>
-        </p>
-        <img alt="image showing how to solve a magic square" src="assets/images/65-magic-sum.jpg" width='400'>
+
+        <p><br>Magic Squares are one of the oldest mathematical puzzles, with examples found in ancient China, Japan and India.</p>
+        
+        <p>In order to solve the Magic Square, it is necessary to ensure that the sum of each <span class='color-highlight'>row</span>, <span class='color-highlight'>column</span> and <span class='color-highlight'>diagonal</span> combination are all equal.</p>
+        
+        <p>The following is an example of a completed Magic Square; note that all possible combinations are equal.</p>
+        
+        <img alt="image showing how to solve a magic square" src="assets/images/magic-square-solving-instructions.png" width='750'>
+
+        <p>Further information on the history of these ancient puzzles can be found on <a href="https://en.wikipedia.org/wiki/Magic_square" target="_blank" rel="noopener">Wikipedia</a>.</p>
+        <p>&nbsp;</p>
       </div>
 
       <!--  Settings container -->

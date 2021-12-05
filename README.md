@@ -1,5 +1,7 @@
 # Magic Square Game
 
+![am-i-responsive](./docs/images/am-i-responsive.png)
+
 ## To Do:
 
 - Add variable hints (eg. 1,2,3 hints)
@@ -8,7 +10,6 @@
 - Create image for showing players how to play
 - Complete and document the testing
 - Complete the Readme.md
-
 
 ## Objective
 
@@ -131,3 +132,35 @@ Below you will find a couple of extra tips that may be helpful when completing y
   - [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html#General)
 
 Getting started with your Portfolio Projects can be daunting, planning your project can make it a lot easier to tackle, take small steps to reach the final outcome and enjoy the process! 
+
+- - - 
+
+## Development
+
+### Languages
+- HTML
+- CSS
+- JavaScript
+- jQuery
+
+### Tools / Technologies
+
+- **[VScode](https://code.visualstudio.com/)**  
+All coding was completed in VS Code.
+
+- **[cdnjs][https://cdnjs.com/libraries/jquery]**
+cdnjs was used as the reference for the jQuery JavaScript library.
+
+- **[coolors.co](https://coolors.co/)**  
+Potential site palettes were tested with Coolors.  
+
+- **[gauger.io](https://gauger.io/fonticon/)**  
+This website was used to generate the favicon using an icon from Font Awesome.
+
+- **[Am I Responsive?](http://ami.responsivedesign.is/)**  
+For rendering the device preview image
+
+- **[https://ecotrust-canada.github.io/](https://ecotrust-canada.github.io/markdown-toc/)**  
+For generating the nicely formatted markdown table of contents
+
+- - - 
