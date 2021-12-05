@@ -6,15 +6,14 @@
 /* **************************************** */
 :root {
   /* Defining colors as variables */
-  --color-bg: #282853;
-  --color-fg: #EAF2EF;
+  --color-dark-1: #282853;
+  --color-light: #EAF2EF;
   --color-highlight: #96DCED;
   --color-highlight-accent: #42D9C8;
   --color-highlight-accent-dark: #E228BC;
   --color-highlight-2: #8EA4D2;
-  --color-dark:#326771;
-  --color-light: #EAF2EF;
-  --color-light-trans: rgb(177, 229, 242, 0.9)
+  --color-dark-2:#326771;
+  --color-highlight-trans: rgb(177, 229, 242, 0.9)
     }
 
 
@@ -37,8 +36,8 @@ html {
 
 
 body {
-  background-color: var(--color-bg);
-  color: var(--color-dark); /* font color */
+  background-color: var(--color-dark-1);
+  color: var(--color-dark-2); /* font color */
   font-size: 2.5rem;
 }
 
@@ -69,12 +68,8 @@ p {
     border-radius: 2rem;
     box-shadow: 0 0 0.5rem 0.2rem var(--color-highlight-accent-dark);
     margin: 0 auto 0 auto; /* Centering the content */
-    background-color: var(--color-fg);
+    background-color: var(--color-light);
     margin-bottom: 4rem; /* Margin between container and footer */
-  }
-
-  .game-margin-top {
-    margin-top: 2rem;
   }
 
   #container-intro {
@@ -135,7 +130,7 @@ p {
 .settings-text-grid, .settings-text-diff, .instructions-text, .hint-area {
   font-size: 1.75rem;
   font-style: italic;
-  color: var(--color-dark);
+  color: var(--color-dark-2);
   text-align: center;
 }
 
@@ -151,16 +146,16 @@ p {
     display: grid;
     width: 40rem;
     height: 40rem;
-    background-color: var(--color-bg);
+    background-color: var(--color-dark-1);
     padding: 1rem;
     grid-template: repeat(var(--grid-size), 1fr) / repeat(var(--grid-size), 1fr);
     margin: 0rem auto 0 auto; /* Centering the content */
   }
   .square-item {
-    background-color: var(--color-light-trans);
-    border-color: var(--color-bg);
+    background-color: var(--color-highlight-trans);
+    border-color: var(--color-dark-1);
     color: var(--color-highlight-accent-dark);
-    border: 1px solid var(--color-dark);
+    border: 1px solid var(--color-dark-2);
     padding: 5px;
     text-align: center; 
     display: grid;
@@ -169,7 +164,7 @@ p {
   }
 
   .answer-box {
-    width: 3rem;
+    width: 4.5rem;
     font-size: var(--font-size);
     margin: 0 auto; /* Placing input in the center */
     text-align: center;
@@ -202,7 +197,7 @@ p {
     margin: 0 auto; /* Centering the content */
     width: 16rem;
     border: 0.2rem solid var(--color-highlight);
-    background-color: var(--color-bg);
+    background-color: var(--color-dark-1);
     color: var(--color-highlight);
     border-radius: 1rem;
   }
@@ -210,12 +205,11 @@ p {
   .btn-click {
     /* Css to add once the button has been clicked */
     background-color: var(--color-highlight);
-    --color:var(--color-dark);
     color:var(--color-highlight-accent-dark);
   }
 
   .btn-size, .btn-diff, #instructions-button, #settings-button, #play-button, #reset-button {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
 
 /* **************************************** */
@@ -232,6 +226,10 @@ p {
 
  #credits i {
   color: var(--color-highlight-accent-dark)
+}
+
+#credits p {
+  margin-bottom: 0rem; /* removing the margin bottom styling */
 }
 
 /* **************************************** */
