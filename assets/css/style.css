@@ -48,6 +48,10 @@ li {
   list-style-type: circle;
 }
 
+p {
+  margin-bottom: 2rem;
+}
+
 /* **************************************** */
 /* Hide class for hiding various class elements */
 /* **************************************** */
@@ -64,9 +68,13 @@ li {
     background-color: white;
     border-radius: 2rem;
     box-shadow: 0 0 0.5rem 0.2rem var(--color-highlight-accent-dark);
-    margin: auto; /* Centering the content */
+    margin: 0 auto 0 auto; /* Centering the content */
     background-color: var(--color-fg);
-    margin-bottom: 6rem;
+    margin-bottom: 4rem; /* Margin between container and footer */
+  }
+
+  .game-margin-top {
+    margin-top: 2rem;
   }
 
   #container-intro {
@@ -81,14 +89,14 @@ li {
   }
 
 /* **************************************** */
-/* Title Styling */
+/* Title and Text Styling */
 /* **************************************** */
 
 .title {
   font-family: 'Monoton', cursive;
   font-size:6rem;
   font-weight: normal;
-  padding: 2rem 0 4rem 0;
+  padding: 2rem 0 2rem 0;
   display:block;
   text-align:center;
 }
@@ -146,7 +154,7 @@ li {
     background-color: var(--color-bg);
     padding: 1rem;
     grid-template: repeat(var(--grid-size), 1fr) / repeat(var(--grid-size), 1fr);
-    margin: auto; /* Centering the content */
+    margin: 0rem auto 0 auto; /* Centering the content */
   }
   .square-item {
     background-color: var(--color-light-trans);
@@ -164,6 +172,7 @@ li {
     width: 3rem;
     font-size: var(--font-size);
     margin: 0 auto; /* Placing input in the center */
+    text-align: center;
   }
 
 /* **************************************** */
@@ -171,7 +180,7 @@ li {
 /* **************************************** */
   #submit-button, #hint-button, #start-button {
     --display: block;
-    margin: 1rem auto;
+    margin: 2rem auto;
   }
 
   .main-buttons {
@@ -191,8 +200,6 @@ li {
     font-size: 1.75rem;
     padding: 1rem;
     margin: 0 auto; /* Centering the content */
-    margin-top: 1rem;
-    margin-bottom: 1rem;
     width: 16rem;
     border: 0.2rem solid var(--color-highlight);
     background-color: var(--color-bg);
@@ -205,6 +212,10 @@ li {
     background-color: var(--color-highlight);
     --color:var(--color-dark);
     color:var(--color-highlight-accent-dark);
+  }
+
+  .btn-size, .btn-diff, #instructions-button, #settings-button, #play-button, #reset-button {
+    margin-bottom: 1rem;
   }
 
 /* **************************************** */
@@ -258,7 +269,7 @@ a:hover {
   opacity: 1;
   transition: opacity 0.6s;
   width: 40rem;
-  margin: 0 auto 1rem auto;
+  margin: 0rem auto 2rem auto;
   text-align: center;
   line-height: 2.5rem;
 }
@@ -324,7 +335,7 @@ a:hover {
   }
 
   .answer-box {
-    width:2rem;
+    width:2.75rem;
   }
 
   .alert {
@@ -340,14 +351,14 @@ a:hover {
   
     .magic-square {
       --font-size: 1.25rem;
-      width: 23rem;
-      height: 23rem;
+      width: 25rem;
+      height: 25rem;
       padding: 5px;
       font-size: var(--font-size);
     }
   
     .answer-box {
-      width:1.75rem;
+      width:2.25rem;
     }
 
     .alert {

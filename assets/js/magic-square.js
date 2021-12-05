@@ -130,7 +130,7 @@ function showHint() {
     out += '.'
     clearHint();
     $('#hint-msg').html(out)
-    $('#hint-msg').fadeOut(8000, function() {
+    $('#hint-msg').fadeOut(6000, function() {
         $('#hint-msg').removeAttr( 'style');
         $('#hint-msg').addClass('hide');
     });
@@ -348,7 +348,7 @@ function checkAnswer(){
         $('#wrong-ans-msg').html("That's not quite right....<br>Try a <strong>Hint</strong> if you're stuck..!")
         $('#wrong-ans-msg').removeClass('hide');
 
-        $('#wrong-ans-msg').fadeOut(8000, function() {
+        $('#wrong-ans-msg').fadeOut(6000, function() {
             $('#wrong-ans-msg').removeAttr( 'style');
             $('#wrong-ans-msg').addClass('hide');
         });   

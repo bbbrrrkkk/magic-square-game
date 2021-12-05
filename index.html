@@ -33,9 +33,9 @@
       <!--  Introduction container -->
       <div id='container-intro' class='intro-text'>
 
-        <p><br>Welcome to the Magic Square Game ! <br>
-          <br> This game will test your mathematical skills and challenge you to solve magic squares <br>
-          <br> Use the Settings button to change to game settings or click Play to jump right in ! <br><br>
+        <p><br>Welcome to the Magic Square Game !</p>
+          <p> This game will test your mathematical skills and challenge you to solve magic squares </p>
+          <p> Use the Settings button to change to game settings or click Play to jump right in ! </p>
           <button class='btn' id='start-button'>Start Game !</button>
         </p>
       </div>
@@ -66,14 +66,20 @@
           <button class='btn btn-diff btn-click' id="button-diff-easy"> Easy </button>
           <button class='btn btn-diff' id="button-diff-medium"> Medium </button>
           <button class='btn btn-diff' id="button-diff-hard"> Hard </button>
-          <p class='text-diff-easy settings-text-diff'>The default option; expect smaller numbers that are easier to solve</p>
-          <p class='text-diff-medium settings-text-diff hide'>More of a challenge ! Expect larger numbers that will take longer to solve</p>
-          <p class='text-diff-hard settings-text-diff hide'>The hardest setting; for users that really want to test their mathematical abilities !</p>
+          <div>  
+            <p class='text-diff-easy settings-text-diff'>The default option; expect smaller numbers that are easier to solve</p>
+            <p class='text-diff-medium settings-text-diff hide'>More of a challenge ! Expect larger numbers which will make the Magic Square more difficult to solve</p>
+            <p class='text-diff-hard settings-text-diff hide'>The hardest setting; for users that really want a real challenge....</p>
+          </div>
         </div>
       </div>
 
       <!--  Game Container -->
       <div id='container-game' class="hide">
+        <div class="game-margin-top">
+          <!-- Empty container to create space at top of magic square -->
+          &nbsp;
+        </div>
         <div class="alert hide" id="wrong-ans-msg">
           <!-- The wrong answer message text will be inserted here -->
         </div>
