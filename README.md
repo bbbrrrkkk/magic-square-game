@@ -67,20 +67,36 @@ Overview of the site features:
 
 - **Introduction Container**
 
+  - <details>
+    <summary>Screenshot:</summary>
+    <img src="./docs/images/screenshot-01-intro.png" alt="intro-container"/>
+    </details>
   - Overview of feature 1
 
 
 - **Instructions Container**
-
+  
+  - <details>
+    <summary>Screenshot:</summary>
+    <img src="./docs/images/screenshot-02-instructions.png" alt="intro-container"/>
+    </details>
   - Overview of feature 1
 
 
 - **Settings Container**
 
+  - <details>
+    <summary>Screenshot:</summary>
+    <img src="./docs/images/screenshot-03-settings.png" alt="intro-container"/>
+    </details>
   - Overview of feature 1
 
 - **Game Container**
 
+  - <details>
+    <summary>Screenshot:</summary>
+    <img src="./docs/images/screenshot-04-game.png" alt="intro-container"/>
+    </details>
   - Overview of feature 1
 
 
