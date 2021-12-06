@@ -91,7 +91,7 @@ The following section provides an overview of the site features and design, with
 
   - <details>
     <summary><strong>Screenshot:</strong></summary>
-    <img src="./docs/images/screenshot-03-settings.png" alt="settings-container"/>
+    <img src="./docs/images/screenshot-03-settings.png" alt="settingscd-container"/>
     </details>
   - Overview of feature 1
 
