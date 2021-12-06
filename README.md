@@ -72,7 +72,7 @@ The following section provides an overview of the site features and design, with
 - **Introduction Container**
 
   - <details>
-    <summary><strong>Screenshot:</strong></summary>
+    <summary><strong style="color:skyblue">Screenshot:</strong></summary>
     <img src="./docs/images/screenshot-01-intro.png" alt="intro-container"/>
     </details>
   - Overview of feature 1
@@ -81,7 +81,7 @@ The following section provides an overview of the site features and design, with
 - **Instructions Container**
   
   - <details>
-    <summary><strong>Screenshot:</strong></summary>
+    <summary><strong style="color:skyblue">Screenshot:</strong></summary>
     <img src="./docs/images/screenshot-02-instructions.png" alt="intro-container"/>
     </details>
   - Overview of feature 1
@@ -90,7 +90,7 @@ The following section provides an overview of the site features and design, with
 - **Settings Container**
 
   - <details>
-    <summary><strong>Screenshot:</strong></summary>
+    <summary><strong style="color:skyblue">Screenshot:</strong></summary>
     <img src="./docs/images/screenshot-03-settings.png" alt="settingscd-container"/>
     </details>
   - Overview of feature 1
@@ -98,11 +98,11 @@ The following section provides an overview of the site features and design, with
 - **Game Container**
 
   - <details>
-    <summary><strong>Screenshot 01:</strong></summary>
+    <summary><strong style="color:skyblue">Screenshot 01:</strong></summary>
     <img src="./docs/images/screenshot-04-game-01.png" alt="game-container-01"/>
     </details>
   - <details>
-    <summary><strong>Screenshot 02:</strong></summary>
+    <summary><strong style="color:skyblue">Screenshot 02:</strong></summary>
     <img src="./docs/images/screenshot-04-game-02.png" alt="game-container-02"/>
     </details>
   - Overview of feature 1
@@ -110,7 +110,7 @@ The following section provides an overview of the site features and design, with
 - **Responsive Design**
 
   - <details>
-    <summary><strong>Screenshot:</strong></summary>
+    <summary><strong style="color:skyblue">Screenshot:</strong></summary>
     <img src="./docs/images/screenshot-03-settings-responsive.png" alt="responsive-design"/>
     </details>
   - Overview of feature 1
