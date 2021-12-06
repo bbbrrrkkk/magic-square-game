@@ -62,14 +62,18 @@ Overview of the site features:
 
 ### Existing Features
 
-- __Feature 1__
+- **Feature 1**
 
   - Overview of feature 1
 
 
-### Features Left to Implement
+### Potential Additional Features
 
-- Another feature idea
+Overall, I am satisfied with the functionality and feature set of the developed site. In terms of additional features, I believe the game could be further enhanced through the addition of a scoreboard feature.
+
+- **Scoreboard**
+This would provide users with the ability to view their scores; I would propose 
+
 
 ## Testing 
 
@@ -78,7 +82,7 @@ Description of testing
 ### Validator Testing 
 
 - HTML
-    - Results of running the site through the official [W3C validator](https://validator.w3.org/) 
+    - No errors were reported when running the code through the official [W3C validator](https://validator.w3.org/) 
 - CSS
     - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fvalidator.w3.org%2Fnu%2F%3Fdoc%3Dhttps%253A%252F%252Fcode-institute-org.github.io%252Flove-maths%252F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 - JavaScript

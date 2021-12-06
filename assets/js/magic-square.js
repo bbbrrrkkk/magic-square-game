@@ -35,7 +35,7 @@ document.getElementById('reset-button').addEventListener('click', resetGame); //
 document.addEventListener("DOMContentLoaded", function() {
     $('#container-intro').fadeIn(1600); 
     console.log(genSquare());
-    makeSquare(genSquare());
+    squareArraySorted = makeSquare(genSquare());
     resizeSquare(SquareSize);
 })
 
@@ -100,7 +100,7 @@ function playGame() {
     $('#container-game').removeClass('hide'); 
     $('#play-button').addClass('hide');
     $('#reset-button').removeClass('hide');
-    makeSquare(genSquare());
+    squareArraySorted = makeSquare(genSquare());
     resizeSquare(SquareSize);
 }
 
@@ -175,7 +175,7 @@ function SetSquareSize(clicked) {
 
     if (this.id == 'button-small-size') {
         SquareSize = 3;
-        makeSquare(genSquare());
+        squareArraySorted = makeSquare(genSquare());
         resizeSquare(SquareSize);
         console.log(SquareSize);
         addClass('#button-small-size', '.btn-size', 'btn-click'); // changing button color
@@ -184,7 +184,7 @@ function SetSquareSize(clicked) {
     }
     if (this.id == 'button-medium-size') {
         SquareSize = 5;
-        makeSquare(genSquare());
+        squareArraySorted = makeSquare(genSquare());
         resizeSquare(SquareSize);
         console.log(SquareSize);
         addClass('#button-medium-size', '.btn-size', 'btn-click');  // changing button color        
@@ -193,7 +193,7 @@ function SetSquareSize(clicked) {
     
     if (this.id == 'button-large-size') {
         SquareSize = 7;
-        makeSquare(genSquare());
+        squareArraySorted = makeSquare(genSquare());
         resizeSquare(SquareSize);
         console.log(SquareSize);
         addClass('#button-large-size', '.btn-size', 'btn-click'); // changing button color            
@@ -205,21 +205,21 @@ function SetSquareDiff(clicked) {
     console.log(this.id)
     if (this.id == 'button-diff-easy') {
         SquareDiff = 0;
-        makeSquare(genSquare());
+        squareArraySorted = makeSquare(genSquare());
         resizeSquare(SquareSize);
         addClass('#button-diff-easy', '.btn-diff', 'btn-click'); 
         removeClass('.text-diff-easy', '.settings-text-diff', 'hide'); // changing button color           
     }
     if (this.id == 'button-diff-medium') {
         SquareDiff= 2;
-        makeSquare(genSquare());
+        squareArraySorted = makeSquare(genSquare());
         resizeSquare(SquareSize);
         addClass('#button-diff-medium', '.btn-diff', 'btn-click');    
         removeClass('.text-diff-medium', '.settings-text-diff', 'hide'); // changing button color           
     }
     if (this.id == 'button-diff-hard') {
         SquareDiff = 4;
-        makeSquare(genSquare());
+        squareArraySorted = makeSquare(genSquare());
         resizeSquare(SquareSize);
         addClass('#button-diff-hard', '.btn-diff', 'btn-click');    
         removeClass('.text-diff-hard', '.settings-text-diff', 'hide'); // changing button color           
@@ -262,12 +262,12 @@ function resizeSquare(NewSquareSize) {
   square.style.setProperty("font-size", (180/NewSquareSize)+'px'); /* Resizing the font size for the magic square */
 }
 
+/**
+ * Function to create the magic square.
+ * Given an input array, the function will return a flattened sorted array.
+ * @returns reordered array that will solve to a magic square
+ */
 function makeSquare(squareArray){
-    // Defining the base magic square
-    // Function to be written to automatically generate the values array
-
-    // Filling the gird with the k values using the 
-    // MatLab version of the algorithm
     var n = Math.sqrt(squareArray.length); // size of the grid
     
     // Defining an empty square
@@ -294,11 +294,14 @@ function makeSquare(squareArray){
     }
 
     // Flattening square to an array
-    squareArraySorted = square.flat();
+    return square.flat();
 }
 
-
-// Code to remove values:
+/**
+ * Function to randomly generate a list of index values to remove.
+ * Given an magic square of size n, function will generate a list of size n of index values
+ * @returns a list of size n of unique values; there represent index values to be removed from the magic square arry
+ */
 function getIndexToRemove(SquareSize){
     let IndexToRemove = [];
     
