@@ -63,12 +63,16 @@ As a site owner:
 
 Overview of the site features:
 
-### Existing Features
+### JavaScript
+
+
+### Design and Content
+The following section provides an overview of the site features and design, with screenshots providing a visual overview of each feature.
 
 - **Introduction Container**
 
   - <details>
-    <summary>Screenshot:</summary>
+    <summary><strong>Screenshot:</strong></summary>
     <img src="./docs/images/screenshot-01-intro.png" alt="intro-container"/>
     </details>
   - Overview of feature 1
@@ -77,7 +81,7 @@ Overview of the site features:
 - **Instructions Container**
   
   - <details>
-    <summary>Screenshot:</summary>
+    <summary><strong>Screenshot:</strong></summary>
     <img src="./docs/images/screenshot-02-instructions.png" alt="intro-container"/>
     </details>
   - Overview of feature 1
@@ -86,16 +90,28 @@ Overview of the site features:
 - **Settings Container**
 
   - <details>
-    <summary>Screenshot:</summary>
-    <img src="./docs/images/screenshot-03-settings.png" alt="intro-container"/>
+    <summary><strong>Screenshot:</strong></summary>
+    <img src="./docs/images/screenshot-03-settings.png" alt="settings-container"/>
     </details>
   - Overview of feature 1
 
 - **Game Container**
 
   - <details>
-    <summary>Screenshot:</summary>
-    <img src="./docs/images/screenshot-04-game.png" alt="intro-container"/>
+    <summary><strong>Screenshot 01:</strong></summary>
+    <img src="./docs/images/screenshot-04-game-01.png" alt="game-container-01"/>
+    </details>
+  - <details>
+    <summary><strong>Screenshot 02:</strong></summary>
+    <img src="./docs/images/screenshot-04-game-02.png" alt="game-container-02"/>
+    </details>
+  - Overview of feature 1
+
+- **Responsive Design**
+
+  - <details>
+    <summary><strong>Screenshot:</strong></summary>
+    <img src="./docs/images/screenshot-03-settings-responsive.png" alt="responsive-design"/>
     </details>
   - Overview of feature 1
 
@@ -134,7 +150,7 @@ Testing was completed across a number of platforms as follows:
 
 ### Unfixed Bugs
 
-Description of unfixed / known bugs 
+There are no known bugs present in the final site deployment.
 
 ## Deployment
 
@@ -186,20 +202,22 @@ Getting started with your Portfolio Projects can be daunting, planning your proj
 
 - **[VScode](https://code.visualstudio.com/)**  
 All coding was completed in VS Code.
-
 - **[cdnjs][https://cdnjs.com/libraries/jquery]**
 cdnjs was used as the reference for the jQuery JavaScript library.
-
 - **[coolors.co](https://coolors.co/)**  
 Potential site palettes were tested with Coolors.  
-
 - **[gauger.io](https://gauger.io/fonticon/)**  
 This website was used to generate the favicon using an icon from Font Awesome.
-
 - **[Am I Responsive?](http://ami.responsivedesign.is/)**  
 For rendering the device preview image
-
 - **[https://ecotrust-canada.github.io/](https://ecotrust-canada.github.io/markdown-toc/)**  
-For generating the nicely formatted markdown table of contents
+For generating the formatted table of contents in markdown
+
+Other
+
+- CodeInstitute modules on HTML, CSS and JavaScript.
+- My mentor for his suggestions and feedback on the project.
+- My friends who helped test the logic and design of the website.
+- My teacher in National School who first introduced me to Magic Squares.
 
 - - - 
