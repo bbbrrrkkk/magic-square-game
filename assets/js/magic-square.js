@@ -1,27 +1,10 @@
 // Defining constants for classes
 const square = document.querySelector(".magic-square");
-//const hintArea = document.querySelector("#hint-msg");
-//const successArea = document.querySelector("#correct-ans-msg");
-//const wrongArea = document.querySelector("#wrong-ans-msg");
 
 // Setting initial values for Magic Square
 let SquareSize = 3; // Assumed Magic Square is size three by default
 let SquareDiff = 0; // Assumed difficulty level is set to easy - corresponding to a increment value of 0
 let squareArraySorted = [3,5,7,4,9,2,8,1,6]; // Initial magic square array sorted 
-
-// Defining constants for button names
-//const submitBtn = document.getElementById('submit-button');
-//const playBtn = document.getElementById('play-button');
-//const hintBtn = document.getElementById('hint-button');
-//const settingsBtn = document.getElementById('settings-button');
-//const instructionsBtn = document.getElementById('instructions-button');
-//const resetBtn = document.getElementById('reset-button');
-//const startBtn = document.getElementById('start-button');
-
-// Defining container ids
-//const ContainerInstructions = document.getElementById('container-instructions');
-//const ContainerSettings = document.getElementById('container-settings');
-//const ContainerGame = document.getElementById('container-game');
 
 // Code to run functions when buttons are pressed:
 document.getElementById('submit-button').addEventListener('click', checkAnswer); // submit button
@@ -29,7 +12,7 @@ document.getElementById('hint-button').addEventListener('click', showHint); // h
 document.getElementById('play-button').addEventListener('click', playGame); // start button
 document.getElementById('settings-button').addEventListener('click', gameSettings); // settings button
 document.getElementById('instructions-button').addEventListener('click', gameInstructions); // settings button
-document.getElementById('reset-button').addEventListener('click', resetGame); // settings button
+document.getElementById('reset-button').addEventListener('click', resetGame); // reset button
 
 // Once page has loaded, all code in this function will run:
 document.addEventListener("DOMContentLoaded", function() {
@@ -53,12 +36,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 function gameSettings() {
-    //ContainerInstructions.classList.add('hide')
-    //ContainerGame.classList.add('hide')
-    //ContainerSettings.classList.remove('hide')
-    
-    //resetBtn.classList.add('hide') // hiding the reset button;
-    //playBtn.classList.remove('hide') // unhiding the start button;
     $('#container-instructions').addClass('hide');
     $('#container-game').addClass('hide');  
     $('#container-settings').removeClass('hide');
@@ -69,13 +46,6 @@ function gameSettings() {
 }
 
 function gameInstructions() {
-    // ContainerInstructions.classList.remove('hide')
-    // ContainerGame.classList.add('hide')
-    // ContainerSettings.classList.add('hide')
-    // clearHint() // Clearing the hint if player moves back to Instructions 
-    // resetBtn.classList.add('hide') // hiding the reset button;
-    // playBtn.classList.remove('hide') // unhiding the start button;
-
     $('#container-instructions').removeClass('hide');
     $('#container-game').addClass('hide'); 
     $('#container-settings').addClass('hide'); 
@@ -86,33 +56,26 @@ function gameInstructions() {
 
 
 function playGame() {
-    // ContainerSettings.classList.add('hide')
-    // ContainerInstructions.classList.add('hide')
-    // ContainerGame.classList.remove('hide')
-    // makeSquare(genSquare());
-    // resizeSquare(SquareSize);
-    // console.log('Game has started');
-    // playBtn.classList.add('hide'); //hide the start button; reset button will be used to start the game
-    // resetBtn.classList.remove('hide') // unhiding the reset button
-
     $('#container-settings').addClass('hide'); 
     $('#container-instructions').addClass('hide');
     $('#container-game').removeClass('hide'); 
     $('#play-button').addClass('hide');
     $('#reset-button').removeClass('hide');
+    hideMessages();
     squareArraySorted = makeSquare(genSquare());
     resizeSquare(SquareSize);
 }
 
 function resetGame() {
     playGame(); 
-    //successArea.classList.add('hide');
-    //hintArea.classList.add('hide');
-    //wrongArea.classList.add('hide');
+    hideMessages();
+}
+
+
+function hideMessages() {
     $("#correct-ans-msg").addClass('hide');
     $('#hint-msg').addClass('hide');
     $('#wrong-ans-msg').addClass('hide');
-
 }
 
 /**
@@ -140,7 +103,6 @@ function showHint() {
  * Clears the hint area
  */
 function clearHint() {
-    //hintArea.innerHTML = ''; // clearing the hint
     $('#hint-msg').html('')
 }
 
@@ -168,59 +130,48 @@ function removeClass(clickedBtn, targetClass, classToRemove) {
     }    
 
 /**
- * Reads the button id and sets the square size parameter. reSize square function call to resize the Magic Square.
+ * Reads the button id and sets the square size parameter. 
  * @param {*} clicked 
  */
 function SetSquareSize(clicked) {
 
     if (this.id == 'button-small-size') {
         SquareSize = 3;
-        squareArraySorted = makeSquare(genSquare());
-        resizeSquare(SquareSize);
-        console.log(SquareSize);
         addClass('#button-small-size', '.btn-size', 'btn-click'); // changing button color
         removeClass('.text-small-grid', '.settings-text-grid', 'hide'); // changing button color       
     
     }
     if (this.id == 'button-medium-size') {
         SquareSize = 5;
-        squareArraySorted = makeSquare(genSquare());
-        resizeSquare(SquareSize);
-        console.log(SquareSize);
         addClass('#button-medium-size', '.btn-size', 'btn-click');  // changing button color        
         removeClass('.text-medium-grid', '.settings-text-grid', 'hide'); // changing button color
     }
     
     if (this.id == 'button-large-size') {
         SquareSize = 7;
-        squareArraySorted = makeSquare(genSquare());
-        resizeSquare(SquareSize);
-        console.log(SquareSize);
         addClass('#button-large-size', '.btn-size', 'btn-click'); // changing button color            
         removeClass('.text-large-grid', '.settings-text-grid', 'hide'); // changing button color            
     }
 }  
 
+/**
+ * Function to set the square difficulty based on user input
+ * Default difficulty is easy
+ */
 function SetSquareDiff(clicked) {
-    console.log(this.id)
+    
     if (this.id == 'button-diff-easy') {
         SquareDiff = 0;
-        squareArraySorted = makeSquare(genSquare());
-        resizeSquare(SquareSize);
         addClass('#button-diff-easy', '.btn-diff', 'btn-click'); 
         removeClass('.text-diff-easy', '.settings-text-diff', 'hide'); // changing button color           
     }
     if (this.id == 'button-diff-medium') {
         SquareDiff= 2;
-        squareArraySorted = makeSquare(genSquare());
-        resizeSquare(SquareSize);
         addClass('#button-diff-medium', '.btn-diff', 'btn-click');    
         removeClass('.text-diff-medium', '.settings-text-diff', 'hide'); // changing button color           
     }
     if (this.id == 'button-diff-hard') {
         SquareDiff = 4;
-        squareArraySorted = makeSquare(genSquare());
-        resizeSquare(SquareSize);
         addClass('#button-diff-hard', '.btn-diff', 'btn-click');    
         removeClass('.text-diff-hard', '.settings-text-diff', 'hide'); // changing button color           
     }

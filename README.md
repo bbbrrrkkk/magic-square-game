@@ -56,13 +56,30 @@ As a site owner:
 [Game page](https://wireframe.cc/FEA7MX)
 
 
-## Features 
+## JavaScript
+
+
+## Layout and Features
 
 Overview of the site features:
 
 ### Existing Features
 
-- **Feature 1**
+- **Introduction Container**
+
+  - Overview of feature 1
+
+
+- **Instructions Container**
+
+  - Overview of feature 1
+
+
+- **Settings Container**
+
+  - Overview of feature 1
+
+- **Game Container**
 
   - Overview of feature 1
 
@@ -75,9 +92,17 @@ Overall, I am satisfied with the functionality and feature set of the developed 
 This would provide users with the ability to view their scores; I would propose 
 
 
+
+
 ## Testing 
 
-Description of testing
+### Device Testing
+
+Testing was completed across a number of platforms as follows:
+
+- The site was tested on Chrome, Firefox and Safari
+- Platform specific testing was completed on Windows and Linux desktop environments. Mobile testing was completed on iOS
+- The site responsiveness was tested across both Apple phones and tables. In addition, responsiveness was tested using Chrome Dev Tools, wth screen sizes from `280px` (Galaxy Fold) upwards tested.
 
 ### Validator Testing 
 
@@ -97,29 +122,22 @@ Description of unfixed / known bugs
 
 ## Deployment
 
-Link to live deployment on GitHub pages
+The site was deployed using GitHub pages at the following location: [link](https://eoinlarkin.github.io/magic-square-game/)
 
 ## Attribution 
 
 - The following guide was used to create the text gradients [link](https://fossheim.io/writing/posts/css-text-gradient/)
 - The following StackOverFlow post was used to help implement the fadeIn and fadeOut functionality of the `container-intro` div: [link](https://stackoverflow.com/questions/12584481/simple-fade-in-fade-out-div-with-jquery-on-click)
 - Sample code was leveraged from the following CodePen example to create the animated gradient for the title [link](https://codepen.io/bsander/pen/pPpbNm?editors=1100)
+- The following paper was used to better understand the algorithim to generate the Magic Square
 
 
 ### Content 
 
 - The text for the Home page was taken from Wikipedia Article A
-- Instructions on how to implement form validation on the Sign Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
-
-### Media
-Links to Media that were used for the site:
-
-- The photos used on the home and sign up page are from This Open Source site
-- The images used for the gallery page were taken from this other open source site
 
 
-Congratulations on completing your Readme, you have made another big stride in the direction of being a developer! 
+
 
 ## Other General Project Advice
 

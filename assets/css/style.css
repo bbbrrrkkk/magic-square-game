@@ -81,8 +81,7 @@ p {
   }
 
   #container-instructions img {
-    min-width: 25rem;
-    width: 100%;
+    max-width: 100%;
     image-rendering: -webkit-optimize-contrast; /* fixing blurry image */
   }
 
