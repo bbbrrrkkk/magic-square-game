@@ -81,8 +81,9 @@ p {
   }
 
   #container-instructions img {
-    max-width: 35rem;
+    min-width: 25rem;
     width: 100%;
+    image-rendering: -webkit-optimize-contrast; /* fixing blurry image */
   }
 
 /* **************************************** */
@@ -111,6 +112,11 @@ p {
 .gradient-text:hover{
   animation: rainbow 2s ease-in-out infinite;
   transition: color .2s ease-in-out;
+}
+
+/* mouse over link */
+.gradient-text > a:hover {
+  text-decoration: none;
 }
 
 @keyframes rainbow { 
