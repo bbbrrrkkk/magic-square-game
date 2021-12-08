@@ -4,7 +4,6 @@
 
 ## To Do:
 
-- Add variable hints (eg. 1,2,3 hints)
 - Fix the footer issue; need footer for fade in
 - Resize the hint boxes
 - Create image for showing players how to play
@@ -58,15 +57,30 @@ As a site owner:
 
 ## JavaScript
 
+### JavaScript
+
+JavaScript was used to achieve the following functionality:
+
+- To control user responses to button presses and to validate user inputs
+- To dynamically create the values for the Magic Square that the user will solve
+
 
 ## Layout and Features
 
 Overview of the site features:
 
-### JavaScript
+### Fonts
+
+### Color Scheme
+
+<img src="./docs/images/magic-square-palette.png" alt="color-palette" width=400px height=300px>
+
+A broad color palette was chosen for the site with a range of complimenting colors chosen.
+
+In choosing the color palette, my objective was to select a color palette that would create a strong sense of identity as well as suggest a playful, fun game.
 
 
-### Design and Content
+### Layout and Features
 The following section provides an overview of the site features and design, with screenshots providing a visual overview of each feature.
 
 - **Introduction Container**
@@ -75,7 +89,8 @@ The following section provides an overview of the site features and design, with
     <summary><strong style="color:skyblue">Screenshot:</strong></summary>
     <img src="./docs/images/screenshot-01-intro.png" alt="intro-container"/>
     </details>
-  - Overview of feature 1
+  - The Introduction pane welcomes the user to the site and features a call to action.
+  - I originally planned a site logo, however ultimately I used a text logo; this logo animates when the user hovers over it and adds to overall identity of the site. 
 
 
 - **Instructions Container**
@@ -146,6 +161,12 @@ Testing was completed across a number of platforms as follows:
 - JavaScript
     - No errors were found when passing through the official [Jshint validator](https://jshint.com/)
       - Include metrics on the Jshint validator: 
+
+
+### Bugs
+
+The min max values returned NaN - this was fixed by referencing the following link :
+https://medium.com/@vladbezden/how-to-get-min-or-max-of-an-array-in-javascript-1c264ec6e1aa
 
 
 ### Unfixed Bugs

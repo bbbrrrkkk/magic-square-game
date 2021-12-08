@@ -6,6 +6,17 @@ let SquareSize = 3; // Assumed Magic Square is size three by default
 let SquareDiff = 0; // Assumed difficulty level is set to easy - corresponding to a increment value of 0
 let squareArraySorted = [3,5,7,4,9,2,8,1,6]; // Initial magic square array sorted 
 
+// Setting variable to count clicks on Hint button
+var hintClicks = 0; // should be var not int
+  
+function hintClickUpdate() {
+        if (hintClicks == 4){
+            hintClicks = 4;
+        }
+        else {hintClicks += 1}
+        console.log(hintClicks);
+ }
+
 // Code to run functions when buttons are pressed:
 document.getElementById('submit-button').addEventListener('click', checkAnswer); // submit button
 document.getElementById('hint-button').addEventListener('click', showHint); // hint button
@@ -41,8 +52,8 @@ function gameSettings() {
     $('#container-settings').removeClass('hide');
     $('#reset-button').addClass('hide');
     $('#play-button').removeClass('hide');
-    clearHint() // Clearing the hint if player moves back to Settings 
-
+    clearHint(); // Clearing the hint if player moves back to Settings 
+    hintClicks = 0; // Resetting the hint button counter if the player moves back to settings
 }
 
 function gameInstructions() {
@@ -51,7 +62,8 @@ function gameInstructions() {
     $('#container-settings').addClass('hide'); 
     $('#reset-button').addClass('hide');
     $('#play-button').removeClass('hide');
-    clearHint()
+    clearHint();
+    hintClicks = 0; // Resetting the hint button counter if the player moves back to the Instructions
 }
 
 
@@ -69,8 +81,8 @@ function playGame() {
 function resetGame() {
     playGame(); 
     hideMessages();
+    hintClicks = 0; // Resetting the hint button counter if the player resets the game
 }
-
 
 function hideMessages() {
     $("#correct-ans-msg").addClass('hide');
@@ -83,14 +95,54 @@ function hideMessages() {
  * Hint values are extracted from the sorted array containing the magic square values
  */
 function showHint() {
-    //hintArea.classList.remove('hide');
+    hintClickUpdate();
     $('#hint-msg').removeClass('hide');
-    let out = '<strong>Hint!</strong><br>Try the following values: '
-    for(i=0; i<SquareSize; i++) {
-        out += squareArraySorted[IndexToRemove[i]];
-        if(i != SquareSize-1){out += ', '}
+    let out;
+
+    // Code to generate the hint on the first click
+    if (hintClicks == 1) {
+        out = '<strong>Hint!</strong><br>Each row, column and diagonal should sum to '
+        let sumVals = 0;
+        for(i=0; i<SquareSize; i++) {
+            sumVals += parseInt(squareArraySorted[i]);
+        }
+        out = out + sumVals + '.';
+        }
+
+    // Code to generate the hint on the second click
+    if (hintClicks == 2) {
+        out = '<strong>Hint!</strong><br>The largest missing value is '
+        let missingVals = [];
+        for(i=0; i<SquareSize; i++) {
+            missingVals.push(parseInt(squareArraySorted[IndexToRemove[i]]));
+            console.log(missingVals);
+            console.log(Math.min.apply(missingVals));
+        }
+        out = out + Math.max.apply(Math,missingVals) + '.';
     }
-    out += '.'
+
+    // Code to generate the hint on the third click
+    if (hintClicks == 3) {
+        out = '<strong>Hint!</strong><br>The smallest missing value is '
+        let missingVals = [];
+        for(i=0; i<SquareSize; i++) {
+            missingVals.push(parseInt(squareArraySorted[IndexToRemove[i]]));
+            console.log(missingVals);
+        }
+        out = out + Math.min.apply(Math,missingVals) + '.';
+    }    
+
+    // Code to generate the hint on the fourth click
+    if (hintClicks == 4) {
+        out = '<strong>Hint!</strong><br>Try the following values: '
+        for(i=0; i<SquareSize; i++) {
+            out += squareArraySorted[IndexToRemove[i]];
+            if(i != SquareSize-1){out += ', '}
+        }
+        out += '.'
+    }
+
+    // Display the hint and fade out
     clearHint();
     $('#hint-msg').html(out)
     $('#hint-msg').fadeOut(6000, function() {
