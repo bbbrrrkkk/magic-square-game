@@ -9,6 +9,7 @@ let IndexToRemove = [];
 let SquareSize = 3; // Assumed Magic Square is size three by default
 let SquareDiff = 0; // Assumed difficulty level is set to easy - corresponding to a increment value of 0
 let squareArraySorted = [3,5,7,4,9,2,8,1,6]; // Initial magic square array sorted 
+let gameDiff = 'easy';
 
 // Setting variable to count clicks on Hint button
 var hintClicks = 0; // should be var not int
@@ -25,7 +26,6 @@ document.getElementById('reset-button').addEventListener('click', resetGame); //
 // Once page has loaded, all code in this function will run:
 document.addEventListener("DOMContentLoaded", function() {
     $('#container-intro').fadeIn(1600); 
-    console.log(genSquare());
     squareArraySorted = makeSquare(genSquare());
     resizeSquare(SquareSize);
 });
@@ -78,6 +78,7 @@ function playGame() {
     $('#play-button').addClass('hide');
     $('#reset-button').removeClass('hide');
     hideMessages();
+    SetSquareDiff(); // setting square difficulty based on the value of the squareDiff variable
     squareArraySorted = makeSquare(genSquare());
     resizeSquare(SquareSize);
 }
@@ -108,7 +109,6 @@ function hintClickUpdate() {
         hintClicks = 4;
     }
     else {hintClicks += 1;}
-    console.log(hintClicks);
 }
 
 /**
@@ -136,8 +136,6 @@ function showHint() {
         let missingVals = [];
         for(let i=0; i<SquareSize; i++) {
             missingVals.push(parseInt(squareArraySorted[IndexToRemove[i]]));
-            console.log(missingVals);
-            console.log(Math.min.apply(missingVals));
         }
         out = out + Math.max.apply(Math,missingVals) + '.';
     }
@@ -148,7 +146,6 @@ function showHint() {
         let missingVals = [];
         for(let i=0; i<SquareSize; i++) {
             missingVals.push(parseInt(squareArraySorted[IndexToRemove[i]]));
-            console.log(missingVals);
         }
         out = out + Math.min.apply(Math,missingVals) + '.';
     }    
@@ -185,9 +182,9 @@ document.getElementById('button-medium-size').onclick = SetSquareSize;
 document.getElementById('button-large-size').onclick = SetSquareSize;
 
 /* storing the difficulty when the difficulty button is clicked */
-document.getElementById('button-diff-easy').onclick = SetSquareDiff;
-document.getElementById('button-diff-medium').onclick = SetSquareDiff;
-document.getElementById('button-diff-hard').onclick = SetSquareDiff;
+document.getElementById('button-diff-easy').onclick = RecordDiff;
+document.getElementById('button-diff-medium').onclick = RecordDiff;
+document.getElementById('button-diff-hard').onclick = RecordDiff;
 
 
 function addClass(clickedBtn, targetClass, classToAdd) {
@@ -204,12 +201,28 @@ function removeClass(clickedBtn, targetClass, classToRemove) {
         $(clickedBtn).removeClass(classToRemove);}
     }    
 
-/**
- * Reads the button id and sets the square size parameter. 
- * @param {*} clicked 
- */
-function SetSquareSize(clicked) {
+function RecordDiff(clicked) {
 
+    if (this.id == 'button-diff-easy') {
+        gameDiff = 'easy';
+        addClass('#button-diff-easy', '.btn-diff', 'btn-click'); 
+        removeClass('.text-diff-easy', '.settings-text-diff', 'hide'); // changing button color          
+        }
+    if (this.id == 'button-diff-medium') {
+        gameDiff = 'medium';
+        addClass('#button-diff-medium', '.btn-diff', 'btn-click');    
+        removeClass('.text-diff-medium', '.settings-text-diff', 'hide'); // changing button color           
+        }
+    
+    if (this.id == 'button-diff-hard') {
+        gameDiff = 'hard';
+        addClass('#button-diff-hard', '.btn-diff', 'btn-click');    
+        removeClass('.text-diff-hard', '.settings-text-diff', 'hide'); // changing button color     
+        }
+    }     
+
+
+function SetSquareSize(clicked) {
     if (this.id == 'button-small-size') {
         SquareSize = 3;
         addClass('#button-small-size', '.btn-size', 'btn-click'); // changing button color
@@ -229,39 +242,43 @@ function SetSquareSize(clicked) {
     }
 }  
 
+
+/**
+ * Function to generate a random integer within a given range
+ */
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+  }
+
 /**
  * Function to set the square difficulty based on user input
  * Default difficulty is easy
  */
-function SetSquareDiff(clicked) {
+function SetSquareDiff() {
     
-    if (this.id == 'button-diff-easy') {
-        SquareDiff = 0;
-        addClass('#button-diff-easy', '.btn-diff', 'btn-click'); 
-        removeClass('.text-diff-easy', '.settings-text-diff', 'hide'); // changing button color           
+    if (gameDiff == 'easy') {
+        SquareDiff = getRandomInt(0,3);    
     }
-    if (this.id == 'button-diff-medium') {
-        SquareDiff= 2;
-        addClass('#button-diff-medium', '.btn-diff', 'btn-click');    
-        removeClass('.text-diff-medium', '.settings-text-diff', 'hide'); // changing button color           
+    if (gameDiff == 'medium') {
+        SquareDiff = getRandomInt(2,5);
+
     }
-    if (this.id == 'button-diff-hard') {
-        SquareDiff = 4;
-        addClass('#button-diff-hard', '.btn-diff', 'btn-click');    
-        removeClass('.text-diff-hard', '.settings-text-diff', 'hide'); // changing button color           
+    if (gameDiff == 'hard') {
+        SquareDiff = getRandomInt(4,7);
     }
 }  
 
 /**
  * Function to generate the magic square values
- * @returns an order array of the magic square values 
+ * @returns an array of the magic square values in increasing numerical order 
  */
 function genSquare() {
     let foo = [];
     for (var i = 1; i <= SquareSize**2; i++) {
         foo.push(i+(SquareDiff*(i-1)));
     }
-    console.log(foo);
     return foo;
 }
 
@@ -272,7 +289,6 @@ function genSquare() {
  * New grid size is specified as argument in the function call.
  */
 function resizeSquare(NewSquareSize) {
-  console.log(squareArraySorted);
   square.innerHTML = ''; /* Clearing HTML content */
 
   IndexToRemove = getIndexToRemove(NewSquareSize);  
@@ -309,7 +325,6 @@ function makeSquare(squareArray){
     for(var k=0; k<squareArray.length; k++) {
         let is = i;
         let js = j;
-        //console.log('i equals:' + i + 'j equals:' + j)
         square[i-1][j-1] = squareArray[k];
         i = n - (n+1-i)%(n);
         j = (j%n) + 1;
@@ -318,7 +333,7 @@ function makeSquare(squareArray){
             j = js;
         }
     }
-
+    console.table(square);
     // Flattening square to an array
     return square.flat();
 }
