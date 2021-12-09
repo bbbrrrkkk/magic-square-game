@@ -176,12 +176,12 @@ Testing was completed across a number of platforms as follows:
 
 Performance was tested using Lighthouse in Chrome Dev Tools. No significant issues were reported for either Desktop of Mobile
 
-- **Desktop Results**
-  ![lighthouse-desktop](docs/lighthouse/lighthouse-desktop.png)
+- **Desktop Results**  
+  ![lighthouse-desktop](docs/lighthouse/lighthouse-desktop.png)  
   The full report can be found [here](docs/lighthouse/lighthouse-desktop.pdf)
 
-- **Mobile Results**
-  ![lighthouse-mobile](docs/lighthouse/lighthouse-mobile.png)
+- **Mobile Results**  
+  ![lighthouse-mobile](docs/lighthouse/lighthouse-mobile.png)  
   The full report can be found [here](docs/lighthouse/lighthouse-mobile.pdf)
 
 
@@ -193,8 +193,9 @@ Performance was tested using Lighthouse in Chrome Dev Tools. No significant issu
     - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Feoinlarkin.github.io%2Fmagic-square-game%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
     - A number of warnings were triggered; however these related to the use of vendor extensions to enable the animation of the main title (e.g. `-moz-text-fill-color`)
 - JavaScript
-    - No errors were found when passing through the official [Jshint validator](https://jshint.com/)
-      - Include metrics on the Jshint validator: 
+    - No errors were found when passing through the official [Jshint validator](https://jshint.com/).
+    - The following screenshot summarises the output: ![jshint](docs/jshint/jshint-output.png)
+      
 
 
 ### Bugs
@@ -273,6 +274,6 @@ Other
 - CodeInstitute modules on HTML, CSS and JavaScript.
 - My mentor for his suggestions and feedback on the project.
 - My friends who helped test the logic and design of the website.
-- My teachers who first introduced me to Magic Squares and the elegance of mathematics.
+- My teachers who first introduced me to Magic Squares and the symmetries that exist in mathematics.
 
 - - - 

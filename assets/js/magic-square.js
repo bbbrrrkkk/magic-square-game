@@ -1,7 +1,11 @@
+/*jshint esversion: 7 */
+/*globals $ */
+
 // Defining constants for classes
 const square = document.querySelector(".magic-square");
 
 // Setting initial values for Magic Square
+let IndexToRemove = [];
 let SquareSize = 3; // Assumed Magic Square is size three by default
 let SquareDiff = 0; // Assumed difficulty level is set to easy - corresponding to a increment value of 0
 let squareArraySorted = [3,5,7,4,9,2,8,1,6]; // Initial magic square array sorted 
@@ -9,14 +13,6 @@ let squareArraySorted = [3,5,7,4,9,2,8,1,6]; // Initial magic square array sorte
 // Setting variable to count clicks on Hint button
 var hintClicks = 0; // should be var not int
   
-function hintClickUpdate() {
-        if (hintClicks == 4){
-            hintClicks = 4;
-        }
-        else {hintClicks += 1}
-        console.log(hintClicks);
- }
-
 // Code to run functions when buttons are pressed:
 document.getElementById('submit-button').addEventListener('click', checkAnswer); // submit button
 document.getElementById('hint-button').addEventListener('click', showHint); // hint button
@@ -25,13 +21,14 @@ document.getElementById('settings-button').addEventListener('click', gameSetting
 document.getElementById('instructions-button').addEventListener('click', gameInstructions); // settings button
 document.getElementById('reset-button').addEventListener('click', resetGame); // reset button
 
+
 // Once page has loaded, all code in this function will run:
 document.addEventListener("DOMContentLoaded", function() {
     $('#container-intro').fadeIn(1600); 
     console.log(genSquare());
     squareArraySorted = makeSquare(genSquare());
     resizeSquare(SquareSize);
-})
+});
 
 // Code to run once the user has clicked on the 'Start Game' button
   $('#start-button').bind('click', function() {  
@@ -43,9 +40,11 @@ document.addEventListener("DOMContentLoaded", function() {
         $('#hint-button').removeClass('hide');
         $('#settings-button').removeClass('hide');    
     });
-})
+});
 
-
+/**
+ * Function to show the game settings; unused containers are hidden
+ */
 function gameSettings() {
     $('#container-instructions').addClass('hide');
     $('#container-game').addClass('hide');  
@@ -56,6 +55,9 @@ function gameSettings() {
     hintClicks = 0; // Resetting the hint button counter if the player moves back to settings
 }
 
+/**
+ * Function to show the game instructions; unused containers are hidden
+ */
 function gameInstructions() {
     $('#container-instructions').removeClass('hide');
     $('#container-game').addClass('hide'); 
@@ -66,7 +68,9 @@ function gameInstructions() {
     hintClicks = 0; // Resetting the hint button counter if the player moves back to the Instructions
 }
 
-
+/**
+ * Function to play the game; unused containers are hidden
+ */
 function playGame() {
     $('#container-settings').addClass('hide'); 
     $('#container-instructions').addClass('hide');
@@ -78,16 +82,33 @@ function playGame() {
     resizeSquare(SquareSize);
 }
 
+/**
+ * Function to reset the game and play again
+ */
 function resetGame() {
     playGame(); 
     hideMessages();
     hintClicks = 0; // Resetting the hint button counter if the player resets the game
 }
 
+/**
+ * Function to hide the messages that appear on game page for hints, correct submissions and wrong submissions
+ */
 function hideMessages() {
     $("#correct-ans-msg").addClass('hide');
     $('#hint-msg').addClass('hide');
     $('#wrong-ans-msg').addClass('hide');
+}
+
+/**
+ * Function to update the button press count for the hint button; the maximum value is 4
+ */
+function hintClickUpdate() {
+    if (hintClicks == 4){
+        hintClicks = 4;
+    }
+    else {hintClicks += 1;}
+    console.log(hintClicks);
 }
 
 /**
@@ -101,9 +122,9 @@ function showHint() {
 
     // Code to generate the hint on the first click
     if (hintClicks == 1) {
-        out = '<strong>Hint!</strong><br>Each row, column and diagonal should sum to '
+        out = '<strong>Hint!</strong><br>Each row, column and diagonal should sum to ';
         let sumVals = 0;
-        for(i=0; i<SquareSize; i++) {
+        for(let i=0; i<SquareSize; i++) {
             sumVals += parseInt(squareArraySorted[i]);
         }
         out = out + sumVals + '.';
@@ -111,9 +132,9 @@ function showHint() {
 
     // Code to generate the hint on the second click
     if (hintClicks == 2) {
-        out = '<strong>Hint!</strong><br>The largest missing value is '
+        out = '<strong>Hint!</strong><br>The largest missing value is ';
         let missingVals = [];
-        for(i=0; i<SquareSize; i++) {
+        for(let i=0; i<SquareSize; i++) {
             missingVals.push(parseInt(squareArraySorted[IndexToRemove[i]]));
             console.log(missingVals);
             console.log(Math.min.apply(missingVals));
@@ -123,9 +144,9 @@ function showHint() {
 
     // Code to generate the hint on the third click
     if (hintClicks == 3) {
-        out = '<strong>Hint!</strong><br>The smallest missing value is '
+        out = '<strong>Hint!</strong><br>The smallest missing value is ';
         let missingVals = [];
-        for(i=0; i<SquareSize; i++) {
+        for(let i=0; i<SquareSize; i++) {
             missingVals.push(parseInt(squareArraySorted[IndexToRemove[i]]));
             console.log(missingVals);
         }
@@ -134,17 +155,17 @@ function showHint() {
 
     // Code to generate the hint on the fourth click
     if (hintClicks == 4) {
-        out = '<strong>Hint!</strong><br>Try the following values: '
-        for(i=0; i<SquareSize; i++) {
+        out = '<strong>Hint!</strong><br>Try the following values: ';
+        for(let i=0; i<SquareSize; i++) {
             out += squareArraySorted[IndexToRemove[i]];
-            if(i != SquareSize-1){out += ', '}
+            if(i != SquareSize-1){out += ', ';}
         }
-        out += '.'
+        out += '.';
     }
 
     // Display the hint and fade out
     clearHint();
-    $('#hint-msg').html(out)
+    $('#hint-msg').html(out);
     $('#hint-msg').fadeOut(6000, function() {
         $('#hint-msg').removeAttr( 'style');
         $('#hint-msg').addClass('hide');
@@ -155,7 +176,7 @@ function showHint() {
  * Clears the hint area
  */
 function clearHint() {
-    $('#hint-msg').html('')
+    $('#hint-msg').html('');
 }
 
 /* storing the size when a size button is clicked */
@@ -170,15 +191,17 @@ document.getElementById('button-diff-hard').onclick = SetSquareDiff;
 
 
 function addClass(clickedBtn, targetClass, classToAdd) {
-    if($(targetClass).hasClass(classToAdd)) {
+    if($(targetClass).hasClass(classToAdd)) 
+    		{
         $(targetClass).removeClass(classToAdd);
-        $(clickedBtn).addClass(classToAdd);};
+        $(clickedBtn).addClass(classToAdd);
+    		}
     }
 
 function removeClass(clickedBtn, targetClass, classToRemove) {
     if($(targetClass).hasClass(classToRemove)) {
         $(targetClass).addClass(classToRemove);
-        $(clickedBtn).removeClass(classToRemove);};
+        $(clickedBtn).removeClass(classToRemove);}
     }    
 
 /**
@@ -236,7 +259,7 @@ function SetSquareDiff(clicked) {
 function genSquare() {
     let foo = [];
     for (var i = 1; i <= SquareSize**2; i++) {
-        foo.push(i+(SquareDiff*(i-1)))
+        foo.push(i+(SquareDiff*(i-1)));
     }
     console.log(foo);
     return foo;
@@ -249,7 +272,7 @@ function genSquare() {
  * New grid size is specified as argument in the function call.
  */
 function resizeSquare(NewSquareSize) {
-  console.log(squareArraySorted)
+  console.log(squareArraySorted);
   square.innerHTML = ''; /* Clearing HTML content */
 
   IndexToRemove = getIndexToRemove(NewSquareSize);  
@@ -279,7 +302,7 @@ function makeSquare(squareArray){
         square[i] = new Array(n);
     }
 
-    var i = 1; // starting row
+    i = 1; // starting row
     var j = (n+1)/2; // starting column
 
     // Filling the empty square with the array variables
@@ -312,7 +335,7 @@ function getIndexToRemove(SquareSize){
         while (IndexToRemove.length < i+1) {
             let randVal = parseInt(Math.random()*SquareSize**2);
             if (IndexToRemove.includes(randVal)){}
-            else {IndexToRemove.push(randVal)}
+            else {IndexToRemove.push(randVal);}
           }
     }
     return IndexToRemove;
@@ -351,7 +374,7 @@ function checkAnswer(){
         // wrongArea.innerHTML = "That's not quite right....<br><br>Try a <strong>Hint</strong> if you're stuck..!"
         //wrongArea.classList.remove('hide');
         
-        $('#wrong-ans-msg').html("That's not quite right....<br>Try a <strong>Hint</strong> if you're stuck..!")
+        $('#wrong-ans-msg').html("That's not quite right....<br>Try a <strong>Hint</strong> if you're stuck..!");
         $('#wrong-ans-msg').removeClass('hide');
 
         $('#wrong-ans-msg').fadeOut(6000, function() {
