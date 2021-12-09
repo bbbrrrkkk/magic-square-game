@@ -27,7 +27,7 @@ document.getElementById('reset-button').addEventListener('click', resetGame); //
 document.addEventListener("DOMContentLoaded", function() {
     $('#container-intro').fadeIn(1600); 
     squareArraySorted = makeSquare(genSquare());
-    resizeSquare(SquareSize);
+    fillSquare(SquareSize);
 });
 
 // Code to run once the user has clicked on the 'Start Game' button
@@ -80,7 +80,7 @@ function playGame() {
     hideMessages();
     SetSquareDiff(); // setting square difficulty based on the value of the squareDiff variable
     squareArraySorted = makeSquare(genSquare());
-    resizeSquare(SquareSize);
+    fillSquare(SquareSize);
 }
 
 /**
@@ -288,7 +288,7 @@ function genSquare() {
  * Size of the grid dynamically resized.
  * New grid size is specified as argument in the function call.
  */
-function resizeSquare(NewSquareSize) {
+function fillSquare(NewSquareSize) {
   square.innerHTML = ''; /* Clearing HTML content */
 
   IndexToRemove = getIndexToRemove(NewSquareSize);  

@@ -2,11 +2,36 @@
 
 ![am-i-responsive](./docs/images/am-i-responsive.png)
 
+- [Magic Square Game](#magic-square-game)
+  * [Objective](#objective)
+    + [User stories](#user-stories)
+  * [Wireframes](#wireframes)
+  * [JavaScript](#javascript)
+    + [Magic Square Generation](#magic-square-generation)
+    + [Site Interaction](#site-interaction)
+  * [Layout and Features](#layout-and-features)
+    + [Fonts](#fonts)
+    + [Color Scheme](#color-scheme)
+    + [Layout and Features](#layout-and-features-1)
+    + [Potential Additional Features](#potential-additional-features)
+  * [Testing](#testing)
+    + [Device Testing](#device-testing)
+    + [Performance Testing](#performance-testing)
+    + [Validator Testing](#validator-testing)
+    + [Bugs](#bugs)
+    + [Unfixed Bugs](#unfixed-bugs)
+  * [Deployment](#deployment)
+  * [Attribution](#attribution)
+  * [Development](#development)
+    + [Languages](#languages)
+    + [Tools / Technologies](#tools---technologies)
+    + [Other](#other)
+
 ## Objective
 
 The objective of the site is to create a game based on [magic squares](https://en.wikipedia.org/wiki/Magic_square) for the user to solve. 
 
-In developing the site, I decided to dynamically generate the magic squares; this introduced some complexity in the structure of the code but overall led to a more robust game with a large number of permutations for the number of potential magic squares to solve.
+In developing the site, I decided to dynamically generate the magic squares; this introduced some complexity in the structure of the code but overall led to a more robust game with a large number - **773,584,182** - possible permutations for the number of potential magic squares to solve.
 
 ### User stories
 
@@ -24,43 +49,47 @@ As a site owner:
 - I want to ensure that the user base is as wide as possible and that the site works across different platforms and screen sizes
 - I want the ability to dynamically generate the magic squares as opposed to using a library of magic squares to serve to the user to solve
 
+- - - 
+
 ## Wireframes
 
 Before building the site, I mapped out the following wireframes using [wireframe.cc](https://wireframe.cc/). My objective was to target a simple design and to ensure that the intention of each page was clear to the user.
 
   - <details>
     <summary><strong style="color:skyblue">Intro Page Wireframe:</strong></summary>
-    <a href="https://wireframe.cc/cWFJp3" target="_blank">wireframe.cc</a>
+    <a href="https://wireframe.cc/cWFJp3" target="_blank">Wireframe from wireframe.cc</a>
     <img src="./docs/images/wireframe-intro-page.png" alt="wireframe-intro-page"/>
     </details>
 
   - <details>
     <summary><strong style="color:skyblue">Instructions Page Wireframe:</strong></summary>
-    <a href="https://wireframe.cc/C2WVwq" target="_blank">wireframe.cc</a>
+    <a href="https://wireframe.cc/C2WVwq" target="_blank">Wireframe from wireframe.cc</a>
     <img src="./docs/images/wireframe-instructions-page.png" alt="wireframe-instructions-page"/>
     </details>
 
   - <details>
     <summary><strong style="color:skyblue">Settings Page Wirefame:</strong></summary>
-    <a href="https://wireframe.cc/oG2XvV" target="_blank">wireframe.cc</a>
+    <a href="https://wireframe.cc/oG2XvV" target="_blank">Wireframe from wireframe.cc</a>
     <img src="./docs/images/wireframe-settings-page.png" alt="wireframe-settings-page"/>
     </details>
 
   - <details>
     <summary><strong style="color:skyblue">Game Page Wireframe:</strong></summary>
-    <a href="https://wireframe.cc/FEA7MX" target="_blank">wireframe.cc</a>
+    <a href="https://wireframe.cc/FEA7MX" target="_blank">Wireframe from wireframe.cc</a>
     <img src="./docs/images/wireframe-game-page.png" alt="wireframe-game-page"/>
     </details>
 
   - <details>
     <summary><strong style="color:skyblue">Responsive Layout Wireframe:</strong></summary>
-    <a href="https://wireframe.cc/HNiknf" target="_blank">wireframe.cc</a>
+    <a href="https://wireframe.cc/HNiknf" target="_blank">Wireframe from wireframe.cc</a>
     <img src="./docs/images/wireframe-settings-responsive.png" alt="wireframe-settings-responsive"/>
     </details>
 
 On implementing the actual design, I made one minor change - the three control buttons *(Instructions, Settings, Play Game)* were moved from within the game container box. Instead I decided to place these three buttons under the site title.
 
 I felt that this led to an improved user experience, with a clear separation between the game and the controls used to move between the different game sections.
+
+- - - 
 
 ## JavaScript
 
@@ -71,25 +100,34 @@ JavaScript was used to achieve the following functionality:
 
 ### Magic Square Generation
 
-A magic square of length and height of `root` n can be constructed using an array of length `n` of integers increasing by a constant `k`
-
+An array of length `n` can be transformed into a magic square with row and column of size `square root n` if the difference between each consecutive element in the array is a fixed constant `k`. (for example, with `n=9` and `k=0` the sequence `[1,2,3,4,5,6,7,8,9]` forms a solvable magic square of size `3x3`)
 
 In order to randomly generate a magic square, the following inputs are required:
 
-- A sequence of n integers, with a fixed difference k between subsequent integers
-- An algorithm for completing the magic square 
-
-The De la Loubère (or siamese) method is proposed as the algorithm for completing the magic square.
-
+- A sequence of `n` integers, with a fixed difference `k` between subsequent integers 
+- An algorithm for mapping the values such that they form a magic square. The [De la Loubère](https://en.wikipedia.org/wiki/Siamese_method) (or siamese) method is proposed as the algorithm for completing the magic square.  
 ![magic-square-gif](/docs/images/siamese-method.gif)
 
-- Wikipedia page for Magic Squares: [link] 
-- MathLab paper on Magic Squares: 
-- Wikipedia page on the De la Loubère method" [link](https://en.wikipedia.org/wiki/Siamese_method)
+In order to generate the magic square, the following functions were defined:
+
+- **`SetSquareDiff()`**
+- **`genSquare())`**: This function generates an array of length `n` with each consecutive value in the array increasing by a fixed constant `k`
+- The fixed constant `k` is randomly generated and can take 3 different values for each of the difficulty levels
+- **`makeSquare()`**: For an inputted array, this function applies the De la Loubère method to arrange the values into a Magic Square. The function creates a matrix of size `root n` by `root n` before returning a flattened array of length `n`
+- **`fillSquare()`** This function takes an integer value representing the size of the square and performs the following:
+    - Modifies the HTML code to create the square
+    - Populates the square values in the HTML code using the array ordered by the `makeSquare()` function
+    - Randomly removes `root n` values from the completed magic square and replaces them with an input box for completion by the player of the game (e.g. for a square of size 7x7, 7 values are randomly removed for completion by the user)
+
+The fixed constant `k` is randomly generated with 3 possible values for each difficulty level. In addition the values that are removed for completion by the user are also randomly selected. This lends to a large number of potential game combinations as follows:
+
+- **Small Grid size**: 3 difficulty levels by 3 potential values for `k` by 84 combinations for the removed values = 756 possible game combinations
+- **Medium Grid size**: 3 difficulty levels by 3 potential values for `k` by 53,130 combinations for the removed values = 478,170 game combinations
+- **Large Grid size**: 3 difficulty levels by 3 potential values for `k` by 85,900,584 combinations for the removed values = 773,584,182 game combinations
 
 ### Site Interaction
 
-
+- - - 
 
 ## Layout and Features
 
@@ -112,7 +150,6 @@ A broad color palette was chosen for the site with a range of complimenting colo
 
 In choosing the color palette, my objective was to select a color palette that would create a strong visual identity as well as suggest a playful, fun game.
 
-
 ### Layout and Features
 The following section provides an overview of the site features and design, with screenshots providing a visual overview of each feature.
 
@@ -132,16 +169,21 @@ The following section provides an overview of the site features and design, with
     <summary><strong style="color:skyblue">Screenshot:</strong></summary>
     <img src="./docs/images/screenshot-02-instructions.png" alt="intro-container"/>
     </details>
-  - Overview of feature 1
-
+  - The Instructions pane provides the following detail:
+      - Historical information on Magic Squares
+      - Instructions on how to solve the Magic Square
+      - A image providing a graphical visualisation of how to solve the game
 
 - **Settings Container**
 
   - <details>
     <summary><strong style="color:skyblue">Screenshot:</strong></summary>
-    <img src="./docs/images/screenshot-03-settings.png" alt="settingscd-container"/>
+    <img src="./docs/images/screenshot-03-settings.png" alt="settings-container"/>
     </details>
-  - Overview of feature 1
+  - The Setting pane has the following features:
+      - Each button has a shadow on hover by the user
+      - The size and difficulty buttons change color on selection
+      - Text underneath the button provides context on the difficulty and size settings
 
 - **Game Container**
 
@@ -153,7 +195,11 @@ The following section provides an overview of the site features and design, with
     <summary><strong style="color:skyblue">Screenshot 02:</strong></summary>
     <img src="./docs/images/screenshot-04-game-02.png" alt="game-container-02"/>
     </details>
-  - Overview of feature 1
+  - The Game screen displays the Magic Square with the missing values for input by the user
+  - The Hint button is used to generate Hints for the user; there are four possible levels of Hint which are triggered by the number of times the user clicks on the Hint button
+  - On clicking the Submit button, there are two possible responses:
+      - The Success alert displays if the user correctly completes the magic square
+      - The Incorrect alert displays if the user incorrectly completes the magic square
 
 - **Responsive Design**
 
@@ -161,8 +207,7 @@ The following section provides an overview of the site features and design, with
     <summary><strong style="color:skyblue">Screenshot:</strong></summary>
     <img src="./docs/images/screenshot-03-settings-responsive.png" alt="responsive-design"/>
     </details>
-  - Overview of feature 1
-
+  - The site has been designed to be fully responsive for screen sizes from `280px` upwards. For screen sizes less than `525px` in width, the container collapses and spans the width of the screen
 
 ### Potential Additional Features
 
@@ -170,6 +215,8 @@ Overall, I am satisfied with the functionality and feature set of the developed 
 
 - **Scoreboard**
 This would provide users with the ability to view their scores; I would propose implementing a timer, with the user assigned a scored based on how quickly they managed to solve the Magic Square. The feature would require the use of local storage to record the user name and score and allow multiple users to play against each other.
+
+- - - 
 
 ## Testing 
 
@@ -206,21 +253,38 @@ Performance was tested using Lighthouse in Chrome Dev Tools. No significant issu
     - The following screenshot summarises the output:  
     ![jshint](docs/jshint/jshint-output.png)
       
-
-
 ### Bugs
 
-The min max values returned NaN - this was fixed by referencing the following link :
-https://medium.com/@vladbezden/how-to-get-min-or-max-of-an-array-in-javascript-1c264ec6e1aa
+The following bugs were encountered during the development and the following fixes were implemented:
 
+- - - 
+**Bug**: As part of the hint alert box, the maximum and minimum missing values were displayed to the user. On initially sourcing the min and max values, the DOM was returning an NaN value for the minimum and maximum values. 
+
+**Fix**: This was fixed by implementing the fix proposed in the following [link](https://medium.com/@vladbezden/how-to-get-min-or-max-of-an-array-in-javascript-1c264ec6e1aa).  It is not possible to apply the `min` and `max` functions directly to a `list` in JavaScript; rather the list must first be destructed.
+
+- - - 
+**Bug**: If the user selected a Hint and then restarted the game or changed the settings, it was not possible to generate a new Hint; this was despite the fact that the `hide` styling had been removed from the Hint alert.
+
+**Fix**: On reviewing the code, it was necessary to also remove the `style` attribute of the Hint alert in addition to removing the `hide` styling. A similar fix was required for the Wrong answer alert.
+
+- - - 
+**Bug**: On testing the website on Firefox, it was noted that the Main Title had an underline on hover; this underline did not appear on Google Chrome which was the primary browser on which the site was tested.
+
+**Fix**: This was resolved by adding an explicit `text-decoration` styling of `none` to the Title on hover.
+
+- - - 
 
 ### Unfixed Bugs
 
 There are no known bugs present in the final site deployment.
 
+- - - 
+
 ## Deployment
 
 The site was deployed using GitHub pages to the following location: [link](https://eoinlarkin.github.io/magic-square-game/)
+
+- - - 
 
 ## Attribution 
 
@@ -258,8 +322,7 @@ For generating the formatted table of contents in markdown
 - **[Google Fonts](https://fonts.google.com/)**  
 Used to provide the custom fonts for the site
 
-
-Other
+### Other
 
 - CodeInstitute modules on HTML, CSS and JavaScript.
 - My mentor for his suggestions and feedback on the project.

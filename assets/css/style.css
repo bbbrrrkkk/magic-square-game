@@ -362,9 +362,9 @@ a:hover {
   }
 }
 
-/* For medium screen sizes from 325px and below 
+/* For medium screen sizes from 330px and below 
    Container spans full screen; sizing of magic square adjusted */
-   @media screen and (max-width: 325px) {
+   @media screen and (max-width: 330px) {
   
     .magic-square {
       --font-size: 1.25rem;
@@ -385,5 +385,9 @@ a:hover {
 
     .title {
       font-size: 5rem;
+    }
+
+    #submit-button {
+      margin-top: 0rem;
     }
   }
