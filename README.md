@@ -4,20 +4,12 @@
 
 ## To Do:
 
-- Fix the footer issue; need footer for fade in
-- Resize the hint boxes
-- Create image for showing players how to play
-- Complete and document the testing
-- Complete the Readme.md
-
 ## Objective
 
 - Create a magic square game where the user completes a magic square with a number of cells missing
 - The game should allow the user to select the difficulty and sie of the magic square
 - If the user is stuck, the game should provide a hint to the user
 - The game should also track the score of the game
-
-
 
 ## Objective
 
@@ -50,9 +42,43 @@ As a site owner:
 
 ## Wireframes
 
-[Intro Page](https://wireframe.cc/oG2XvV)
+  - <details>
+    <summary><strong style="color:skyblue">Intro Page Screenshot:</strong></summary>
+    <a href="https://wireframe.cc/cWFJp3" target="_blank">wireframe.cc</a>
+    <img src="./docs/images/wireframe-intro-page.png" alt="wireframe-intro-page"/>
+    </details>
 
+  - <details>
+    <summary><strong style="color:skyblue">Instructions Page Screenshot:</strong></summary>
+    <a href="https://wireframe.cc/C2WVwq" target="_blank">wireframe.cc</a>
+    <img src="./docs/images/wireframe-instructions-page.png" alt="wireframe-instructions-page"/>
+    </details>
+
+  - <details>
+    <summary><strong style="color:skyblue">Settings Page Screenshot:</strong></summary>
+    <a href="https://wireframe.cc/oG2XvV" target="_blank">wireframe.cc</a>
+    <img src="./docs/images/wireframe-settings-page.png" alt="wireframe-settings-page"/>
+    </details>
+
+  - <details>
+    <summary><strong style="color:skyblue">Game Page Screenshot:</strong></summary>
+    <a href="https://wireframe.cc/FEA7MX" target="_blank">wireframe.cc</a>
+    <img src="./docs/images/wireframe-game-page.png" alt="wireframe-game-page"/>
+    </details>
+
+  - <details>
+    <summary><strong style="color:skyblue">Responsive Layout:</strong></summary>
+    <a href="https://wireframe.cc/HNiknf" target="_blank">wireframe.cc</a>
+    <img src="./docs/images/wireframe-settings-responsive.png" alt="wireframe-settings-responsive"/>
+    </details>
+
+
+[Intro Page](https://wireframe.cc/cWFJp3)
+[Instructions Page](https://wireframe.cc/C2WVwq)
+[Settings Page](https://wireframe.cc/oG2XvV)
 [Game page](https://wireframe.cc/FEA7MX)
+[Responsive Layout](https://wireframe.cc/)
+
 
 
 ## JavaScript
@@ -73,7 +99,7 @@ Overview of the site features:
 
 ### Color Scheme
 
-<img src="./docs/images/magic-square-palette.png" alt="color-palette" width=400px height=300px>
+<img src="./docs/images/magic-square-palette.png" alt="color-palette" width=400px height=200px>
 
 A broad color palette was chosen for the site with a range of complimenting colors chosen.
 
@@ -89,7 +115,7 @@ The following section provides an overview of the site features and design, with
     <summary><strong style="color:skyblue">Screenshot:</strong></summary>
     <img src="./docs/images/screenshot-01-intro.png" alt="intro-container"/>
     </details>
-  - The Introduction pane welcomes the user to the site and features a call to action.
+  - The Introduction pane welcomes the user to the site and features a clear call to action.
   - I originally planned a site logo, however ultimately I used a text logo; this logo animates when the user hovers over it and adds to overall identity of the site. 
 
 
