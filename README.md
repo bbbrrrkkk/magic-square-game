@@ -31,7 +31,7 @@
 
 The objective of the site is to create a game based on [magic squares](https://en.wikipedia.org/wiki/Magic_square) for the user to solve. 
 
-In developing the site, I decided to dynamically generate the magic squares; this introduced some complexity in the structure of the code but overall led to a more robust game with an extremely large number (**773,584,182**) possible permutations for the number of potential magic squares to solve.
+In developing the site, I decided to dynamically generate the magic squares; this introduced some complexity in the structure of the code but overall led to a more robust game with an extremely large number (**773,584,182**) of possible permutations for the number of potential magic squares to solve.
 
 ### User stories
 
@@ -80,8 +80,8 @@ Before building the site, I mapped out the following wireframes using [wireframe
     </details>
 
   - <details>
-    <summary><strong style="color:skyblue">Responsive Layout Wireframe:</strong></summary><br>
-    <a href="https://wireframe.cc/HNiknf" target="_blank">Wireframe from wireframe.cc</a>
+    <summary><strong style="color:skyblue">Responsive Layout Wireframe:</strong></summary>
+    <a href="https://wireframe.cc/HNiknf" target="_blank">Wireframe from wireframe.cc</a><br>
     <img src="./docs/images/wireframe-settings-responsive.png" alt="wireframe-settings-responsive"/>
     </details>
 
@@ -104,16 +104,16 @@ JavaScript was used to achieve the following functionality:
 
 An array of length `n` can be transformed into a magic square with row and column of size `root n` if the difference between each consecutive element in the array is a fixed constant `k`. (for example, with `n=9` and `k=0` the sequence `[1,2,3,4,5,6,7,8,9]` forms a solvable magic square of size `3x3`)
 
-In order to randomly generate a magic square, the following inputs are required:
+In order to algorithmically generate a magic square, the following inputs are required:
 
 - A sequence of `n` integers, with a fixed difference `k` between subsequent integers 
-- An algorithm for mapping the values such that they form a magic square. The [De la Loubère](https://en.wikipedia.org/wiki/Siamese_method) (or siamese) method is proposed as the algorithm for completing the magic square.      
+- An algorithm for mapping the values such that they form a magic square. The [De la Loubère](https://en.wikipedia.org/wiki/Siamese_method) (or siamese) method is proposed as the algorithm for completing the magic square.<br><br>
 ![magic-square-gif](/docs/images/siamese-method.gif)
 
 In order to generate the magic square, the following functions were defined:
 
-- **`SetSquareDiff()`**: This function generates a random value for the difference `k`; the range for the value `k` is defined by the difficulty level that the user selects. There are 3 potential values for `k` with the default difficulty level being easy
-- **`genSquare())`**: This function generates an array of length `n` with each consecutive value in the array increasing by a fixed constant `k`. The value `n` is defined by the square size selected by the user; the default grid size is `3x3`
+- **`SetSquareDiff()`**: This function generates a random value for the difference `k`; the range for the value `k` is defined by the difficulty level that the user selects. There are 3 potential values for `k` for each difficulty level with the default difficulty level being *easy*
+- **`genSquare())`**: This function generates an array of length `n` with each consecutive value in the array increasing by a fixed constant `k`. The value `n` is defined by the square size selected by the user; the default grid size is `3x3` yielding a value of `n` equal to 9
 - **`makeSquare()`**: For an inputted array, this function applies the De la Loubère method to arrange the values into a Magic Square. The function creates a matrix of size `root n` by `root n` before returning a flattened array of length `n`
 - **`fillSquare()`** This function takes an integer value representing the size of the square and performs the following:
     - Modifies the HTML code to create the gird for the magic square
@@ -166,7 +166,7 @@ The following section provides an overview of the site features and design, with
     <img src="./docs/images/screenshot-01-intro.png" alt="intro-container"/>
     </details>
   - The Introduction pane welcomes the user to the site and features a clear call to action.
-  - I originally planned a site logo, however ultimately I used a text logo; this logo animates when the user hovers over it and adds to overall identity of the site. 
+  - I originally planned a site logo, however ultimately I used a text logo; this logo animates when the user hovers over it and this feature helps to create a clear sense of identity for the site
 
 
 - **Instructions Container**
@@ -264,17 +264,17 @@ Performance was tested using Lighthouse in Chrome Dev Tools. No significant issu
 The following bugs were encountered during the development and the following fixes were implemented:
 
 - - - 
-**Bug**: As part of the hint alert box, the maximum and minimum missing values were displayed to the user. On initially sourcing the min and max values, the DOM was returning an NaN value for the minimum and maximum values. 
+**Bug**: As part of the hint alert box, the maximum and minimum missing values were displayed to the user. Initially, instead of displaying the min and max values, a NaN value was returned for the minimum and maximum values. 
 
-**Fix**: This was fixed by implementing the fix proposed in the following [link](https://medium.com/@vladbezden/how-to-get-min-or-max-of-an-array-in-javascript-1c264ec6e1aa).  It is not possible to apply the `min` and `max` functions directly to a `list` in JavaScript; rather the list must first be destructed.
+**Fix**: This bug was resolved by implementing the fix proposed by the following [link](https://medium.com/@vladbezden/how-to-get-min-or-max-of-an-array-in-javascript-1c264ec6e1aa).  It is not possible to apply the `min` and `max` functions directly to a `list` in JavaScript; rather the list must first be destructed.
 
 - - - 
 **Bug**: If the user selected a Hint and then restarted the game or changed the settings, it was not possible to generate a new Hint; this was despite the fact that the `hide` styling had been removed from the Hint alert.
 
-**Fix**: On reviewing the code, it was necessary to also remove the `style` attribute of the Hint alert in addition to removing the `hide` styling. A similar fix was required for the Wrong answer alert.
+**Fix**: On reviewing the code, it was determined that it was necessary to also remove the `style` attribute of the Hint alert in addition to removing the `hide` styling. A similar fix was required for the Wrong answer alert.
 
 - - - 
-**Bug**: On testing the website on Firefox, it was noted that the Main Title had an underline on hover; this underline did not appear on Google Chrome which was the primary browser on which the site was tested.
+**Bug**: On testing the website on Firefox, it was noted that the Main Title had an underline on hover; this underline did not appear on Google Chrome which was the primary browser on which the site was developed.
 
 **Fix**: This was resolved by adding an explicit `text-decoration` styling of `none` to the Title on hover.
 
@@ -295,9 +295,9 @@ The site was deployed using GitHub pages to the following location: [link](https
 ## Attribution 
 
 - The following guide was used to create the text gradients [link](https://fossheim.io/writing/posts/css-text-gradient/)
-- The following StackOverFlow post was used to help implement the fadeIn and fadeOut functionality of the `container-intro` div: [link](https://stackoverflow.com/questions/12584481/simple-fade-in-fade-out-div-with-jquery-on-click)
+- The following StackOverFlow post was used to help implement the `fadeIn` and `fadeOut` functionality of the `container-intro` div: [link](https://stackoverflow.com/questions/12584481/simple-fade-in-fade-out-div-with-jquery-on-click)
 - Sample code was leveraged from the following CodePen example to create the animated gradient for the title [link](https://codepen.io/bsander/pen/pPpbNm?editors=1100)
-- The following code was used to generate the random values for the difference between the magic square array values: [link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random#getting_a_random_integer_between_two_values)
+- The following function was used to generate the random values for the value `k` which represents the increment in the magic square array values: [link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random#getting_a_random_integer_between_two_values)
 - The following paper was used to better understand the algorithm to generate the Magic Square: [link](https://www.mathworks.com/content/dam/mathworks/mathworks-dot-com/moler/exm/chapters/magic.pdf)
 - The following code examples were used to help create the alert banners that were used for the *hint*, *correct answer* and *wrong answer* messages: [link](https://www.w3schools.com/howto/howto_js_alert.asp)
 
@@ -313,11 +313,11 @@ The site was deployed using GitHub pages to the following location: [link](https
 
 ### Tools / Technologies
 
-- **[wireframe.cc](https://wireframe.cc/)**  
-This site was used to build the wireframes for the site layout.
 - **[VScode](https://code.visualstudio.com/)**  
 All coding was completed in VS Code.
-- **[cdnjs](https://cdnjs.com/libraries/jquery)**
+- **[wireframe.cc](https://wireframe.cc/)**  
+This site was used to build the wireframes for the site layout.
+- **[cdnjs](https://cdnjs.com/libraries/jquery)**  
 cdnjs was used as the reference for the jQuery JavaScript library.
 - **[coolors.co](https://coolors.co/)**  
 Potential site palettes were tested with Coolors.  
