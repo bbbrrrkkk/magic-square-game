@@ -42,44 +42,39 @@ As a site owner:
 
 ## Wireframes
 
+Before building the site, I mapped out the following wireframes using [wireframe.cc](https://wireframe.cc/). My objective was to target a simple design and to ensure that the intention of each page was clear to the user.
+
   - <details>
-    <summary><strong style="color:skyblue">Intro Page Screenshot:</strong></summary>
+    <summary><strong style="color:skyblue">Intro Page Wireframe:</strong></summary>
     <a href="https://wireframe.cc/cWFJp3" target="_blank">wireframe.cc</a>
     <img src="./docs/images/wireframe-intro-page.png" alt="wireframe-intro-page"/>
     </details>
 
   - <details>
-    <summary><strong style="color:skyblue">Instructions Page Screenshot:</strong></summary>
+    <summary><strong style="color:skyblue">Instructions Page Wireframe:</strong></summary>
     <a href="https://wireframe.cc/C2WVwq" target="_blank">wireframe.cc</a>
     <img src="./docs/images/wireframe-instructions-page.png" alt="wireframe-instructions-page"/>
     </details>
 
   - <details>
-    <summary><strong style="color:skyblue">Settings Page Screenshot:</strong></summary>
+    <summary><strong style="color:skyblue">Settings Page Wirefame:</strong></summary>
     <a href="https://wireframe.cc/oG2XvV" target="_blank">wireframe.cc</a>
     <img src="./docs/images/wireframe-settings-page.png" alt="wireframe-settings-page"/>
     </details>
 
   - <details>
-    <summary><strong style="color:skyblue">Game Page Screenshot:</strong></summary>
+    <summary><strong style="color:skyblue">Game Page Wireframe:</strong></summary>
     <a href="https://wireframe.cc/FEA7MX" target="_blank">wireframe.cc</a>
     <img src="./docs/images/wireframe-game-page.png" alt="wireframe-game-page"/>
     </details>
 
   - <details>
-    <summary><strong style="color:skyblue">Responsive Layout:</strong></summary>
+    <summary><strong style="color:skyblue">Responsive Layout Wireframe:</strong></summary>
     <a href="https://wireframe.cc/HNiknf" target="_blank">wireframe.cc</a>
     <img src="./docs/images/wireframe-settings-responsive.png" alt="wireframe-settings-responsive"/>
     </details>
 
-
-[Intro Page](https://wireframe.cc/cWFJp3)
-[Instructions Page](https://wireframe.cc/C2WVwq)
-[Settings Page](https://wireframe.cc/oG2XvV)
-[Game page](https://wireframe.cc/FEA7MX)
-[Responsive Layout](https://wireframe.cc/)
-
-
+On implementing the actual design, I made one minor change - the three control buttons *(Instructions, Settings, Play Game)* were moved from being within the game container to sitting above it under the Title. I felt that this led to an improved user experience, with a clear separation between the game and the controls used to move between the different game sections.
 
 ## JavaScript
 
