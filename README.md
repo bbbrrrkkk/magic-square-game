@@ -31,7 +31,7 @@
 
 The objective of the site is to create a game based on [magic squares](https://en.wikipedia.org/wiki/Magic_square) for the user to solve. 
 
-In developing the site, I decided to dynamically generate the magic squares; this introduced some complexity in the structure of the code but overall led to a more robust game with a large number - **773,584,182** - possible permutations for the number of potential magic squares to solve.
+In developing the site, I decided to dynamically generate the magic squares; this introduced some complexity in the structure of the code but overall led to a more robust game with an extremely large number (**773,584,182**) possible permutations for the number of potential magic squares to solve.
 
 ### User stories
 
@@ -39,7 +39,7 @@ As a site user:
 
 - I want a site that is easy to use and navigate
 - I want a site that offers varying difficulty levels and provides guidance if stuck
-- I want a site that works across a number of devices
+- I want a site that works across different devices and platforms
 
 As a site owner:
 
@@ -68,7 +68,7 @@ Before building the site, I mapped out the following wireframes using [wireframe
     </details>
 
   - <details>
-    <summary><strong style="color:skyblue">Settings Page Wirefame:</strong></summary>
+    <summary><strong style="color:skyblue">Settings Page Wireframe:</strong></summary>
     <a href="https://wireframe.cc/oG2XvV" target="_blank">Wireframe from wireframe.cc</a>
     <img src="./docs/images/wireframe-settings-page.png" alt="wireframe-settings-page"/>
     </details>
@@ -80,12 +80,12 @@ Before building the site, I mapped out the following wireframes using [wireframe
     </details>
 
   - <details>
-    <summary><strong style="color:skyblue">Responsive Layout Wireframe:</strong></summary>
+    <summary><strong style="color:skyblue">Responsive Layout Wireframe:</strong></summary><br>
     <a href="https://wireframe.cc/HNiknf" target="_blank">Wireframe from wireframe.cc</a>
     <img src="./docs/images/wireframe-settings-responsive.png" alt="wireframe-settings-responsive"/>
     </details>
 
-On implementing the actual design, I made one minor change - the three control buttons *(Instructions, Settings, Play Game)* were moved from within the game container box. Instead I decided to place these three buttons under the site title.
+On implementing the actual design, I made one minor change - the three control buttons *(Instructions, Settings, Play Game)* were moved out of the game container box. Instead I decided to place these three buttons under the site title.
 
 I felt that this led to an improved user experience, with a clear separation between the game and the controls used to move between the different game sections.
 
@@ -98,24 +98,25 @@ JavaScript was used to achieve the following functionality:
 - To dynamically create the values for the Magic Square that the user will solve
 - To control user responses to button presses and to validate user inputs
 
-### Magic Square Generation
 
-An array of length `n` can be transformed into a magic square with row and column of size `square root n` if the difference between each consecutive element in the array is a fixed constant `k`. (for example, with `n=9` and `k=0` the sequence `[1,2,3,4,5,6,7,8,9]` forms a solvable magic square of size `3x3`)
+
+### Dynamically Generating the Magic Square
+
+An array of length `n` can be transformed into a magic square with row and column of size `root n` if the difference between each consecutive element in the array is a fixed constant `k`. (for example, with `n=9` and `k=0` the sequence `[1,2,3,4,5,6,7,8,9]` forms a solvable magic square of size `3x3`)
 
 In order to randomly generate a magic square, the following inputs are required:
 
 - A sequence of `n` integers, with a fixed difference `k` between subsequent integers 
-- An algorithm for mapping the values such that they form a magic square. The [De la Loubère](https://en.wikipedia.org/wiki/Siamese_method) (or siamese) method is proposed as the algorithm for completing the magic square.  
+- An algorithm for mapping the values such that they form a magic square. The [De la Loubère](https://en.wikipedia.org/wiki/Siamese_method) (or siamese) method is proposed as the algorithm for completing the magic square.      
 ![magic-square-gif](/docs/images/siamese-method.gif)
 
 In order to generate the magic square, the following functions were defined:
 
-- **`SetSquareDiff()`**
-- **`genSquare())`**: This function generates an array of length `n` with each consecutive value in the array increasing by a fixed constant `k`
-- The fixed constant `k` is randomly generated and can take 3 different values for each of the difficulty levels
+- **`SetSquareDiff()`**: This function generates a random value for the difference `k`; the range for the value `k` is defined by the difficulty level that the user selects. There are 3 potential values for `k` with the default difficulty level being easy
+- **`genSquare())`**: This function generates an array of length `n` with each consecutive value in the array increasing by a fixed constant `k`. The value `n` is defined by the square size selected by the user; the default grid size is `3x3`
 - **`makeSquare()`**: For an inputted array, this function applies the De la Loubère method to arrange the values into a Magic Square. The function creates a matrix of size `root n` by `root n` before returning a flattened array of length `n`
 - **`fillSquare()`** This function takes an integer value representing the size of the square and performs the following:
-    - Modifies the HTML code to create the square
+    - Modifies the HTML code to create the gird for the magic square
     - Populates the square values in the HTML code using the array ordered by the `makeSquare()` function
     - Randomly removes `root n` values from the completed magic square and replaces them with an input box for completion by the player of the game (e.g. for a square of size 7x7, 7 values are randomly removed for completion by the user)
 
@@ -127,11 +128,16 @@ The fixed constant `k` is randomly generated with 3 possible values for each dif
 
 ### Site Interaction
 
+In order to interact with the site JavaScript and jQuery are used to provide the following functionality:
+
+- Store the size and difficulty levels as selected by the user
+- To change the color of the setting buttons once the user makes a selection
+- To modify the HTML code to create the magic square
+- To hide sections of the website depending on the user selection 
+
 - - - 
 
 ## Layout and Features
-
-Overview of the site features:
 
 ### Fonts
 
@@ -150,7 +156,7 @@ A broad color palette was chosen for the site with a range of complimenting colo
 
 In choosing the color palette, my objective was to select a color palette that would create a strong visual identity as well as suggest a playful, fun game.
 
-### Layout and Features
+### Features
 The following section provides an overview of the site features and design, with screenshots providing a visual overview of each feature.
 
 - **Introduction Container**
@@ -307,6 +313,8 @@ The site was deployed using GitHub pages to the following location: [link](https
 
 ### Tools / Technologies
 
+- **[wireframe.cc](https://wireframe.cc/)**  
+This site was used to build the wireframes for the site layout.
 - **[VScode](https://code.visualstudio.com/)**  
 All coding was completed in VS Code.
 - **[cdnjs](https://cdnjs.com/libraries/jquery)**
