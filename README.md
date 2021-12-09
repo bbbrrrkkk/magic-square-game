@@ -172,6 +172,19 @@ Testing was completed across a number of platforms as follows:
 - Platform specific testing was completed on Windows and Linux desktop environments. Mobile testing was completed on iOS
 - The site responsiveness was tested across both Apple phones and tables. In addition, responsiveness was tested using Chrome Dev Tools, wth screen sizes from `280px` (Galaxy Fold) upwards tested.
 
+### Performance Testing
+
+Performance was tested using Lighthouse in Chrome Dev Tools. No significant issues were reported for either Desktop of Mobile
+
+- **Desktop Results**
+  ![lighthouse-desktop](docs/lighthouse/lighthouse-desktop.png)
+  The full report can be found [here](docs/lighthouse/lighthouse-desktop.pdf)
+
+- **Mobile Results**
+  ![lighthouse-mobile](docs/lighthouse/lighthouse-mobile.png)
+  The full report can be found [here](docs/lighthouse/lighthouse-mobile.pdf)
+
+
 ### Validator Testing 
 
 - HTML
@@ -260,6 +273,6 @@ Other
 - CodeInstitute modules on HTML, CSS and JavaScript.
 - My mentor for his suggestions and feedback on the project.
 - My friends who helped test the logic and design of the website.
-- My teacher in National School who first introduced me to Magic Squares.
+- My teachers who first introduced me to Magic Squares and the elegance of mathematics.
 
 - - - 
