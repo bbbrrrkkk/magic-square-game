@@ -42,6 +42,24 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+// ************************************************
+// Setting variables to capture the grid size and game difficulty
+// ************************************************
+
+/* storing the size when a size button is clicked */
+document.getElementById('button-small-size').onclick = SetSquareSize;
+document.getElementById('button-medium-size').onclick = SetSquareSize;
+document.getElementById('button-large-size').onclick = SetSquareSize;
+
+/* storing the difficulty when the difficulty button is clicked */
+document.getElementById('button-diff-easy').onclick = RecordDiff;
+document.getElementById('button-diff-medium').onclick = RecordDiff;
+document.getElementById('button-diff-hard').onclick = RecordDiff;
+
+// ************************************************
+// Functions to show the Game Sections
+// ************************************************
+
 /**
  * Function to show the game settings; unused containers are hidden
  */
@@ -100,6 +118,11 @@ function hideMessages() {
     $('#hint-msg').addClass('hide');
     $('#wrong-ans-msg').addClass('hide');
 }
+
+
+// ************************************************
+// Functions to manage the Game Hints
+// ************************************************
 
 /**
  * Function to update the button press count for the hint button; the maximum value is 4
@@ -176,17 +199,16 @@ function clearHint() {
     $('#hint-msg').html('');
 }
 
-/* storing the size when a size button is clicked */
-document.getElementById('button-small-size').onclick = SetSquareSize;
-document.getElementById('button-medium-size').onclick = SetSquareSize;
-document.getElementById('button-large-size').onclick = SetSquareSize;
+// ************************************************
+// Defining helper functions to add and remove classes
+// ************************************************
 
-/* storing the difficulty when the difficulty button is clicked */
-document.getElementById('button-diff-easy').onclick = RecordDiff;
-document.getElementById('button-diff-medium').onclick = RecordDiff;
-document.getElementById('button-diff-hard').onclick = RecordDiff;
-
-
+/**
+ * Function to help add classes when the user clicks a button 
+ * @param {*} clickedBtn : Button the user has clicked on
+ * @param {*} targetClass : Target class that will be modified
+ * @param {*} classToAdd : Class to be added to the target class
+ */
 function addClass(clickedBtn, targetClass, classToAdd) {
     if($(targetClass).hasClass(classToAdd)) 
     		{
@@ -195,12 +217,27 @@ function addClass(clickedBtn, targetClass, classToAdd) {
     		}
     }
 
+/**
+ * Function to help remove classes when the user clicks a button 
+ * @param {*} clickedBtn : Button the user has clicked on
+ * @param {*} targetClass : Target class that will be modified
+ * @param {*} classToRemove : Class to be removed to the target class
+ */
 function removeClass(clickedBtn, targetClass, classToRemove) {
     if($(targetClass).hasClass(classToRemove)) {
         $(targetClass).addClass(classToRemove);
         $(clickedBtn).removeClass(classToRemove);}
     }    
 
+
+// ************************************************
+// Functions to generate the magic square and check if the square is correct
+// ************************************************
+
+/**
+ * Function to record the game difficulty and highlight the clicked button
+ * @param {*} clicked 
+ */    
 function RecordDiff(clicked) {
 
     if (this.id == 'button-diff-easy') {
@@ -221,7 +258,10 @@ function RecordDiff(clicked) {
         }
     }     
 
-
+/**
+ * Function to set the magic square size on click by the user
+ * @param {*} clicked 
+ */
 function SetSquareSize(clicked) {
     if (this.id == 'button-small-size') {
         SquareSize = 3;
@@ -241,7 +281,6 @@ function SetSquareSize(clicked) {
         removeClass('.text-large-grid', '.settings-text-grid', 'hide'); // changing button color            
     }
 }  
-
 
 /**
  * Function to generate a random integer within a given range
@@ -281,7 +320,6 @@ function genSquare() {
     }
     return foo;
 }
-
 
 /**
  * Function that resizes the square based on the user size.
@@ -355,7 +393,6 @@ function getIndexToRemove(SquareSize){
     }
     return IndexToRemove;
 }
-
 
 /**
  * Function to check whether the answer is correct.
