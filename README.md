@@ -2,43 +2,27 @@
 
 ![am-i-responsive](./docs/images/am-i-responsive.png)
 
-## To Do:
-
 ## Objective
 
-- Create a magic square game where the user completes a magic square with a number of cells missing
-- The game should allow the user to select the difficulty and sie of the magic square
-- If the user is stuck, the game should provide a hint to the user
-- The game should also track the score of the game
+The objective of the site is to create a game based on [magic squares](https://en.wikipedia.org/wiki/Magic_square) for the user to solve. 
 
-## Objective
-
-A magic square of length and height of `root` n can be constructed using an array of length `n` of integers increasing by a constant `k`
-
-
-In order to randomly generate a magic square, the following inputs are required:
-
-- A sequence of n integers, with a fixed difference k between subsequent integers
-- An algorithm for completing the magic square 
-
-The De la Loubère (or siamese) method is proposed as the algorithm for completing the magic square.
-
-![magic-square-gif](/docs/images/siamese-method.gif)
-
-- Wikipedia page for Magic Squares: [link](https://en.wikipedia.org/wiki/Magic_square) 
-- MathLab paper on Magic Squares: [link](https://www.mathworks.com/content/dam/mathworks/mathworks-dot-com/moler/exm/chapters/magic.pdf)
-- Wikipedia page on the De la Loubère method" [link](https://en.wikipedia.org/wiki/Siamese_method)
+In developing the site, I decided to dynamically generate the magic squares; this introduced some complexity in the structure of the code but overall led to a more robust game with a large number of permutations for the number of potential magic squares to solve.
 
 ### User stories
 
 As a site user:
 
-- I want to ................
+- I want a site that is easy to use and navigate
+- I want a site that offers varying difficulty levels and provides guidance if stuck
+- I want a site that works across a number of devices
 
 As a site owner:
 
-- I want to ................
-
+- I want to ensure that the site has a distinctive visual identity
+- I want to develop a site with a clear call to action
+- I want to ensure that the Magic Square game is easy to play and provides assistance to the user if they are stuck
+- I want to ensure that the user base is as wide as possible and that the site works across different platforms and screen sizes
+- I want the ability to dynamically generate the magic squares as opposed to using a library of magic squares to serve to the user to solve
 
 ## Wireframes
 
@@ -74,16 +58,37 @@ Before building the site, I mapped out the following wireframes using [wireframe
     <img src="./docs/images/wireframe-settings-responsive.png" alt="wireframe-settings-responsive"/>
     </details>
 
-On implementing the actual design, I made one minor change - the three control buttons *(Instructions, Settings, Play Game)* were moved from being within the game container to sitting above it under the Title. I felt that this led to an improved user experience, with a clear separation between the game and the controls used to move between the different game sections.
+On implementing the actual design, I made one minor change - the three control buttons *(Instructions, Settings, Play Game)* were moved from within the game container box. Instead I decided to place these three buttons under the site title.
+
+I felt that this led to an improved user experience, with a clear separation between the game and the controls used to move between the different game sections.
 
 ## JavaScript
 
-### JavaScript
-
 JavaScript was used to achieve the following functionality:
 
-- To control user responses to button presses and to validate user inputs
 - To dynamically create the values for the Magic Square that the user will solve
+- To control user responses to button presses and to validate user inputs
+
+### Magic Square Generation
+
+A magic square of length and height of `root` n can be constructed using an array of length `n` of integers increasing by a constant `k`
+
+
+In order to randomly generate a magic square, the following inputs are required:
+
+- A sequence of n integers, with a fixed difference k between subsequent integers
+- An algorithm for completing the magic square 
+
+The De la Loubère (or siamese) method is proposed as the algorithm for completing the magic square.
+
+![magic-square-gif](/docs/images/siamese-method.gif)
+
+- Wikipedia page for Magic Squares: [link] 
+- MathLab paper on Magic Squares: 
+- Wikipedia page on the De la Loubère method" [link](https://en.wikipedia.org/wiki/Siamese_method)
+
+### Site Interaction
+
 
 
 ## Layout and Features
@@ -92,13 +97,20 @@ Overview of the site features:
 
 ### Fonts
 
+In selecting the fonts for the site I had two objectives:
+
+- Select a title font that could be used in place of a logo
+- Select a font that would compliment the title font while retaining legibility
+
+The site fonts were chosen using [Google Fonts](https://fonts.google.com/). The fonts chosen were [Monoton](https://fonts.google.com/specimen/Monoton?query=monoton) for the title and [Titillium Web](https://fonts.google.com/specimen/Titillium+Web?query=titill) for the body content.
+
 ### Color Scheme
 
 <img src="./docs/images/magic-square-palette.png" alt="color-palette" width=400px height=200px>
 
 A broad color palette was chosen for the site with a range of complimenting colors chosen.
 
-In choosing the color palette, my objective was to select a color palette that would create a strong sense of identity as well as suggest a playful, fun game.
+In choosing the color palette, my objective was to select a color palette that would create a strong visual identity as well as suggest a playful, fun game.
 
 
 ### Layout and Features
@@ -157,10 +169,7 @@ The following section provides an overview of the site features and design, with
 Overall, I am satisfied with the functionality and feature set of the developed site. In terms of additional features, I believe the game could be further enhanced through the addition of a scoreboard feature.
 
 - **Scoreboard**
-This would provide users with the ability to view their scores; I would propose 
-
-
-
+This would provide users with the ability to view their scores; I would propose implementing a timer, with the user assigned a scored based on how quickly they managed to solve the Magic Square. The feature would require the use of local storage to record the user name and score and allow multiple users to play against each other.
 
 ## Testing 
 
@@ -190,11 +199,12 @@ Performance was tested using Lighthouse in Chrome Dev Tools. No significant issu
 - HTML
     - No errors were reported when running the code through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Feoinlarkin.github.io%2Fmagic-square-game%2F) 
 - CSS
-    - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Feoinlarkin.github.io%2Fmagic-square-game%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+    - No errors were found when passing through the official [Jigsaw validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Feoinlarkin.github.io%2Fmagic-square-game%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
     - A number of warnings were triggered; however these related to the use of vendor extensions to enable the animation of the main title (e.g. `-moz-text-fill-color`)
 - JavaScript
     - No errors were found when passing through the official [Jshint validator](https://jshint.com/).
-    - The following screenshot summarises the output: ![jshint](docs/jshint/jshint-output.png)
+    - The following screenshot summarises the output:  
+    ![jshint](docs/jshint/jshint-output.png)
       
 
 
@@ -210,39 +220,16 @@ There are no known bugs present in the final site deployment.
 
 ## Deployment
 
-The site was deployed using GitHub pages at the following location: [link](https://eoinlarkin.github.io/magic-square-game/)
+The site was deployed using GitHub pages to the following location: [link](https://eoinlarkin.github.io/magic-square-game/)
 
 ## Attribution 
 
 - The following guide was used to create the text gradients [link](https://fossheim.io/writing/posts/css-text-gradient/)
 - The following StackOverFlow post was used to help implement the fadeIn and fadeOut functionality of the `container-intro` div: [link](https://stackoverflow.com/questions/12584481/simple-fade-in-fade-out-div-with-jquery-on-click)
 - Sample code was leveraged from the following CodePen example to create the animated gradient for the title [link](https://codepen.io/bsander/pen/pPpbNm?editors=1100)
-- The following paper was used to better understand the algorithim to generate the Magic Square
-
-
-### Content 
-
-- The text for the Home page was taken from Wikipedia Article A
-
-
-
-
-## Other General Project Advice
-
-Below you will find a couple of extra tips that may be helpful when completing your project. Remember that each of these projects will become part of your final portfolio so it’s important to allow enough time to showcase your best work! 
-
-- One of the most basic elements of keeping a healthy commit history is with the commit message. When getting started with your project, read through [this article](https://chris.beams.io/posts/git-commit/) by Chris Beams on How to Write  a Git Commit Message 
-  - Make sure to keep the messages in the imperative mood 
-
-- When naming the files in your project directory, make sure to consider meaningful naming of files, point to specific names and sections of content.
-  - For example, instead of naming an image used ‘image1.png’ consider naming it ‘landing_page_img.png’. This will ensure that there are clear file paths kept. 
-
-- Do some extra research on good and bad coding practices, there are a handful of useful articles to read, consider reviewing the following list when getting started:
-  - [Writing Your Best Code](https://learn.shayhowe.com/html-css/writing-your-best-code/)
-  - [HTML & CSS Coding Best Practices](https://medium.com/@inceptiondj.info/html-css-coding-best-practice-fadb9870a00f)
-  - [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html#General)
-
-Getting started with your Portfolio Projects can be daunting, planning your project can make it a lot easier to tackle, take small steps to reach the final outcome and enjoy the process! 
+- The following code was 
+- The following paper was used to better understand the algorithm to generate the Magic Square: [link](https://www.mathworks.com/content/dam/mathworks/mathworks-dot-com/moler/exm/chapters/magic.pdf)
+- The following code examples were used to help create the alert banners that were used for the *hint*, *correct answer* and *wrong answer* messages: [link](https://www.w3schools.com/howto/howto_js_alert.asp)
 
 - - - 
 
@@ -258,7 +245,7 @@ Getting started with your Portfolio Projects can be daunting, planning your proj
 
 - **[VScode](https://code.visualstudio.com/)**  
 All coding was completed in VS Code.
-- **[cdnjs][https://cdnjs.com/libraries/jquery]**
+- **[cdnjs](https://cdnjs.com/libraries/jquery)**
 cdnjs was used as the reference for the jQuery JavaScript library.
 - **[coolors.co](https://coolors.co/)**  
 Potential site palettes were tested with Coolors.  
@@ -268,6 +255,9 @@ This website was used to generate the favicon using an icon from Font Awesome.
 For rendering the device preview image
 - **[https://ecotrust-canada.github.io/](https://ecotrust-canada.github.io/markdown-toc/)**  
 For generating the formatted table of contents in markdown
+- **[Google Fonts](https://fonts.google.com/)**  
+Used to provide the custom fonts for the site
+
 
 Other
 
