@@ -20,6 +20,7 @@
     + [Validator Testing](#validator-testing)
     + [Bugs](#bugs)
     + [Unfixed Bugs](#unfixed-bugs)
+    + [Other Testing Notes](#other-testing-notes)
   * [Deployment](#deployment)
   * [Attribution](#attribution)
   * [Development](#development)
@@ -284,6 +285,12 @@ The following bugs were encountered during the development and the following fix
 ### Unfixed Bugs
 
 There are no known bugs present in the final site deployment.
+
+- - - 
+
+### Other Testing Notes
+
+- To support site testing, the completed Magic Square is logged to the DOM for each generated Magic Square. This was designed to support testing of the site; I would propose removing this logging in the final version of the deployed site.
 
 - - - 
 
