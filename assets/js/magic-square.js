@@ -414,18 +414,12 @@ function checkAnswer(){
 
     // If statement to return response to user if answers are correct        
     if (correctAns.every(Boolean)) {
-        // successArea.innerHTML = '<span class="closebtn">&times;</span> You got it right!<br><br> Press the <strong>Reset Game</strong> button to play again or use the <strong>Settings</strong> button to change the difficulty level';
-        //successArea.classList.remove('hide');
-
         $('#correct-ans-msg').html('<span class="closebtn">&times;</span> You got it right!<br>Press the <strong>Reset Game</strong> button to play again or use the <strong>Settings</strong> button to change the difficulty level');
         $("#correct-ans-msg").removeClass('hide');
     }
 
     // Output to user if the answers are not correct
-    else {
-        // wrongArea.innerHTML = "That's not quite right....<br><br>Try a <strong>Hint</strong> if you're stuck..!"
-        //wrongArea.classList.remove('hide');
-        
+    else {        
         $('#wrong-ans-msg').html("That's not quite right....<br>Try a <strong>Hint</strong> if you're stuck..!");
         $('#wrong-ans-msg').removeClass('hide');
 
