@@ -301,11 +301,11 @@ function SetSquareDiff() {
         SquareDiff = getRandomInt(0,3);    
     }
     if (gameDiff == 'medium') {
-        SquareDiff = getRandomInt(2,5);
+        SquareDiff = getRandomInt(3,6);
 
     }
     if (gameDiff == 'hard') {
-        SquareDiff = getRandomInt(4,7);
+        SquareDiff = getRandomInt(6,9);
     }
 }  
 

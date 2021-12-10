@@ -29,15 +29,16 @@
 
 ## Objective
 
-The objective of the site is to create a game based on [magic squares](https://en.wikipedia.org/wiki/Magic_square) for the user to solve. 
+The objective of the site is to create a game that will present [magic squares](https://en.wikipedia.org/wiki/Magic_square) for the user to solve. 
 
-In developing the site, I decided to dynamically generate the magic squares; this introduced some complexity in the structure of the code but overall led to a more robust game with an extremely large number (**773,584,182**) of possible permutations for the number of potential magic squares to solve.
+In developing the site, I decided to dynamically generate the magic squares; this introduced some complexity in the structure of the JavaScript code but overall led to a more robust game with an extremely large number (**773,584,182**) of possible permutations for the number of magic squares to solve.
 
 ### User stories
 
 As a site user:
 
 - I want a site that is easy to use and navigate
+- I want a site that provides visual cues and feedback depending on my actions
 - I want a site that offers varying difficulty levels and provides guidance if stuck
 - I want a site that works across different devices and platforms
 
@@ -112,7 +113,7 @@ In order to algorithmically generate a magic square, the following inputs are re
 
 In order to generate the magic square, the following functions were defined:
 
-- **`SetSquareDiff()`**: This function generates a random value for the difference `k`; the range for the value `k` is defined by the difficulty level that the user selects. There are 3 potential values for `k` for each difficulty level with the default difficulty level being *easy*
+- **`SetSquareDiff()`**: This function generates a random value for the difference `k`; the range for the value `k` is defined by the difficulty level that the user selects. There are 3 potential values for `k` for each difficulty level with the default difficulty level being *easy*. For instance the values of `k` for easy can fall in the range of `[0,2]`; the exact value is chosen randomly for the selected difficulty level.
 - **`genSquare())`**: This function generates an array of length `n` with each consecutive value in the array increasing by a fixed constant `k`. The value `n` is defined by the square size selected by the user; the default grid size is `3x3` yielding a value of `n` equal to 9
 - **`makeSquare()`**: For an inputted array, this function applies the De la Loubère method to arrange the values into a Magic Square. The function creates a matrix of size `root n` by `root n` before returning a flattened array of length `n`
 - **`fillSquare()`** This function takes an integer value representing the size of the square and performs the following:
@@ -264,7 +265,7 @@ Performance was tested using Lighthouse in Chrome Dev Tools. No significant issu
 The following bugs were encountered during the development and the following fixes were implemented:
 
 - - - 
-**Bug**: As part of the hint alert box, the maximum and minimum missing values were displayed to the user. Initially, instead of displaying the min and max values, a NaN value was returned for the minimum and maximum values. 
+**Bug**: As part of the hint alert box, the maximum and minimum missing values are displayed to the user. Initially, instead of displaying the min and max values, a NaN value was returned for the minimum and maximum values. 
 
 **Fix**: This bug was resolved by implementing the fix proposed by the following [link](https://medium.com/@vladbezden/how-to-get-min-or-max-of-an-array-in-javascript-1c264ec6e1aa).  It is not possible to apply the `min` and `max` functions directly to a `list` in JavaScript; rather the list must first be destructed.
 
@@ -300,6 +301,7 @@ The site was deployed using GitHub pages to the following location: [link](https
 - The following function was used to generate the random values for the value `k` which represents the increment in the magic square array values: [link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random#getting_a_random_integer_between_two_values)
 - The following paper was used to better understand the algorithm to generate the Magic Square: [link](https://www.mathworks.com/content/dam/mathworks/mathworks-dot-com/moler/exm/chapters/magic.pdf)
 - The following code examples were used to help create the alert banners that were used for the *hint*, *correct answer* and *wrong answer* messages: [link](https://www.w3schools.com/howto/howto_js_alert.asp)
+- The Wikipedia page on the siamese method for providing the gif used to illustrate the method: [link](https://en.wikipedia.org/wiki/Siamese_method#/media/File:SiameseMethod.gif)  
 
 - - - 
 
