@@ -128,6 +128,11 @@ p {
   margin: 0 5vw 0 5vw;
 }
 
+.lost-text, .instructions-text{
+  margin: 0 9vw 0 9vw;
+  text-align: center;
+}
+
 .size-button, .difficulty-button {
   text-align: center;
   padding: 1rem;
@@ -206,14 +211,19 @@ p {
   }
 
   .btn {
-    font-size: 1.75rem;
-    padding: 1rem;
-    margin: 0 auto; /* Centering the content */
-    width: 16rem;
-    border: 0.2rem solid var(--color-highlight-1);
-    background-color: var(--color-dark-1);
-    color: var(--color-highlight-1);
-    border-radius: 1rem;
+    display: inline-block; /* Makes the button behave like a block-level element but remain inline */
+    font-size: 1.75rem; /* Adjust font size */
+    padding: 1rem 2rem; /* Adds padding for better spacing */
+    margin: 1rem auto; /* Centers the button horizontally */
+    text-align: center; /* Centers the text inside the button */
+    text-decoration: none; /* Removes underline for links */
+    color: var(--color-highlight-1); /* Button text color */
+    background-color: var(--color-dark-1); /* Button background color */
+    border: 0.2rem solid var(--color-highlight-1); /* Button border */
+    border-radius: 1rem; /* Rounded corners */
+    cursor: pointer; /* Adds a pointer cursor */
+    transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover effect */
+    width: fit-content; /* Ensures the button width adjusts to its content */
   }
 
   .btn-click {
