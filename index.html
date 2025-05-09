@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Play the Magic Square Game ! Challenge yourself to solve Magic Squares of varying difficulty and improve your mathematical skills in the process.">
+    <meta name="description" content="Играйте в игру «Магический квадрат»! Испытайте себя в решении магических квадратов разной сложности и улучшите свои математические навыки в процессе.">
     <link rel='stylesheet' href='assets/css/style.css'>
     <!--  Using the Cloudflare jquery library: -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
-    <title>Магический квадрат игра</title>
+    <title>Магический Квадрат Игра</title>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GHJFWVLBK6"></script>
@@ -27,13 +27,13 @@
     <!--  Game Title -->
     <div>
       <h1 class='title gradient-text'>
-        <a href="index.html">Магический квадрат игра</a>
+        <a href="index.html">Магический Квадрат Игра</a>
       </h1>
     </div>
 
     <!--  Main buttons displayed above the game area -->
     <div class='main-buttons'>
-      <button class='btn hide' id='instructions-button'>Инструкцииs</button>
+      <button class='btn hide' id='instructions-button'>Инструкции</button>
       <button class='btn hide' id='settings-button'>Настройки</button>
       <button class='btn hide' id='play-button'>Играть в игру!</button>
       <button class='btn hide' id='reset-button'>Перезагрузить игру</button>
@@ -45,25 +45,25 @@
       <!--  Introduction container -->
       <div id='container-intro' class='intro-text'>
 
-        <p><br>Welcome to the Magic Square Game !</p>
-          <p> This game will test your mathematical skills and challenge you to solve magic squares. </p>
+        <p><br>Добро пожаловать в игру Магический квадрат !</p>
+          <p> Эта игра проверит ваши математические навыки и предложит вам решить магические квадраты. </p>
           <button class='btn' id='start-button'>Start Game !</button>
       </div>
 
       <!--  Instruction container -->
       <div id='container-instructions' class='instructions-text hide'>
 
-        <p><br>Magic Squares are one of the oldest mathematical puzzles, with examples found in ancient China, Japan and India.</p>
+        <p><br>Магические квадраты — одна из древнейших математических головоломок, примеры которой встречаются в Древнем Китае, Японии и Индии.</p>
         
-        <p>In order to solve the Magic Square, it is necessary to ensure that the sum of each <span class='color-highlight'>row</span>, <span class='color-highlight'>column</span> and <span class='color-highlight'>diagonal</span> combination are all equal.</p>
+        <p>Чтобы решить магический квадрат, необходимо убедиться, что сумма каждого <span class='color-highlight'>ряда</span>, <span class='color-highlight'>столбца</span> и <span class='color-highlight'>диагонали</span> равны.</p>
         
-        <p>The following is an example of a completed Magic Square; note that all possible combinations are equal.</p>
+        <p>Ниже приведен пример заполненного магического квадрата; обратите внимание, что все возможные комбинации равнозначны.</p>
         
         <img alt="image showing how to solve a magic square" src="assets/images/magic-square-solving-instructions.png">
 
-        <p> Use the <span class='color-highlight'>Settings</span> button to change the game settings or click <span class='color-highlight'>Play</span> to jump right in ! </p>
+        <p> Используйте кнопку<span class='color-highlight'>Настройки</span> чтобы изменить настройки игры или <span class='color-highlight'>Играть</span> чтобы перейти прямо в неё ! </p>
 
-        <p>Further information on the history of these ancient puzzles can be found on <a href="https://en.wikipedia.org/wiki/Magic_square" target="_blank" rel="noopener">Wikipedia</a>.</p>
+        <p>Дополнительную информацию об истории этих древних головоломок можно найти на сайте <a href="https://en.wikipedia.org/wiki/Magic_square" target="_blank" rel="noopener">Wikipedia</a>.</p>
         <p>&nbsp;</p>
       </div>
 
@@ -72,24 +72,24 @@
         <div class="size-button">
           <p>Magic square size:</p>
           <!-- Buttons to resize the magic square -->
-          <button class='btn btn-size btn-click' id="button-small-size"> Small </button>
-          <button class='btn btn-size' id="button-medium-size"> Medium </button>
-          <button class='btn btn-size' id="button-large-size"> Large </button>
-          <p class='text-small-grid settings-text-grid'>The default option; uses a gird size of 3x3</p>
-          <p class='text-medium-grid settings-text-grid hide'>For more advanced users; medium corresponds to a gird size of 5x5</p>
-          <p class='text-large-grid settings-text-grid hide'>Expert users only ! Sets a gird size of 7x7</p>
+          <button class='btn btn-size btn-click' id="button-small-size"> Маленький </button>
+          <button class='btn btn-size' id="button-medium-size"> Средний </button>
+          <button class='btn btn-size' id="button-large-size"> Большой </button>
+          <p class='text-small-grid settings-text-grid'>Параметр по умолчанию; использует размер сетки 3x3.</p>
+          <p class='text-medium-grid settings-text-grid hide'>Для более продвинутых пользователей: средний соответствует размеру сетки 5x5.</p>
+          <p class='text-large-grid settings-text-grid hide'>Только для опытных пользователей! Устанавливает размер сетки 7x7</p>
         </div>
         <div class="difficulty-button">
-          <p>Magic square difficulty: <br>
+          <p>Сложность магического квадрата: <br>
           </p>
           <!-- Buttons to change the game difficulty -->
-          <button class='btn btn-diff btn-click' id="button-diff-easy"> Easy </button>
-          <button class='btn btn-diff' id="button-diff-medium"> Medium </button>
-          <button class='btn btn-diff' id="button-diff-hard"> Hard </button>
+          <button class='btn btn-diff btn-click' id="button-diff-easy"> Легко </button>
+          <button class='btn btn-diff' id="button-diff-medium"> Нормально </button>
+          <button class='btn btn-diff' id="button-diff-hard"> Сложно </button>
           <div>  
-            <p class='text-diff-easy settings-text-diff'>The default option; expect smaller numbers that are easier to solve</p>
-            <p class='text-diff-medium settings-text-diff hide'>More of a challenge ! Medium difficulty corresponds to larger numbers which will make the game more difficult to solve</p>
-            <p class='text-diff-hard settings-text-diff hide'>The hardest setting; for users that really want a real challenge....</div>
+            <p class='text-diff-easy settings-text-diff'>Вариант по умолчанию; ожидайте меньших чисел, которые легче решить</p>
+            <p class='text-diff-medium settings-text-diff hide'>Более сложная задача! Средняя сложность соответствует большим числам, что усложнит решение игры.</p>
+            <p class='text-diff-hard settings-text-diff hide'>Самый сложный режим; для пользователей, которые действительно хотят настоящего испытания...</div>
         </div>
       </div>
 
@@ -114,19 +114,17 @@
           <!-- The Magic Square content; this is dynamically generated -->
         </div>
         <div class='main-buttons'>
-          <button class='btn' id='hint-button'>Hint</button>
-          <button class='btn' id='submit-button'>Submit</button>
+          <button class='btn' id='hint-button'>Подсказка</button>
+          <button class='btn' id='submit-button'>Подтвердить</button>
         </div>
       </div>
     </div>
 
     <footer>
       <div class="hide" id='credits'>
-        <p>Credits and attributions in <a href="https://github.com/eoinlarkin/magic-square-game/blob/main/README.md" target="_blank" rel="noopener">README.md</a>
-        </p>
-        <p>Design and code by <a href="https://github.com/eoinlarkin/" target="_blank" rel="noopener">Eoin Larkin</a>
+        <p>Спрограмированно и оформлено <a href="https://vk.com/qqvwnqq?from=search" rel="noopener">Анжелика Кутейкина</a>
         <p>
-        <p>Made with <i class="fa fa-heart"></i> in D7 </p>
+        <p>Сделано с <i class="fa fa-heart"></i> in D7 </p>
       </div>
     </footer>
 
