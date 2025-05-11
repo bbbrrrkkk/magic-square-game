@@ -145,7 +145,7 @@ function showHint() {
 
     // Code to generate the hint on the first click
     if (hintClicks == 1) {
-        out = '<strong>Hint!</strong><br>Сумма каждого ряда, столбца и диагонали равна ';
+        out = '<strong>Подсказка!</strong><br>Сумма каждого ряда, столбца и диагонали равна ';
         let sumVals = 0;
         for(let i=0; i<SquareSize; i++) {
             sumVals += parseInt(squareArraySorted[i]);
@@ -155,7 +155,7 @@ function showHint() {
 
     // Code to generate the hint on the second click
     if (hintClicks == 2) {
-        out = '<strong>Hint!</strong><br>The largest missing value is ';
+        out = '<strong>Подсказка!</strong><br>Наибольшее искомое значение равно ';
         let missingVals = [];
         for(let i=0; i<SquareSize; i++) {
             missingVals.push(parseInt(squareArraySorted[IndexToRemove[i]]));
@@ -165,7 +165,7 @@ function showHint() {
 
     // Code to generate the hint on the third click
     if (hintClicks == 3) {
-        out = '<strong>Hint!</strong><br>The smallest missing value is ';
+        out = '<strong>Подсказка!</strong><br>Наименьшее искомое значение равно ';
         let missingVals = [];
         for(let i=0; i<SquareSize; i++) {
             missingVals.push(parseInt(squareArraySorted[IndexToRemove[i]]));
@@ -175,7 +175,7 @@ function showHint() {
 
     // Code to generate the hint on the fourth click
     if (hintClicks == 4) {
-        out = '<strong>Hint!</strong><br>Try the following values: ';
+        out = '<strong>Подсказка!</strong><br>Попробуйте следующие значения: ';
         for(let i=0; i<SquareSize; i++) {
             out += squareArraySorted[IndexToRemove[i]];
             if(i != SquareSize-1){out += ', ';}
