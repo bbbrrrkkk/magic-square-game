@@ -145,7 +145,7 @@ function showHint() {
 
     // Code to generate the hint on the first click
     if (hintClicks == 1) {
-        out = '<strong>Hint!</strong><br>Each row, column and diagonal should sum to ';
+        out = '<strong>Hint!</strong><br>Сумма каждого ряда, столбца и диагонали равна ';
         let sumVals = 0;
         for(let i=0; i<SquareSize; i++) {
             sumVals += parseInt(squareArraySorted[i]);
